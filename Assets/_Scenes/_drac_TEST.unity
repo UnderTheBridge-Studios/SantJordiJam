@@ -119,6 +119,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1423182061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3220123553807890803, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+  m_PrefabInstance: {fileID: 4105750638678913748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1423182065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423182061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326465cabe3af1b4d80fa180bc7ee284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 20
+  minPosition: -20
+  maxPosition: 40
 --- !u!1001 &4105750638678913748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,6 +187,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2881175538958214089, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881175538958214089, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881175538958214089, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881175538958214089, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881175538958214089, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 3323873785894832838, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_Name
       value: SCE_Drac
@@ -174,7 +214,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3220123553807890803, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1423182065}
   m_SourcePrefab: {fileID: 100100000, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
