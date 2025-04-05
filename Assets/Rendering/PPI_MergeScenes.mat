@@ -113,7 +113,7 @@ Material:
     - _Metallic: 0
     - _Mult: 2.5
     - _OcclusionStrength: 1
-    - _Offset: 0.99
+    - _Offset: 0.39
     - _Parallax: 0.005
     - _Pow: 20
     - _QueueOffset: 0
