@@ -9,19 +9,19 @@ public class DracController : MonoBehaviour
     private CharacterController m_CharacterMovement;
 
     private bool m_CanMove;
-    private float m_angle;
-    private float m_initialVerticalPosition;
+    private float m_Angle;
+    private float m_InitialVerticalPosition;
 
-    private Tween jumpTween;
+    private Tween m_JumpTween;
 
 
-    [SerializeField] private float m_dracSpeed = 15;
-    [SerializeField] private Transform m_dracModel;
+    [SerializeField] private float m_DracSpeed = 15;
+    [SerializeField] private Transform m_DracModel;
 
 
     private void Start()
     {
-        m_initialVerticalPosition = m_dracModel.transform.position.y;
+        m_InitialVerticalPosition = m_DracModel.transform.position.y;
         m_CanMove = true;
         m_CharacterMovement = gameObject.GetComponent<CharacterController>();
 
@@ -31,15 +31,15 @@ public class DracController : MonoBehaviour
     {
         if (m_InputVector != Vector3.zero && m_CanMove)
             Movement();
-        else if (jumpTween != null)
+        else if (m_JumpTween != null)
         {
-            jumpTween.OnStepComplete(() =>
+            m_JumpTween.OnStepComplete(() =>
             {
-                if(jumpTween.CompletedLoops() % 2 == 0)
+                if(m_JumpTween.CompletedLoops() % 2 == 0)
                 {
-                    jumpTween.Kill();
-                    m_dracModel.position = new Vector3(m_dracModel.position.x, m_initialVerticalPosition, m_dracModel.position.z);
-                    jumpTween = null;
+                    m_JumpTween.Kill();
+                    m_DracModel.position = new Vector3(m_DracModel.position.x, m_InitialVerticalPosition, m_DracModel.position.z);
+                    m_JumpTween = null;
                 }                    
             });
         }
@@ -47,15 +47,15 @@ public class DracController : MonoBehaviour
 
     public void Movement()
     {
-        m_Movement = new Vector3(-m_InputVector.y, 0, m_InputVector.x) * m_dracSpeed;
+        m_Movement = new Vector3(-m_InputVector.y, 0, m_InputVector.x) * m_DracSpeed;
         m_CharacterMovement.SimpleMove(m_Movement);
 
         //Crida animacio aquí
-        m_angle = Vector2.SignedAngle(m_InputVector, Vector2.up);
-        m_dracModel.DOLocalRotate(new Vector3(0, m_angle, 0), 0.3f);
+        m_Angle = Vector2.SignedAngle(m_InputVector, Vector2.up);
+        m_DracModel.DOLocalRotate(new Vector3(0, m_Angle, 0), 0.3f);
 
-        if (jumpTween == null)
-            jumpTween = m_dracModel.DOLocalMoveY(m_dracModel.localPosition.y + 1, 0.1f)
+        if (m_JumpTween == null)
+            m_JumpTween = m_DracModel.DOLocalMoveY(m_DracModel.localPosition.y + 1, 0.1f)
                 .SetLoops(-1, LoopType.Yoyo)
                 .SetEase(Ease.OutQuad);
 
