@@ -29,28 +29,19 @@ public class DracController : MonoBehaviour
 
     void Update()
     {
-
-  
-
-
-
-
         if (m_InputVector != Vector3.zero && m_CanMove)
             Movement();
-        else
+        else if (jumpTween != null)
         {
-            if (jumpTween != null)
+            jumpTween.OnStepComplete(() =>
             {
-                jumpTween.OnStepComplete(() =>
+                if(jumpTween.CompletedLoops() % 2 == 0)
                 {
-                    if(jumpTween.CompletedLoops() % 2 == 0)
-                    {
-                        jumpTween.Kill();
-                        m_dracModel.position = new Vector3(m_dracModel.position.x, m_initialVerticalPosition, m_dracModel.position.z);
-                        jumpTween = null;
-                    }                    
-                });
-            }
+                    jumpTween.Kill();
+                    m_dracModel.position = new Vector3(m_dracModel.position.x, m_initialVerticalPosition, m_dracModel.position.z);
+                    jumpTween = null;
+                }                    
+            });
         }
     }
 
@@ -73,5 +64,12 @@ public class DracController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         m_InputVector = context.ReadValue<Vector2>();
+    }
+
+
+    public void OnEat(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            Debug.Log("Nyam!");
     }
 }
