@@ -8,16 +8,12 @@ public class HandGrabSystem : MonoBehaviour
     [SerializeField] private Transform grabPoint;
     [SerializeField] private LayerMask grabbableLayer;
     [SerializeField] private float grabRadius = 0.5f;
+    private GameObject billete;
+    private GameObject rosa;
 
     [Header("Gestion del Estado del Juego")]
-    [SerializeField] private bool clienteHaPagado = false;
-    [SerializeField] private bool clienteOfreciendoBillete = false;
-
-    // Referencias a objetos del juego
-    [SerializeField] private GameObject billete;
-    [SerializeField] private GameObject rosa;
-
-    // Estado del sistema
+    private bool clienteHaPagado = false;
+    private bool clienteOfreciendoBillete = false;
     private GameObject heldObject = null;
     private bool isHolding = false;
 
@@ -51,8 +47,6 @@ public class HandGrabSystem : MonoBehaviour
         if (hitColliders.Length > 0)
         {
             GameObject objectToGrab = hitColliders[0].gameObject;
-
-            // Verificamos si podemos agarrar este objeto según el estado del juego
             if (!PuedeAgarrarObjeto(objectToGrab))
                 return;
 
@@ -66,12 +60,10 @@ public class HandGrabSystem : MonoBehaviour
                 rb.isKinematic = true;
             }
 
-            // Hacer que el objeto sea hijo de la mano y posicionarlo correctamente
             heldObject.transform.SetParent(grabPoint);
             heldObject.transform.localPosition = Vector3.zero;
             heldObject.transform.localRotation = Quaternion.identity;
 
-            // Si el objeto es un billete, ya no está siendo ofrecido por el cliente
             if (heldObject.CompareTag("Billete"))
             {
                 clienteOfreciendoBillete = false;
