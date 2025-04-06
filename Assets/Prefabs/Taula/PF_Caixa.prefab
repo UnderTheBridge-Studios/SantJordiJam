@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8396842284620153272}
   - component: {fileID: 5064345631450508849}
   - component: {fileID: 5096860324970117208}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PF_Caixa (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,9 +120,9 @@ GameObject:
   - component: {fileID: 2369305295584643437}
   - component: {fileID: 3708445329174923916}
   - component: {fileID: 6454599222772101301}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PF_Caixa
-  m_TagString: Untagged
+  m_TagString: CajaRegistradora
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
