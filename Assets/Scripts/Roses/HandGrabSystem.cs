@@ -9,7 +9,7 @@ public class HandGrabSystem : MonoBehaviour
     [SerializeField] private LayerMask grabbableLayer;
     [SerializeField] private float grabRadius = 0.5f;
 
-    [Header("Gestión del Estado del Juego")]
+    [Header("Gestion del Estado del Juego")]
     [SerializeField] private bool clienteHaPagado = false;
     [SerializeField] private bool clienteOfreciendoBillete = false;
 
