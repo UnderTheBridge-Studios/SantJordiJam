@@ -18,6 +18,9 @@ public class DracController : MonoBehaviour
     [SerializeField] private float m_DracSpeed = 15;
     [SerializeField] private Transform m_DracModel;
 
+    [SerializeField] private LayerMask m_LayerSheep;
+
+
 
     private void Start()
     {
@@ -69,7 +72,24 @@ public class DracController : MonoBehaviour
 
     public void OnEat(InputAction.CallbackContext context)
     {
-        if (context.performed)
-            Debug.Log("Nyam!");
+        if (!context.performed)
+            return;     
+            
+        Debug.Log("Nyam!");
+
+        RaycastHit hit;
+        if (Physics.SphereCast(transform.position, 3, -transform.forward, out hit, 3.5f, m_LayerSheep))
+        {
+            if(hit.collider.tag == "Sheep"){
+                Debug.Log(hit.collider.name);
+                Destroy(hit.collider.gameObject);
+            }
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position - (gameObject.transform.GetChild(0).transform.forward * 3.5f), 3);
     }
 }

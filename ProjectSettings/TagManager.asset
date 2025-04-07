@@ -9,6 +9,7 @@ TagManager:
   - Cliente
   - Rosa
   - Drac
+  - Sheep
   layers:
   - Default
   - TransparentFX
