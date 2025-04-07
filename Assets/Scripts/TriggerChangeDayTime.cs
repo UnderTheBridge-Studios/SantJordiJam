@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TriggerChangeDayTime : MonoBehaviour
 {
-    [SerializeField] DayCycle m_DayCycle;
+    [SerializeField] DayCycleAnimation m_DayCycle;
     [SerializeField] DayTime m_DayTime;
 
 
@@ -12,6 +12,6 @@ public class TriggerChangeDayTime : MonoBehaviour
         if (other.tag != "Drac")
             return;
 
-        m_DayCycle.ChangeDayNight(m_DayTime);
+        GameManager.Instance.ChangeDayNight(m_DayTime);
     }
 }
