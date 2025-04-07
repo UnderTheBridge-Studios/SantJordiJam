@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HandGrabSystem : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class HandGrabSystem : MonoBehaviour
     private GameObject heldObject = null;
     private bool isHolding = false;
 
-    //Test mientras no haya clientes normales
     private void Start()
     {
         StartCoroutine(EsperarYLlamarCliente());
@@ -29,9 +29,9 @@ public class HandGrabSystem : MonoBehaviour
         ClienteOfreceUnBillete();
     }
 
-    void Update()
+    public void OnGrab(InputAction.CallbackContext context)
     {
-        if (Input.GetMouseButtonDown(0))
+        if (context.performed)
         {
             if (!isHolding)
                 GrabObject();
@@ -53,7 +53,6 @@ public class HandGrabSystem : MonoBehaviour
             isHolding = true;
             heldObject = objectToGrab;
 
-            // Esto posiblemente no haga falta, sirve para desactivar física y colisiones si las tienen
             Rigidbody rb = heldObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
@@ -69,6 +68,7 @@ public class HandGrabSystem : MonoBehaviour
                 clienteOfreciendoBillete = false;
             }
 
+            // Audio opcional
             // AudioSource.PlayClipAtPoint(sonidoAgarre, transform.position);
         }
     }
@@ -91,18 +91,15 @@ public class HandGrabSystem : MonoBehaviour
     void DropObject()
     {
         Collider[] hitColliders = Physics.OverlapSphere(grabPoint.position, grabRadius);
-        foreach (Collider collider in hitColliders) 
+        foreach (Collider collider in hitColliders)
         {
             if (heldObject != null)
             {
-                // Billete entregado a la caja
+                // Billete entregado
                 if (heldObject.CompareTag("Billete") && collider.CompareTag("CajaRegistradora"))
                 {
-                    // AudioSource.PlayClipAtPoint(sonidoDinero, transform.position);
-                    // Añadir una animacion o algo
                     Destroy(heldObject);
 
-                    // Activar agarrar rosa
                     clienteHaPagado = true;
                     if (rosa != null && !rosa.activeSelf)
                     {
@@ -112,15 +109,12 @@ public class HandGrabSystem : MonoBehaviour
                     isHolding = false;
                     heldObject = null;
                 }
-                // Rosa entregada al cliente
+                // Rosa entregada
                 else if (heldObject.CompareTag("Rosa") && collider.CompareTag("Cliente"))
                 {
-                    // AudioSource.PlayClipAtPoint(sonidoRosa, transform.position);
-                    // Añadir una animacion o algo
                     Destroy(heldObject);
 
                     clienteHaPagado = false;
-                    // esto seguramente se cambie cuando se implementen los clientes
                     Invoke("OfrecerNuevoBillete", 3f);
 
                     isHolding = false;
