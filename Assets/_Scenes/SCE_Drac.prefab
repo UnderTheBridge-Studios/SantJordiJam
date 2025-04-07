@@ -499,7 +499,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DracSpeed: 15
+  m_SphereEatRadius: 4
   m_DracModel: {fileID: 2881175538958214089}
+  m_LayerSheep:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!143 &6349520475279129113
 CharacterController:
   m_ObjectHideFlags: 0

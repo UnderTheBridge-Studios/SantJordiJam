@@ -16,6 +16,7 @@ public class DracController : MonoBehaviour
 
 
     [SerializeField] private float m_DracSpeed = 15;
+    [SerializeField] private float m_SphereEatRadius = 5;
     [SerializeField] private Transform m_DracModel;
 
     [SerializeField] private LayerMask m_LayerSheep;
@@ -53,15 +54,13 @@ public class DracController : MonoBehaviour
         m_Movement = new Vector3(-m_InputVector.y, 0, m_InputVector.x) * m_DracSpeed;
         m_CharacterMovement.SimpleMove(m_Movement);
 
-        //Crida animacio aquí
-        m_Angle = Vector2.SignedAngle(m_InputVector, Vector2.up);
+        m_Angle = Vector2.SignedAngle(m_InputVector, Vector2.up) - 90;
         m_DracModel.DOLocalRotate(new Vector3(0, m_Angle, 0), 0.3f);
 
         if (m_JumpTween == null)
             m_JumpTween = m_DracModel.DOLocalMoveY(m_DracModel.localPosition.y + 1, 0.1f)
                 .SetLoops(-1, LoopType.Yoyo)
                 .SetEase(Ease.OutQuad);
-
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -75,21 +74,22 @@ public class DracController : MonoBehaviour
         if (!context.performed)
             return;     
             
-        Debug.Log("Nyam!");
 
-        RaycastHit hit;
-        if (Physics.SphereCast(transform.position, 3, -transform.forward, out hit, 3.5f, m_LayerSheep))
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position + (gameObject.transform.GetChild(0).transform.forward * 3.5f), m_SphereEatRadius);
+        foreach (var hitCollider in hitColliders)
         {
-            if(hit.collider.tag == "Sheep"){
-                Debug.Log(hit.collider.name);
-                Destroy(hit.collider.gameObject);
+            if (hitCollider.tag == "Sheep")
+            {
+                Debug.Log(hitCollider.name);
+                Destroy(hitCollider.gameObject);
+                break;  //Nomes pot menjar una ovella alhora
             }
         }
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position - (gameObject.transform.GetChild(0).transform.forward * 3.5f), 3);
+        Gizmos.DrawSphere(transform.position + (gameObject.transform.GetChild(0).transform.forward * 3.5f), m_SphereEatRadius);
     }
 }
