@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HandMovement : MonoBehaviour
 {
@@ -9,10 +10,11 @@ public class HandMovement : MonoBehaviour
     [Header("Configuración")]
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float maxDistance = 500f;
-    [SerializeField] private float yPosition; // Altura fija 
+    [SerializeField] private float yPosition; // Altura fija
 
     private Vector3 targetPosition;
     private Plane movementPlane;
+    private Vector2 mouseScreenPosition; // Actualizado por el Input System
 
     private void Start()
     {
@@ -21,28 +23,11 @@ public class HandMovement : MonoBehaviour
 
         yPosition = transform.position.y;
         movementPlane = new Plane(Vector3.up, new Vector3(0, yPosition, 0));
-
-        // Configurable joint medio hecho para cuando haya mano
-        //if (configurableJoint == null)
-        //    configurableJoint = GetComponent<ConfigurableJoint>();
-
-        //if (configurableJoint != null)
-        //{
-        //    JointDrive jointDrive = new JointDrive
-        //    {
-        //        positionSpring = 50f,
-        //        positionDamper = 10f,
-        //        maximumForce = 1000f
-        //    };
-
-        //    configurableJoint.xDrive = jointDrive;
-        //    configurableJoint.zDrive = jointDrive;
-        //}
     }
 
     private void Update()
     {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = mainCamera.ScreenPointToRay(mouseScreenPosition);
 
         if (movementPlane.Raycast(ray, out float distance))
         {
@@ -59,7 +44,6 @@ public class HandMovement : MonoBehaviour
             targetPosition = hitPoint;
         }
 
-        // Ahora mismo el configurableJoint no hace nada
         if (configurableJoint != null)
         {
             configurableJoint.targetPosition = targetPosition;
@@ -69,5 +53,10 @@ public class HandMovement : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * moveSpeed);
             transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);
         }
+    }
+
+    public void OnMousePosition(InputAction.CallbackContext context)
+    {
+        mouseScreenPosition = context.ReadValue<Vector2>();
     }
 }

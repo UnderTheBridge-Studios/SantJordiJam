@@ -114,6 +114,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "HandController",
+            "id": "7a78cd9a-d8b8-4e7e-abd5-809ffd979a22",
+            "actions": [
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "b3c3939b-8f3b-4de6-8887-589469bbb746",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "ff65e95f-a2e6-4606-bbba-a736dbbff454",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "10cb642f-29f3-42ac-997d-0f257a9c1588",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a724f80e-3636-4d09-8a4c-8ae41b3bf9e0",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
