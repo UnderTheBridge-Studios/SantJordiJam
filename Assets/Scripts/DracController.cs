@@ -28,7 +28,6 @@ public class DracController : MonoBehaviour
         m_InitialVerticalPosition = m_DracModel.transform.position.y;
         m_CanMove = true;
         m_CharacterMovement = gameObject.GetComponent<CharacterController>();
-
     }
 
     void Update()
@@ -74,14 +73,12 @@ public class DracController : MonoBehaviour
         if (!context.performed)
             return;     
             
-
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position + (gameObject.transform.GetChild(0).transform.forward * 3.5f), m_SphereEatRadius);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position + (gameObject.transform.GetChild(0).transform.forward * 3.5f), m_SphereEatRadius, m_LayerSheep);
         foreach (var hitCollider in hitColliders)
         {
             if (hitCollider.tag == "Sheep")
             {
-                Debug.Log(hitCollider.name);
-                Destroy(hitCollider.gameObject);
+                hitCollider.GetComponent<IEdable>().OnEat();
                 break;  //Nomes pot menjar una ovella alhora
             }
         }
