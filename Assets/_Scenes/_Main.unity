@@ -220,6 +220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71756d04c4faa8a46b82e678ab779576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SpawnerAnimalsDays:
+  - m_AnimalsContainer: {fileID: 0}
+    m_Animals: []
+    m_Radius: 0
+  m_MinDistance: 0
 --- !u!4 &1321704133
 Transform:
   m_ObjectHideFlags: 0
@@ -283,6 +288,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1550789692280973917, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -23.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2506732720406045213, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_RenderingLayerMask
       value: 4
@@ -294,6 +303,34 @@ PrefabInstance:
     - target: {fileID: 6034623989694901511, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802424743500006137, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_Radius
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802424743500006137, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_Animals.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802424743500006137, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_Animals.Array.data[1].first
+      value: 
+      objectReference: {fileID: 3726188662011750408, guid: 2976d15dfc24e5c46bf74d2f90621aec, type: 3}
+    - target: {fileID: 6802424743500006137, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_Animals.Array.data[2].first
+      value: 
+      objectReference: {fileID: 3726188662011750408, guid: 2976d15dfc24e5c46bf74d2f90621aec, type: 3}
+    - target: {fileID: 6802424743500006137, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_Animals.Array.data[0].second
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802424743500006137, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_Animals.Array.data[1].second
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802424743500006137, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_Animals.Array.data[2].second
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7147471188698581721, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_Intensity
