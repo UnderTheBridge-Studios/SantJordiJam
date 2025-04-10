@@ -13,7 +13,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: fusta1
-    second: {fileID: 2100000, guid: 6d526d0bb6787d84e85917e254d0fb2a, type: 2}
+    second: {fileID: 2100000, guid: 5e9774f1d12d5a74da2c44f6f818c9bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: taula_junt
+    second: {fileID: 2100000, guid: 5e9774f1d12d5a74da2c44f6f818c9bd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
