@@ -44,7 +44,7 @@ Camera:
   m_GameObject: {fileID: 7233565636856783603}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_DracModel: {fileID: 1175111144084806069}
   m_AnimalLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
 --- !u!143 &8046577403662024805
 CharacterController:
   m_ObjectHideFlags: 0
