@@ -23,12 +23,6 @@ public class Spawner : MonoBehaviour
 
     [SerializeField]
     private Transform m_AnimalsContainer;
-    //[SerializeField] [Tooltip("Array of how many animals will spawn, with a reference to the prefab, and the number of each prefab")]
-    //private Pair<GameObject, int>[] m_Animals;
-    //[SerializeField] [Tooltip("The radius within the aniamls will spawn")]
-    //private float m_Radius;
-    //[SerializeField] [Tooltip("The minim distance between each animal when spawned(to avoid overlap)")]
-    //private float m_MinDistance = 3;
 
     private List<Vector3> m_Positions; //List of the position of each animal
 

@@ -220,11 +220,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71756d04c4faa8a46b82e678ab779576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SpawnerAnimalsDays:
-  - m_AnimalsContainer: {fileID: 0}
-    m_Animals: []
-    m_Radius: 0
-  m_MinDistance: 0
+  m_SpawnerAnimalsInfo:
+  - animals:
+    - first: {fileID: 2672408312591372493, guid: 6dc5a34a826e8d04484322f952de4a81, type: 3}
+      second: 5
+    radius: 6
+  - animals:
+    - first: {fileID: 2672408312591372493, guid: 6dc5a34a826e8d04484322f952de4a81, type: 3}
+      second: 6
+    radius: 10
+  - animals:
+    - first: {fileID: 2672408312591372493, guid: 6dc5a34a826e8d04484322f952de4a81, type: 3}
+      second: 6
+    radius: 3
+  m_MinDistance: 3
 --- !u!4 &1321704133
 Transform:
   m_ObjectHideFlags: 0

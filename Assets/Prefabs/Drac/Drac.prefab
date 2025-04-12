@@ -204,7 +204,7 @@ MonoBehaviour:
   m_DracSpeed: 15
   m_SphereEatRadius: 4
   m_DracModel: {fileID: 1175111144084806069}
-  m_LayerSheep:
+  m_AnimalLayer:
     serializedVersion: 2
     m_Bits: 256
 --- !u!143 &8046577403662024805
@@ -289,6 +289,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1e234f62-e145-49b6-81a4-9dacd2944512
     m_ActionName: 'DracController/Eat[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b3c3939b-8f3b-4de6-8887-589469bbb746
+    m_ActionName: 'HandController/Grab[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ff65e95f-a2e6-4606-bbba-a736dbbff454
+    m_ActionName: 'HandController/Movement[/Mouse/position]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: DracController

@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
     private int m_AnimalsCounter;
     private Spawner m_SpawnerReference;
 
+
+    [Header("Drac")]
+    private DracController m_DracReference;
+
     //Accesors
     public DayTime currentDayTime => m_CurrentDayTime;
     public float minDistance => m_MinDistance;
@@ -46,6 +50,11 @@ public class GameManager : MonoBehaviour
     public void SetSpawnerReference(Spawner reference)
     {
         m_SpawnerReference = reference;
+    }
+
+    public void SetDracReference(DracController reference)
+    {
+        m_DracReference = reference;
     }
 
     public void AnimalEaten()
