@@ -108,13 +108,8 @@ public class DracController : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position + (gameObject.transform.GetChild(0).transform.forward * 3.5f), m_SphereEatRadius, m_AnimalLayer);
         foreach (var hitCollider in hitColliders)
         {
-            Debug.Log(hitCollider.name);
-
-            if (hitCollider.tag == "Sheep")
-            {
-                hitCollider.GetComponent<IEdable>().OnEat();
-                break;  //Nomes pot menjar una ovella alhora
-            }
+            hitCollider.GetComponent<IEdable>().OnEat();
+            break;  //Nomes pot menjar una ovella alhora
         }
     }
 
