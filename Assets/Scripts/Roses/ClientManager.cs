@@ -42,7 +42,7 @@ public class ClientManager : MonoBehaviour
         if (freePosition == null)
             return;
 
-        GameObject clientObject = Instantiate(clientPrefab, clientSpawnPoint, Quaternion.identity);
+        GameObject clientObject = Instantiate(clientPrefab, clientSpawnPoint, Quaternion.Euler(0, 180, 0)); 
         Client client = clientObject.GetComponent<Client>();
 
         client.Initialize(this, freePosition);
@@ -103,7 +103,6 @@ public class ClientManager : MonoBehaviour
         return false;
     }
 
-    // Me da un poco de miedo esta funcion
     public Client FindNearestClientInState(Vector3 position, float maxDistance = 20f)
     {
         Client nearestClient = null;
@@ -112,11 +111,8 @@ public class ClientManager : MonoBehaviour
         foreach (Client client in clients)
         {
             float distance = Vector3.Distance(position, client.transform.position);
-            Debug.Log("distance: " + distance);
-            Debug.Log("closestDistance: " + closestDistance);
             if (distance < closestDistance)
             {
-                Debug.Log("AAAAAAAAA");
                 closestDistance = distance;
                 nearestClient = client;
             }

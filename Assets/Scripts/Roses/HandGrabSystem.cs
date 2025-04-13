@@ -40,6 +40,7 @@ public class HandGrabSystem : MonoBehaviour
         }
     }
 
+    // Ahora mismo puedes agarrar billetes de gente que esta llegando y eso lo bugea porque no pasan al estado waiting y no aceptan la rosa
     private void GrabObject()
     {
         Collider[] hitColliders = Physics.OverlapSphere(grabPoint.position, grabRadius, grabbableLayer);
