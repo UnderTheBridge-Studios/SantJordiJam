@@ -1,29 +1,32 @@
 using DG.Tweening;
+using Unity.Behavior;
 using UnityEngine;
 
 public class OvellaController : IEdable
 {
     [SerializeField] private Transform m_OvellaModel;
+    [SerializeField] private BehaviorGraphAgent m_BehaviorAgent;
 
     private float m_InitialVerticalPosition;
     private Tween m_JumpTween;
-    private bool m_isMoving;
+    private BlackboardVariable m_IsMoving;
 
     private void Start()
     {
         m_InitialVerticalPosition = m_OvellaModel.transform.position.y;
+        m_BehaviorAgent.BlackboardReference.GetVariable("IsMoving", out m_IsMoving);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (m_isMoving)
-            JumpAnimation();
+        if ((bool)m_IsMoving.ObjectValue)
+            MoveAnimation();
         else
             StopAnimation();
     }
 
-    private void JumpAnimation()
+    private void MoveAnimation()
     {
         if (m_JumpTween == null)
         {
