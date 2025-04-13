@@ -12,6 +12,7 @@ public class TriggerChangeDayTime : MonoBehaviour
         if (other.tag != "Drac")
             return;
 
-        GameManager.Instance.ChangeDayNight(m_DayTime);
+        //GameManager.Instance.ChangeDayNight(m_DayTime);
+        GameManager.Instance.ChangeToDay();
     }
 }

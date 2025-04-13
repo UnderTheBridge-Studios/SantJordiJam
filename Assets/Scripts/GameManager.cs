@@ -15,8 +15,21 @@ public class GameManager : MonoBehaviour
     private DayTime m_CurrentDayTime;
     private int m_DayCount = 0;
 
+    [Header("Spawn Animals")]
+    [SerializeField] [Tooltip("Witch animals will spawn each day")]
+    private SpawnerInfo[] m_SpawnerAnimalsInfo;
+    [SerializeField] [Tooltip("The minim distance between each animal when spawned(to avoid overlap)")]
+    private float m_MinDistance;
+    private int m_AnimalsCounter;
+    private Spawner m_SpawnerReference;
 
+
+    [Header("Drac")]
+    private DracController m_DracReference;
+
+    //Accesors
     public DayTime currentDayTime => m_CurrentDayTime;
+    public float minDistance => m_MinDistance;
 
     private void Awake()
     {
@@ -29,17 +42,59 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         m_DayCycleAnimation = GameObject.FindAnyObjectByType<DayCycleAnimation>().GetComponent<DayCycleAnimation>();
+        ChangeToDay();
     }
+
+
+    #region Animals
+    public void SetSpawnerReference(Spawner reference)
+    {
+        m_SpawnerReference = reference;
+    }
+
+    public void SetDracReference(DracController reference)
+    {
+        m_DracReference = reference;
+    }
+
+    public void AnimalEaten()
+    {
+        m_AnimalsCounter--;
+        if (m_AnimalsCounter == 0)
+            ChangeToNight();
+    }
+
+    public void SetAnimalCounter(int count)
+    {
+        m_AnimalsCounter = count;
+    }
+
+    #endregion
 
     #region DayCycle
     public void ChangeToDay()
     {
-        m_DayCount++;
         ChangeDayNight(DayTime.day);
+
+        if(m_SpawnerAnimalsInfo.Length <= m_DayCount)
+        {
+            EndGame();
+            return;
+        }
+
+        //Save the total animals the dragon have to eat
+        m_AnimalsCounter = 0;
+        foreach (Pair<GameObject, int> animal in m_SpawnerAnimalsInfo[m_DayCount].animals)
+        {
+            m_AnimalsCounter += animal.second;
+        }
+
+        m_SpawnerReference.Spawn(m_SpawnerAnimalsInfo[m_DayCount]);
     }
 
     public void ChangeToNight()
     {
+        m_DayCount++;
         ChangeDayNight(DayTime.night);
     }
 
@@ -54,4 +109,9 @@ public class GameManager : MonoBehaviour
         m_DayCycleAnimation.ChangeDayNight();
     }
     #endregion
+
+    public void EndGame()
+    {
+        Debug.Log("Last Day");
+    }
 }

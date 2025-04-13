@@ -119,6 +119,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &845590045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 845590047}
+  - component: {fileID: 845590046}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &845590046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845590045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71756d04c4faa8a46b82e678ab779576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpawnerAnimalsInfo: []
+  m_MinDistance: 0
+--- !u!4 &845590047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845590045}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 62.383503, y: 544.7106, z: 4.0302134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1344840400
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,13 +295,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344840400}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.059389472, y: -0.6147629, z: 0.0756255, w: 0.7828284}
+  m_LocalRotation: {x: 0.10504012, y: -0.60862446, z: 0.017080657, w: 0.78628945}
   m_LocalPosition: {x: 54.7, y: 18.6, z: -6.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 10.718, y: -76.037, z: 2.647}
+  m_LocalEulerAnglesHint: {x: 10.718, y: -76.037, z: -5.9}
 --- !u!1001 &4105750638678913748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -331,3 +377,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 4105750638678913748}
   - {fileID: 1344840404}
+  - {fileID: 845590047}
