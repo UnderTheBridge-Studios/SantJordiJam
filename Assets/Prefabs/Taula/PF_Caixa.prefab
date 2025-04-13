@@ -45,6 +45,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_Caixa2
       objectReference: {fileID: 0}
+    - target: {fileID: 1723080881416584769, guid: 21cf13e51865cca43a0425bfd20336c3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723080881416584769, guid: 21cf13e51865cca43a0425bfd20336c3, type: 3}
+      propertyPath: m_TagString
+      value: CajaRegistradora
+      objectReference: {fileID: 0}
     - target: {fileID: 2063295426356471035, guid: 21cf13e51865cca43a0425bfd20336c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.1
