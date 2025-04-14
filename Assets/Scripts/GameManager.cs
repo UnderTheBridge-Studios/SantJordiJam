@@ -49,11 +49,16 @@ public class GameManager : MonoBehaviour
 
     public void EnterCave()
     {
+        if (m_CurrentDayTime != DayTime.night)
+            return;
+
         StartCoroutine(EnterCaveSequence());
     }
 
     private IEnumerator EnterCaveSequence()
     {
+        m_DracReference.EnableControl(false);
+
         float time;
         time = m_DracReference.MoveToPoints(m_CovaReference.exteriorCova);
         yield return new WaitForSeconds(time);
@@ -61,7 +66,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         ChangeToDay();
         yield return new WaitForSeconds(1f);
-        time = m_DracReference.MoveToPoints(m_CovaReference.exteriorCova);
+
+        m_DracReference.MoveToPoints(m_CovaReference.exteriorCova);
+        m_DracReference.EnableControl(true);
     }
 
     #region Animals
