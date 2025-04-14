@@ -1383,8 +1383,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1340676773606905465}
     m_Modifications:
     - target: {fileID: 2763799214279229557, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
+      propertyPath: m_DracSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763799214279229557, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
       propertyPath: m_AnimalLayer.m_Bits
-      value: 256
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4926237150499807900, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
       propertyPath: m_RenderPostProcessing

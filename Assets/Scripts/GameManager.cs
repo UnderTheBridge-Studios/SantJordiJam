@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 public enum DayTime
 {
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Drac")]
     private DracController m_DracReference;
+    private Cova m_CovaReference;
 
     //Accesors
     public DayTime currentDayTime => m_CurrentDayTime;
@@ -45,17 +47,24 @@ public class GameManager : MonoBehaviour
         ChangeToDay();
     }
 
+    public void EnterCave()
+    {
+        StartCoroutine(EnterCaveSequence());
+    }
+
+    private IEnumerator EnterCaveSequence()
+    {
+        float time;
+        time = m_DracReference.MoveToPoints(m_CovaReference.exteriorCova);
+        yield return new WaitForSeconds(time);
+        time = m_DracReference.MoveToPoints(m_CovaReference.interiorCova);
+        yield return new WaitForSeconds(time);
+        ChangeToDay();
+        yield return new WaitForSeconds(1f);
+        time = m_DracReference.MoveToPoints(m_CovaReference.exteriorCova);
+    }
 
     #region Animals
-    public void SetSpawnerReference(Spawner reference)
-    {
-        m_SpawnerReference = reference;
-    }
-
-    public void SetDracReference(DracController reference)
-    {
-        m_DracReference = reference;
-    }
 
     public void AnimalEaten()
     {
@@ -108,6 +117,23 @@ public class GameManager : MonoBehaviour
         m_CurrentDayTime = timeToChange;
         m_DayCycleAnimation.ChangeDayNight();
     }
+    #endregion
+
+    #region References
+    public void SetSpawnerReference(Spawner reference)
+    {
+        m_SpawnerReference = reference;
+    }
+
+    public void SetDracReference(DracController reference)
+    {
+        m_DracReference = reference;
+    }
+    public void SetCaveReference(Cova reference)
+    {
+        m_CovaReference = reference;
+    }
+
     #endregion
 
     public void EndGame()
