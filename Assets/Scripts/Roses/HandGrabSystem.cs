@@ -9,24 +9,24 @@ public class HandGrabSystem : MonoBehaviour
     [SerializeField] private Transform grabPoint;
     [SerializeField] private LayerMask grabbableLayer;
     [SerializeField] private float grabRadius = 0.5f;
-    private GameObject billete;
-    private GameObject rosa;
+    private float interactionRadius = 1.5f;
 
-    [Header("Gestion del Estado del Juego")]
-    private bool clienteHaPagado = false;
-    private bool clienteOfreciendoBillete = false;
+    [Header("Configuración")]
+    [SerializeField] private string billeteTag = "Billete";
+    [SerializeField] private string rosaTag = "Rosa";
+    [SerializeField] private string clienteTag = "Cliente";
+    [SerializeField] private string registradoraTag = "CajaRegistradora";
+
+    // Estado actual del sistema
     private GameObject heldObject = null;
     private bool isHolding = false;
 
+    // Referencia al administrador de clientes
+    private ClientManager clientManager;
+
     private void Start()
     {
-        StartCoroutine(EsperarYLlamarCliente());
-    }
-
-    private IEnumerator EsperarYLlamarCliente()
-    {
-        yield return new WaitForSeconds(5f);
-        ClienteOfreceUnBillete();
+        clientManager = FindFirstObjectByType<ClientManager>();
     }
 
     public void OnGrab(InputAction.CallbackContext context)
@@ -40,16 +40,14 @@ public class HandGrabSystem : MonoBehaviour
         }
     }
 
-    void GrabObject()
+    // Ahora mismo puedes agarrar billetes de gente que esta llegando y eso lo bugea porque no pasan al estado waiting y no aceptan la rosa
+    private void GrabObject()
     {
         Collider[] hitColliders = Physics.OverlapSphere(grabPoint.position, grabRadius, grabbableLayer);
 
         if (hitColliders.Length > 0)
         {
             GameObject objectToGrab = hitColliders[0].gameObject;
-            if (!PuedeAgarrarObjeto(objectToGrab))
-                return;
-
             isHolding = true;
             heldObject = objectToGrab;
 
@@ -63,80 +61,66 @@ public class HandGrabSystem : MonoBehaviour
             heldObject.transform.localPosition = Vector3.zero;
             heldObject.transform.localRotation = Quaternion.identity;
 
-            if (heldObject.CompareTag("Billete"))
+            if (heldObject.CompareTag(billeteTag))
             {
-                clienteOfreciendoBillete = false;
+                Client nearestClient = clientManager.FindNearestClientInState(
+                    transform.position,
+                    1500f
+                );
+                if (nearestClient != null)
+                {
+                    nearestClient.BilleteTomado();
+                }
             }
 
-            // Audio opcional
-            // AudioSource.PlayClipAtPoint(sonidoAgarre, transform.position);
+            // Efectos de audio opcionales
+            // AudioSource.PlayClipAtPoint(grabSound, transform.position);
         }
     }
 
-    bool PuedeAgarrarObjeto(GameObject obj)
+    private void DropObject()
     {
-        if (clienteOfreciendoBillete)
-        {
-            return obj.CompareTag("Billete");
-        }
+        if (heldObject == null)
+            return;
 
-        if (clienteHaPagado && !clienteOfreciendoBillete)
-        {
-            return obj.CompareTag("Rosa");
-        }
-
-        return false;
-    }
-
-    void DropObject()
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(grabPoint.position, grabRadius);
+        Collider[] hitColliders = Physics.OverlapSphere(grabPoint.position, interactionRadius);
         foreach (Collider collider in hitColliders)
         {
-            if (heldObject != null)
+            if (heldObject.CompareTag(billeteTag) && collider.CompareTag(registradoraTag))
             {
-                // Billete entregado
-                if (heldObject.CompareTag("Billete") && collider.CompareTag("CajaRegistradora"))
+                Destroy(heldObject);
+                heldObject = null;
+                isHolding = false;
+
+                Debug.Log("Pago recibido en caja registradora");
+                break;
+            }
+            else if (heldObject.CompareTag(rosaTag) && collider.CompareTag(clienteTag))
+            {
+                Client targetClient = collider.GetComponent<Client>();
+                if (targetClient != null && targetClient.CurrentState == Client.ClientState.Waiting)
                 {
+                    targetClient.RosaEntregada();
+
+                    // Cambiar para que entregue la rosa en vez de eliminarla
+                    // Eliminar la rosa
                     Destroy(heldObject);
-
-                    clienteHaPagado = true;
-                    if (rosa != null && !rosa.activeSelf)
-                    {
-                        rosa.SetActive(true);
-                    }
-
-                    isHolding = false;
                     heldObject = null;
-                }
-                // Rosa entregada
-                else if (heldObject.CompareTag("Rosa") && collider.CompareTag("Cliente"))
-                {
-                    Destroy(heldObject);
-
-                    clienteHaPagado = false;
-                    Invoke("OfrecerNuevoBillete", 3f);
-
                     isHolding = false;
-                    heldObject = null;
+
+                    Debug.Log("Rosa entregada al cliente");
+                    break;
                 }
             }
         }
-    }
 
-    public void ClienteOfreceUnBillete()
-    {
-        Debug.Log("billete");
-        clienteOfreciendoBillete = true;
-
-        if (billete != null && !billete.activeSelf)
+        // Logica para no bloquear al jugador con la rosa, cambiable
+        if (isHolding && heldObject.CompareTag(rosaTag))
         {
-            billete.SetActive(true);
+            heldObject.transform.SetParent(null);
+            heldObject = null;
+            isHolding = false;
         }
     }
-
-    void OfrecerNuevoBillete()
-    {
-        ClienteOfreceUnBillete();
-    }
 }
+

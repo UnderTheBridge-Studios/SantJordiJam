@@ -504,13 +504,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6034623989694901511}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.07632731, y: -0.5691175, z: 0.61789936, w: -0.5371032}
-  m_LocalPosition: {x: -3.9853516, y: 11.067343, z: 9.440154}
+  m_LocalRotation: {x: -0.6013219, y: -0.4047023, z: 0.6712316, w: -0.15516508}
+  m_LocalPosition: {x: 26.2, y: 16.8, z: 3.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1340676773606905465}
-  m_LocalEulerAnglesHint: {x: 51.749, y: 416.627, z: -68.714}
+  m_LocalEulerAnglesHint: {x: 46.879, y: 265.74298, z: -204.035}
 --- !u!108 &7147471188698581721
 Light:
   m_ObjectHideFlags: 0
@@ -520,20 +520,20 @@ Light:
   m_GameObject: {fileID: 6034623989694901511}
   m_Enabled: 1
   serializedVersion: 11
-  m_Type: 1
+  m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_Intensity: 10401.4
+  m_Range: 153.4528
+  m_SpotAngle: 115.05104
+  m_InnerSpotAngle: 101.81713
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.82
-    m_NormalBias: 0.4
+    m_Bias: 0
+    m_NormalBias: 0
     m_NearPlane: 0.61
     m_CullingMatrixOverride:
       e00: 1
@@ -589,8 +589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Version: 3
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
+  m_UsePipelineSettings: 0
+  m_AdditionalLightsShadowResolutionTier: 1
   m_LightLayerMask: 1
   m_RenderingLayers: 4
   m_CustomShadowLayers: 0
