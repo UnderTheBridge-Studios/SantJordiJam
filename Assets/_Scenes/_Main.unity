@@ -257,6 +257,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 368100358044654570, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 37.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 368100358044654570, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 33.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 368100358044654570, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -35.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 368100358044654570, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.13212588
+      objectReference: {fileID: 0}
+    - target: {fileID: 368100358044654570, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.37901354
+      objectReference: {fileID: 0}
+    - target: {fileID: 368100358044654570, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.3599537
+      objectReference: {fileID: 0}
+    - target: {fileID: 368100358044654570, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.8422143
+      objectReference: {fileID: 0}
+    - target: {fileID: 368100358044654570, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 135.051
+      objectReference: {fileID: 0}
+    - target: {fileID: 368100358044654570, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 129.856
+      objectReference: {fileID: 0}
+    - target: {fileID: 368100358044654570, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -364.075
+      objectReference: {fileID: 0}
     - target: {fileID: 1340676773606905465, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10000
@@ -342,16 +382,44 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7147471188698581721, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147471188698581721, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_Intensity
-      value: 1
+      value: 4240
       objectReference: {fileID: 0}
     - target: {fileID: 7147471188698581721, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_Lightmapping
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7147471188698581721, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_Shadows.m_Bias
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147471188698581721, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147471188698581721, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_BounceIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147471188698581721, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_RenderingLayerMask
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147471188698581721, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147471188698581721, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_UseColorTemperature
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147471188698581721, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_Shadows.m_NormalBias
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8352112605103298784, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_RenderPostProcessing
@@ -464,6 +532,10 @@ PrefabInstance:
       propertyPath: m_RenderingLayerMask
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3765314125410408645, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3864696640678175468, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
       propertyPath: m_RenderingLayerMask
       value: 2
@@ -479,6 +551,14 @@ PrefabInstance:
     - target: {fileID: 6645161811869136443, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
       propertyPath: m_StaticShadowCaster
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646919682392679277, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
+      propertyPath: m_Name
+      value: PF_Bitllet2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740567061377884925, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7308041615435945544, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
       propertyPath: m_RenderingLayerMask
@@ -653,8 +733,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Version: 3
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
+  m_UsePipelineSettings: 0
+  m_AdditionalLightsShadowResolutionTier: 1
   m_LightLayerMask: 1
   m_RenderingLayers: 4
   m_CustomShadowLayers: 0
