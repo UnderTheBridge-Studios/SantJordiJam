@@ -222,15 +222,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SpawnerAnimalsInfo:
   - animals:
-    - first: {fileID: 2672408312591372493, guid: 6dc5a34a826e8d04484322f952de4a81, type: 3}
+    - first: {fileID: 5217958119465714524, guid: 00e7e3d955031754c9c7b2f398fa6afe, type: 3}
       second: 5
     radius: 6
   - animals:
-    - first: {fileID: 2672408312591372493, guid: 6dc5a34a826e8d04484322f952de4a81, type: 3}
+    - first: {fileID: 5217958119465714524, guid: 00e7e3d955031754c9c7b2f398fa6afe, type: 3}
       second: 6
     radius: 10
   - animals:
-    - first: {fileID: 2672408312591372493, guid: 6dc5a34a826e8d04484322f952de4a81, type: 3}
+    - first: {fileID: 5217958119465714524, guid: 00e7e3d955031754c9c7b2f398fa6afe, type: 3}
       second: 6
     radius: 3
   m_MinDistance: 3
