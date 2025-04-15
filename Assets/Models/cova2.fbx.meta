@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ea624130535aa8b41956f8730ca3ad51
+guid: 2b370bf88829f054b949396f924abdf0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: petals
-    second: {fileID: 2100000, guid: 677534345ce04e74dbc6b919d7ccafd5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: rosa2
-    second: {fileID: 2100000, guid: 677534345ce04e74dbc6b919d7ccafd5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tija
-    second: {fileID: 2100000, guid: 1ee56ebe21a60134e8c2b1b4590d7c4a, type: 2}
+      name: Roca
+    second: {fileID: 2100000, guid: 1d2d37b4d76263e4db145b98a841b376, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -83,13 +73,13 @@ ModelImporter:
     useFileScale: 0
     strictVertexDataChecks: 0
   tangentSpace:
-    normalSmoothAngle: 180
-    normalImportMode: 1
+    normalSmoothAngle: 60
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
-    normalSmoothingSource: 2
+    normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
   humanDescription:

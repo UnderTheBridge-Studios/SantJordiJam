@@ -7,6 +7,7 @@ public class DracController : MonoBehaviour
 {
     private Vector3 m_InputVector;
     private Vector3 m_Movement;
+    private Vector3 m_AutoMovement;
     private CharacterController m_CharacterMovement;
 
     private bool m_CanMove;
@@ -35,10 +36,13 @@ public class DracController : MonoBehaviour
 
     void Update()
     {
+        //Animation
         Boing();
-
-        //If the player can has control, (the dragon con move alone)
-        if (m_InputVector != Vector3.zero && m_CanMove)
+        
+        if (m_AutoMovement != Vector3.zero)
+            AutoMovement();
+        //If the player can has control
+        else if (m_InputVector != Vector3.zero && m_CanMove)
             Movement();
         else
             m_IsMoving = false;
@@ -51,6 +55,18 @@ public class DracController : MonoBehaviour
         m_CharacterMovement.SimpleMove(m_Movement);
 
         m_Angle = Vector2.SignedAngle(m_InputVector, Vector2.up) - 90;
+
+        m_DracModel.DOLocalRotate(new Vector3(0, m_Angle, 0), 0.3f);
+    }
+    
+    public void AutoMovement()
+    {
+        m_IsMoving = true;
+        m_CharacterMovement.SimpleMove(m_AutoMovement * m_DracSpeed);
+
+        Vector2 pos2D = new Vector2(m_AutoMovement.x, m_AutoMovement.z);
+        m_Angle = Vector2.SignedAngle(pos2D, Vector2.up);
+
         m_DracModel.DOLocalRotate(new Vector3(0, m_Angle, 0), 0.3f);
     }
 
@@ -76,22 +92,24 @@ public class DracController : MonoBehaviour
         });
     }
 
-    public void MoveToPoints(Transform point)
+    public float MoveToPoints(Vector3 pointPos)
     {
-        StartCoroutine(MoveToPoint(point));
+        float time = Vector3.Distance(pointPos, transform.position) / m_DracSpeed;
+        StartCoroutine(MoveToPoint(pointPos, time));
+        return time;
     }
 
-    private IEnumerator MoveToPoint(Transform point)
+    private IEnumerator MoveToPoint(Vector3 pointPos, float time)
     {
-        yield return new WaitForSeconds(0.3f);
-        Debug.Log("Drac: " + transform.position + " pointPos: " + point.position);
+        m_AutoMovement = (pointPos - transform.position).normalized;
+        yield return new WaitForSeconds(time);
+        m_AutoMovement = Vector3.zero;
     }
 
     public void EnableControl(bool value)
     {
         m_CanMove = value;
     }
-
 
     #region Inputs
 
@@ -114,6 +132,7 @@ public class DracController : MonoBehaviour
     }
 
     #endregion
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
