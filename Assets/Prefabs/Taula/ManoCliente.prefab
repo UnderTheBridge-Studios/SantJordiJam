@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   billeteObject: {fileID: 2910222924456717771, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
-  walkSpeed: 50
+  walkSpeed: 776.6
 --- !u!1 &9110014785644481718
 GameObject:
   m_ObjectHideFlags: 0

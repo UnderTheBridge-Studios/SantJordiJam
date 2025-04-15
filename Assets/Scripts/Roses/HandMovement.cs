@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public class HandMovement : MonoBehaviour
 {
     [Header("Referencias")]
-    [SerializeField] private ConfigurableJoint configurableJoint;
     [SerializeField] private Camera mainCamera;
 
     [Header("Configuración")]
@@ -14,7 +13,8 @@ public class HandMovement : MonoBehaviour
 
     private Vector3 targetPosition;
     private Plane movementPlane;
-    private Vector2 mouseScreenPosition; // Actualizado por el Input System
+    private Vector2 mouseScreenPosition; // Input System
+    private bool mousePositionInitialized = false;
 
     private void Start()
     {
@@ -23,40 +23,38 @@ public class HandMovement : MonoBehaviour
 
         yPosition = transform.position.y;
         movementPlane = new Plane(Vector3.up, new Vector3(0, yPosition, 0));
+        targetPosition = transform.position;
     }
 
     private void Update()
     {
-        Ray ray = mainCamera.ScreenPointToRay(mouseScreenPosition);
+        if (!mousePositionInitialized)
+            return;
 
-        if (movementPlane.Raycast(ray, out float distance))
+        Vector3 screenPoint = new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, mainCamera.WorldToScreenPoint(new Vector3(0, yPosition, 0)).z);
+        Vector3 worldPoint = mainCamera.ScreenToWorldPoint(screenPoint);
+        worldPoint.y = yPosition;
+        Vector3 direction = worldPoint - new Vector3(0, yPosition, 0);
+        if (direction.magnitude > maxDistance)
         {
-            Vector3 hitPoint = ray.GetPoint(distance);
-
-            Vector3 direction = hitPoint - new Vector3(0, yPosition, 0);
-            if (direction.magnitude > maxDistance)
-            {
-                direction = direction.normalized * maxDistance;
-                hitPoint = new Vector3(0, yPosition, 0) + direction;
-            }
-
-            hitPoint.y = yPosition;
-            targetPosition = hitPoint;
+            direction = direction.normalized * maxDistance;
+            worldPoint = new Vector3(0, yPosition, 0) + direction;
         }
 
-        if (configurableJoint != null)
+        if (worldPoint.x < -80f)
         {
-            configurableJoint.targetPosition = targetPosition;
+            worldPoint.x = -80f;
         }
-        else
-        {
-            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * moveSpeed);
-            transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);
-        }
+
+        targetPosition = worldPoint;
+
+        transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * moveSpeed);
+        transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);
     }
 
     public void OnMousePosition(InputAction.CallbackContext context)
     {
         mouseScreenPosition = context.ReadValue<Vector2>();
+        mousePositionInitialized = true;
     }
 }
