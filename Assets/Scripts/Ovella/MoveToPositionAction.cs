@@ -16,7 +16,7 @@ public partial class MoveToPositionAction : Action
     [SerializeReference] public BlackboardVariable<float> DistanceThreshold = new BlackboardVariable<float>(0.2f);
     [SerializeReference] public BlackboardVariable<float> SlowDownDistance = new BlackboardVariable<float>(1.0f);
 
-    private bool firstUpdate = true;
+    private bool m_firstUpdate = true;
 
     protected override Status OnStart()
     {
@@ -32,7 +32,7 @@ public partial class MoveToPositionAction : Action
     {
         if (Self.Value == null || TargetPosition.Value == null)
         {
-            firstUpdate = true;
+            m_firstUpdate = true;
             return Status.Failure;
         }
 
@@ -40,7 +40,7 @@ public partial class MoveToPositionAction : Action
         float distance = GetDistanceToLocation(out agentPosition, out locationPosition);
         if (distance <= DistanceThreshold)
         {
-            firstUpdate = true;
+            m_firstUpdate = true;
             return Status.Success;
         }
 
@@ -60,11 +60,11 @@ public partial class MoveToPositionAction : Action
 
         // Look at the target.
         //Self.Value.transform.forward = toDestination;
-        if (firstUpdate)
+        if (m_firstUpdate)
         {
-            float angle = Vector3.SignedAngle(toDestination, agentPosition, Vector3.up);
+            float angle = Vector3.SignedAngle(agentPosition, toDestination, Vector3.up);
             Self.Value.transform.DOLocalRotate(new Vector3(0, angle, 0), 0.3f);
-            firstUpdate = false;
+            m_firstUpdate = false;
         }
 
         return Status.Running;
@@ -74,7 +74,7 @@ public partial class MoveToPositionAction : Action
     {
         if (GetDistanceToLocation(out Vector3 agentPosition, out Vector3 locationPosition) <= DistanceThreshold)
         {
-            firstUpdate = true;
+            m_firstUpdate = true;
             return Status.Success;
         }
 
