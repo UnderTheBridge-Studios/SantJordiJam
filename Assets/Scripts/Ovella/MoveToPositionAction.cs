@@ -59,13 +59,9 @@ public partial class MoveToPositionAction : Action
         Self.Value.transform.position = agentPosition;
 
         // Look at the target.
-        //Self.Value.transform.forward = toDestination;
-        if (m_firstUpdate)
-        {
-            float angle = Vector3.SignedAngle(agentPosition, toDestination, Vector3.up);
-            Self.Value.transform.DOLocalRotate(new Vector3(0, angle, 0), 0.3f);
-            m_firstUpdate = false;
-        }
+        float angle = Vector3.SignedAngle(agentPosition, toDestination, Vector3.up);
+        float currentAngle = Mathf.LerpAngle(0, angle, Time.time);
+        Self.Value.transform.DOLocalRotate(new Vector3(0, angle, 0), 0.3f);
 
         return Status.Running;
     }
