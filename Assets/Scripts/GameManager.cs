@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
         {
             m_AnimalsCounter += animal.second;
         }
+        Debug.Log("m_SpawnerReference: " + m_SpawnerReference);
 
         m_SpawnerReference.Spawn(m_SpawnerAnimalsInfo[m_DayCount]);
     }
