@@ -28,14 +28,11 @@ public class Spawner : MonoBehaviour
 
     private int maxTrys; //Max try to find a valid spawn point
 
-
-    private void Start()
+    private void Awake()
     {
         GameManager.Instance.SetSpawnerReference(this);
-
         m_Positions = new List<Vector3>();
     }
-
 
     public void Spawn(SpawnerInfo info)
     {

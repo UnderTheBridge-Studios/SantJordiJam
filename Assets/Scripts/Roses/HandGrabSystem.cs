@@ -22,12 +22,7 @@ public class HandGrabSystem : MonoBehaviour
     private bool isHolding = false;
 
     // Referencia al administrador de clientes
-    private ClientManager clientManager;
-
-    private void Start()
-    {
-        clientManager = FindFirstObjectByType<ClientManager>();
-    }
+    [SerializeField] private ClientManager clientManager;
 
     public void OnGrab(InputAction.CallbackContext context)
     {
@@ -43,10 +38,17 @@ public class HandGrabSystem : MonoBehaviour
     // Ahora mismo puedes agarrar billetes de gente que esta llegando y eso lo bugea porque no pasan al estado waiting y no aceptan la rosa
     private void GrabObject()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(grabPoint.position, grabRadius, grabbableLayer);
+        Vector3 boxHalfExtents = new Vector3(0.5f, 200f, 0.5f);
+        Vector3 boxCenter = grabPoint.position + new Vector3(0, 100f, 0);
+        Collider[] hitColliders = Physics.OverlapBox(boxCenter, boxHalfExtents,
+                                               Quaternion.identity, grabbableLayer);
 
         if (hitColliders.Length > 0)
         {
+            System.Array.Sort(hitColliders, (a, b) =>
+            Vector3.Distance(a.transform.position, grabPoint.position)
+            .CompareTo(Vector3.Distance(b.transform.position, grabPoint.position)));
+
             GameObject objectToGrab = hitColliders[0].gameObject;
             isHolding = true;
             heldObject = objectToGrab;
@@ -63,6 +65,11 @@ public class HandGrabSystem : MonoBehaviour
 
             if (heldObject.CompareTag(billeteTag))
             {
+                if (clientManager == null)
+                {
+                    clientManager = FindFirstObjectByType<ClientManager>();
+                }
+
                 Client nearestClient = clientManager.FindNearestClientInState(
                     transform.position,
                     1500f
@@ -98,8 +105,11 @@ public class HandGrabSystem : MonoBehaviour
             else if (heldObject.CompareTag(rosaTag) && collider.CompareTag(clienteTag))
             {
                 Client targetClient = collider.GetComponent<Client>();
+                Debug.Log("targetClient: " + targetClient);
+                Debug.Log("CurrentState: " + targetClient.CurrentState);
                 if (targetClient != null && targetClient.CurrentState == Client.ClientState.Waiting)
                 {
+                    Debug.Log("E");
                     targetClient.RosaEntregada();
 
                     // Cambiar para que entregue la rosa en vez de eliminarla

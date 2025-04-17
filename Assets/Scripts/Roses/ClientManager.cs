@@ -103,16 +103,21 @@ public class ClientManager : MonoBehaviour
         return false;
     }
 
-    public Client FindNearestClientInState(Vector3 position, float maxDistance = 20f)
+    public Client FindNearestClientInState(Vector3 position, float maxDistance = 2000f)
     {
         Client nearestClient = null;
         float closestDistance = maxDistance;
 
+        Debug.Log("clients: " + clients.Count);
+
         foreach (Client client in clients)
         {
             float distance = Vector3.Distance(position, client.transform.position);
+
+            Debug.Log("distance: " + distance);
             if (distance < closestDistance)
             {
+                Debug.Log("closestDistance: " + closestDistance);
                 closestDistance = distance;
                 nearestClient = client;
             }
