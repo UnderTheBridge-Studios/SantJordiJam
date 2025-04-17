@@ -45,10 +45,6 @@ public class Client : MonoBehaviour
                     currentPosition.position,
                     walkSpeed * Time.deltaTime
                 );
-                if (Vector3.Distance(transform.position, currentPosition.position) < 0.1f)
-                {
-                    OfrecerBillete();
-                }
                 break;
             case ClientState.Leaving:
                 Vector3 exitPosition = new Vector3(-230f, transform.position.y, transform.position.z);
@@ -61,7 +57,6 @@ public class Client : MonoBehaviour
                 // Cambiable
                 if (transform.position.x <= -229f)
                 {
-                    Debug.Log("no joas");
                     clientManager.RemoveClient(this);
                     Destroy(gameObject);
                 }
@@ -75,15 +70,9 @@ public class Client : MonoBehaviour
         Debug.Log($"Cliente en posición {currentPosition.name} cambió a estado: {newState}");
     }
 
-    private void OfrecerBillete()
-    {
-        if (billeteObject) billeteObject.SetActive(true);
-        SetState(ClientState.Offering);
-    }
-
     public void BilleteTomado()
     {
-        if (currentState == ClientState.Offering)
+        if (currentState == ClientState.Walking)
         {
             //if (billeteObject) billeteObject.SetActive(false);
             SetState(ClientState.Waiting);

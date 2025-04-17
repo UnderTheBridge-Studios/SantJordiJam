@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-114952545988899698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638805273689989227
+  FileSizes: []
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,18 +31,30 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 3671545297047222135}
-  - {fileID: 2905437478095867353}
-  EditorEvents: []
+  - {fileID: 8140643792573350462}
+  - {fileID: -114952545988899698}
+  EditorEvents:
+  - {fileID: 6417662837194705817}
+  - {fileID: 9050203924866610350}
+  - {fileID: 5252324269121462993}
+  - {fileID: 3466645097343196074}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 2905437478095867353}
+  - {fileID: -114952545988899698}
   StringsBanks:
-  - {fileID: 3671545297047222135}
+  - {fileID: 8140643792573350462}
   cacheVersion: 131847
-  cacheTime: 638805163367754478
-  SerializableEventsDict: []
---- !u!114 &2905437478095867353
+  cacheTime: 638805273690009241
+  SerializableEventsDict:
+  - key: event:/New Event 3
+    index: 0
+  - key: event:/testEvent
+    index: 1
+  - key: event:/New Event
+    index: 2
+  - key: event:/New Event 2
+    index: 3
+--- !u!114 &3466645097343196074
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33,18 +63,79 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/New Event 2
   m_EditorClassIdentifier: 
-  Path: ../Users/Usuario/Desktop/FMOD/UnderTheBridge/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638805163367744522
-  FileSizes:
-  - Name: Desktop
-    Value: 1074
-  Exists: 1
---- !u!114 &3671545297047222135
+  Path: event:/New Event 2
+  Guid:
+    Data1: 1242564514
+    Data2: 1235935270
+    Data3: 821068685
+    Data4: 1381543232
+  Banks:
+  - {fileID: -114952545988899698}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5252324269121462993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/New Event
+  m_EditorClassIdentifier: 
+  Path: event:/New Event
+  Guid:
+    Data1: -1584077481
+    Data2: 1174359132
+    Data3: 918453170
+    Data4: -494705538
+  Banks:
+  - {fileID: -114952545988899698}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6417662837194705817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/New Event 3
+  m_EditorClassIdentifier: 
+  Path: event:/New Event 3
+  Guid:
+    Data1: -1915625952
+    Data2: 1120535191
+    Data3: -967208533
+    Data4: -1322248273
+  Banks:
+  - {fileID: -114952545988899698}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 53028
+--- !u!114 &8140643792573350462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,11 +147,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: ../Users/Usuario/Desktop/FMOD/UnderTheBridge/Build/Desktop/Master.strings.bank
+  Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638805163367754478
+  lastModified: 638805273690009241
   FileSizes:
-  - Name: Desktop
-    Value: 724
+  - Name: 
+    Value: 910
   Exists: 1
+--- !u!114 &9050203924866610350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/testEvent
+  m_EditorClassIdentifier: 
+  Path: event:/testEvent
+  Guid:
+    Data1: 14608972
+    Data2: 1218670138
+    Data3: 1449727643
+    Data4: -710548270
+  Banks:
+  - {fileID: -114952545988899698}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 48000

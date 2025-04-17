@@ -38,10 +38,17 @@ public class HandGrabSystem : MonoBehaviour
     // Ahora mismo puedes agarrar billetes de gente que esta llegando y eso lo bugea porque no pasan al estado waiting y no aceptan la rosa
     private void GrabObject()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(grabPoint.position, grabRadius, grabbableLayer);
+        Vector3 boxHalfExtents = new Vector3(0.5f, 200f, 0.5f);
+        Vector3 boxCenter = grabPoint.position + new Vector3(0, 100f, 0);
+        Collider[] hitColliders = Physics.OverlapBox(boxCenter, boxHalfExtents,
+                                               Quaternion.identity, grabbableLayer);
 
         if (hitColliders.Length > 0)
         {
+            System.Array.Sort(hitColliders, (a, b) =>
+            Vector3.Distance(a.transform.position, grabPoint.position)
+            .CompareTo(Vector3.Distance(b.transform.position, grabPoint.position)));
+
             GameObject objectToGrab = hitColliders[0].gameObject;
             isHolding = true;
             heldObject = objectToGrab;
@@ -58,22 +65,17 @@ public class HandGrabSystem : MonoBehaviour
 
             if (heldObject.CompareTag(billeteTag))
             {
-                Debug.Log("A");
                 if (clientManager == null)
                 {
-                    Debug.LogError("ClientManager reference is null!");
                     clientManager = FindFirstObjectByType<ClientManager>();
                 }
 
-                Debug.Log("ClientManager has " + clientManager.GetClientCount() + " clients");
                 Client nearestClient = clientManager.FindNearestClientInState(
                     transform.position,
                     1500f
                 );
-                Debug.Log("nearestClient: " + nearestClient);
                 if (nearestClient != null)
                 {
-                    Debug.Log("B");
                     nearestClient.BilleteTomado();
                 }
             }
