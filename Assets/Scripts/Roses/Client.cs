@@ -61,6 +61,7 @@ public class Client : MonoBehaviour
                 // Cambiable
                 if (transform.position.x <= -229f)
                 {
+                    Debug.Log("no joas");
                     clientManager.RemoveClient(this);
                     Destroy(gameObject);
                 }

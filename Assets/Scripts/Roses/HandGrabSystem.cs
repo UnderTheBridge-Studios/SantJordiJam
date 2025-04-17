@@ -22,12 +22,7 @@ public class HandGrabSystem : MonoBehaviour
     private bool isHolding = false;
 
     // Referencia al administrador de clientes
-    private ClientManager clientManager;
-
-    private void Start()
-    {
-        clientManager = FindFirstObjectByType<ClientManager>();
-    }
+    [SerializeField] private ClientManager clientManager;
 
     public void OnGrab(InputAction.CallbackContext context)
     {
@@ -63,12 +58,22 @@ public class HandGrabSystem : MonoBehaviour
 
             if (heldObject.CompareTag(billeteTag))
             {
+                Debug.Log("A");
+                if (clientManager == null)
+                {
+                    Debug.LogError("ClientManager reference is null!");
+                    clientManager = FindFirstObjectByType<ClientManager>();
+                }
+
+                Debug.Log("ClientManager has " + clientManager.GetClientCount() + " clients");
                 Client nearestClient = clientManager.FindNearestClientInState(
                     transform.position,
                     1500f
                 );
+                Debug.Log("nearestClient: " + nearestClient);
                 if (nearestClient != null)
                 {
+                    Debug.Log("B");
                     nearestClient.BilleteTomado();
                 }
             }
@@ -98,8 +103,11 @@ public class HandGrabSystem : MonoBehaviour
             else if (heldObject.CompareTag(rosaTag) && collider.CompareTag(clienteTag))
             {
                 Client targetClient = collider.GetComponent<Client>();
+                Debug.Log("targetClient: " + targetClient);
+                Debug.Log("CurrentState: " + targetClient.CurrentState);
                 if (targetClient != null && targetClient.CurrentState == Client.ClientState.Waiting)
                 {
+                    Debug.Log("E");
                     targetClient.RosaEntregada();
 
                     // Cambiar para que entregue la rosa en vez de eliminarla

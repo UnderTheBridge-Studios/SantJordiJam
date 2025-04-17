@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1943582262741668406}
   - component: {fileID: -5544382323076830774}
   - component: {fileID: 4990362848299103063}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PF_ma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 242326049530436077}
   - component: {fileID: 2215476483379932376}
   - component: {fileID: 2930020890893420936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: brazo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 4408600547020274217}
   - component: {fileID: 4358889543915217310}
   - component: {fileID: 4977565003692286312}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
