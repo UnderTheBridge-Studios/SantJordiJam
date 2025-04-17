@@ -6,7 +6,12 @@ public enum DayTime
     night = 1,
     none = -1
 }
-
+public enum Tutorial
+{
+    wasd,
+    espai,
+    click
+}
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -29,6 +34,11 @@ public class GameManager : MonoBehaviour
     private DracController m_DracReference;
     private Cova m_CovaReference;
 
+    [Header("Tutos")]
+    [SerializeField] private TutoPopUP m_wasdRef;
+    [SerializeField] private TutoPopUP m_EspaiRef;
+    [SerializeField] private TutoPopUP m_ClickRef;
+
     //Accesors
     public DayTime currentDayTime => m_CurrentDayTime;
     public float minDistance => m_MinDistance;
@@ -45,6 +55,7 @@ public class GameManager : MonoBehaviour
     {
         m_DayCycleAnimation = GameObject.FindAnyObjectByType<DayCycleAnimation>().GetComponent<DayCycleAnimation>();
         ChangeToDay();
+        StartCoroutine(TestSequence());
     }
 
     public void EnterCave()
@@ -139,6 +150,62 @@ public class GameManager : MonoBehaviour
     public void SetCaveReference(Cova reference)
     {
         m_CovaReference = reference;
+    }
+
+    #endregion
+
+    #region Tutos
+
+
+    private IEnumerator TestSequence()
+    {
+        while (true)
+        {
+            ShowTuto(Tutorial.wasd);
+            yield return new WaitForSeconds(0.5f);
+            ShowTuto(Tutorial.click);
+            yield return new WaitForSeconds(0.3f);
+            //ShowTuto(Tutorial.espai);
+
+
+            //yield return new WaitForSeconds(0.5f);
+            HideTuto(Tutorial.wasd);
+            yield return new WaitForSeconds(0.2f);
+            HideTuto(Tutorial.click);
+            //yield return new WaitForSeconds(0.1f);
+            //ShowTuto(Tutorial.espai);
+            yield return new WaitForSeconds(1f);
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+    public void ShowTuto(Tutorial tuto)
+    {
+        if (tuto == Tutorial.wasd)
+            m_wasdRef.Show();
+        else if (tuto == Tutorial.espai)
+            m_EspaiRef.Show();
+        else if (tuto == Tutorial.click)
+            m_ClickRef.Show();
+    }
+
+    public void HideTuto(Tutorial tuto)
+    {
+        if (tuto == Tutorial.wasd)
+            m_wasdRef.Hide();
+        else if (tuto == Tutorial.espai)
+            m_EspaiRef.Hide();
+        else if (tuto == Tutorial.click)
+            m_ClickRef.Hide();
     }
 
     #endregion
