@@ -11,6 +11,9 @@ public class DracController : MonoBehaviour
     private CharacterController m_CharacterMovement;
 
     private bool m_CanMove;
+    private bool m_CanEat;
+    private bool m_HaveMove; //For the tuto
+    private bool m_HaveEat; //For the tuto
     private bool m_IsMoving;
     private float m_Angle;
     private float m_InitialVerticalPosition;
@@ -29,7 +32,8 @@ public class DracController : MonoBehaviour
     private void Start()
     {
         m_InitialVerticalPosition = m_DracModel.transform.position.y;
-        m_CanMove = true;
+        m_CanMove = m_CanEat = false;
+        m_HaveMove = m_HaveEat = false;
         m_CharacterMovement = gameObject.GetComponent<CharacterController>();
         GameManager.Instance.SetDracReference(this);
     }
@@ -50,6 +54,13 @@ public class DracController : MonoBehaviour
 
     public void Movement()
     {
+
+        if (!m_HaveMove)
+        {
+            m_HaveMove = true;
+            Invoke("HideMoveTuto", 2f);
+        }
+
         m_IsMoving = true;
         m_Movement = new Vector3(-m_InputVector.y, 0, m_InputVector.x) * m_DracSpeed;
         m_CharacterMovement.SimpleMove(m_Movement);
@@ -58,7 +69,12 @@ public class DracController : MonoBehaviour
 
         m_DracModel.DOLocalRotate(new Vector3(0, m_Angle, 0), 0.3f);
     }
-    
+
+    private void HideMoveTuto()
+    {
+        GameManager.Instance.HideTuto(Tutorial.wasd);
+    }
+
     public void AutoMovement()
     {
         m_IsMoving = true;
@@ -111,6 +127,12 @@ public class DracController : MonoBehaviour
         m_CanMove = value;
     }
 
+    public void EnableEat(bool value)
+    {
+        m_CanEat = value;
+    }
+
+
     #region Inputs
 
     public void OnMove(InputAction.CallbackContext context)
@@ -120,8 +142,14 @@ public class DracController : MonoBehaviour
 
     public void OnEat(InputAction.CallbackContext context)
     {
-        if (!context.performed)
+        if (!context.performed || !m_CanEat)
             return;
+
+        if (!m_HaveEat){
+            m_HaveEat = true;
+            Invoke("HideEatTuto", 2f);
+        }
+            
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position + (gameObject.transform.GetChild(0).transform.forward * 3.5f), m_SphereEatRadius, m_AnimalLayer);
         foreach (var hitCollider in hitColliders)
@@ -129,7 +157,30 @@ public class DracController : MonoBehaviour
             hitCollider.GetComponent<IEdable>().OnEat();
             break;  //Nomes pot menjar una ovella alhora
         }
+        EatAnimation();
     }
+
+    void EatAnimation()
+    {
+        m_CanEat = m_CanMove = false;
+        m_DracModel.DOLocalMoveY(m_DracModel.localPosition.y + 1, 0.1f)
+                .SetLoops(2, LoopType.Yoyo)
+                .SetEase(Ease.OutQuad);
+
+        m_DracModel.DOLocalRotate(m_DracModel.localEulerAngles + new Vector3(30f, 0f, 0f), 0.1f)
+                .SetLoops(2, LoopType.Yoyo)
+                .SetEase(Ease.OutQuad)
+                .OnComplete(() => {
+                    m_DracModel.position = new Vector3(m_DracModel.position.x, m_InitialVerticalPosition, m_DracModel.position.z);
+                    m_CanEat = m_CanMove = true;
+                });
+    }
+
+    private void HideEatTuto()
+    {
+        GameManager.Instance.HideTuto(Tutorial.espai);
+    }
+
 
     #endregion
 

@@ -10,7 +10,9 @@ public enum Tutorial
 {
     wasd,
     espai,
-    click
+    click_rosa,
+    click_caixa,
+    click_client
 }
 public class GameManager : MonoBehaviour
 {
@@ -34,14 +36,29 @@ public class GameManager : MonoBehaviour
     private DracController m_DracReference;
     private Cova m_CovaReference;
 
+
+    [Header("Roses")]
+    [SerializeField] private ClientManager m_clientManagerRef;
+    [SerializeField] private float minTimeBetweenClients = 5f;
+    [SerializeField] private float maxTimeBetweenClients = 15f;
+    private int m_MaxClients;
+
+
+
     [Header("Tutos")]
     [SerializeField] private TutoPopUP m_wasdRef;
     [SerializeField] private TutoPopUP m_EspaiRef;
-    [SerializeField] private TutoPopUP m_ClickRef;
+    [SerializeField] private TutoPopUP m_ClickRef_Caixa;
+    [SerializeField] private TutoPopUP m_ClickRef_Client;
+    [SerializeField] private TutoPopUP m_ClickRef_Rosa;
 
     //Accesors
     public DayTime currentDayTime => m_CurrentDayTime;
     public float minDistance => m_MinDistance;
+    public int maxClients => m_MaxClients;
+    public DracController dracReference => m_DracReference;
+
+
 
     private void Awake()
     {
@@ -54,8 +71,26 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         m_DayCycleAnimation = GameObject.FindAnyObjectByType<DayCycleAnimation>().GetComponent<DayCycleAnimation>();
+
+        //Test
+        Invoke("StartRosesGame", 3);
+        StartCoroutine(StartDracGame());
+    }
+
+    #region Escena Drac
+
+
+    private IEnumerator StartDracGame()
+    {
+        //Obri nuvol
+
+        yield return new WaitForSeconds(6f);
+
         ChangeToDay();
-        StartCoroutine(TestSequence());
+        yield return new WaitForSeconds(1f);
+        ShowTuto(Tutorial.wasd);
+        m_DracReference.EnableControl(true);
+
     }
 
     public void EnterCave()
@@ -103,7 +138,7 @@ public class GameManager : MonoBehaviour
     {
         ChangeDayNight(DayTime.day);
 
-        if(m_SpawnerAnimalsInfo.Length <= m_DayCount)
+        if (m_SpawnerAnimalsInfo.Length <= m_DayCount)
         {
             EndGame();
             return;
@@ -138,6 +173,37 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #endregion
+
+    #region Escena Roses
+
+    private void StartRosesGame()
+    {
+        m_MaxClients = 2;
+
+        m_clientManagerRef.TrySpawnClient();
+        StartCoroutine(RosesLoop());
+    }
+
+    private IEnumerator RosesLoop()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(minTimeBetweenClients, maxTimeBetweenClients));
+            if (m_clientManagerRef.GetClientCount() < m_MaxClients)
+                m_clientManagerRef.TrySpawnClient();
+
+            if (m_DayCount > 3)
+                m_MaxClients = 4;
+
+            else if (m_DayCount > 1)
+                m_MaxClients = 3;
+        }
+    }
+
+
+    #endregion
+
     #region References
     public void SetSpawnerReference(Spawner reference)
     {
@@ -157,56 +223,48 @@ public class GameManager : MonoBehaviour
 
     #region Tutos
 
-
-    private IEnumerator TestSequence()
-    {
-        while (true)
-        {
-            ShowTuto(Tutorial.wasd);
-            yield return new WaitForSeconds(0.5f);
-            ShowTuto(Tutorial.click);
-            yield return new WaitForSeconds(0.3f);
-            //ShowTuto(Tutorial.espai);
-
-
-            //yield return new WaitForSeconds(0.5f);
-            HideTuto(Tutorial.wasd);
-            yield return new WaitForSeconds(0.2f);
-            HideTuto(Tutorial.click);
-            //yield return new WaitForSeconds(0.1f);
-            //ShowTuto(Tutorial.espai);
-            yield return new WaitForSeconds(1f);
-
-        }
-
-
-
-    }
-
-
-
-
-
-
-
     public void ShowTuto(Tutorial tuto)
     {
-        if (tuto == Tutorial.wasd)
-            m_wasdRef.Show();
-        else if (tuto == Tutorial.espai)
-            m_EspaiRef.Show();
-        else if (tuto == Tutorial.click)
-            m_ClickRef.Show();
+        switch (tuto)
+        {
+            case Tutorial.wasd:
+                m_wasdRef.Show();
+                break;
+            case Tutorial.espai:
+                m_EspaiRef.Show();
+                break;
+            case Tutorial.click_rosa:
+                m_ClickRef_Rosa.Show();
+                break;
+            case Tutorial.click_client:
+                m_ClickRef_Client.Show();
+                break;
+            case Tutorial.click_caixa:
+                m_ClickRef_Caixa.Show();
+                break;
+        }
     }
 
     public void HideTuto(Tutorial tuto)
     {
-        if (tuto == Tutorial.wasd)
-            m_wasdRef.Hide();
-        else if (tuto == Tutorial.espai)
-            m_EspaiRef.Hide();
-        else if (tuto == Tutorial.click)
-            m_ClickRef.Hide();
+        switch (tuto)
+        {
+            case Tutorial.wasd:
+                m_wasdRef.Hide();
+                break;
+            case Tutorial.espai:
+                m_EspaiRef.Hide();
+                break;
+            case Tutorial.click_rosa:
+                m_ClickRef_Rosa.Hide();
+                break;
+            case Tutorial.click_client:
+                m_ClickRef_Client.Hide();
+                break;
+            case Tutorial.click_caixa:
+                m_ClickRef_Caixa.Hide();
+                break;
+        }
     }
 
     #endregion
