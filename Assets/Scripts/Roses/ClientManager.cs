@@ -20,17 +20,17 @@ public class ClientManager : MonoBehaviour
     // GameManager
     private void Start()
     {
-        nextClientTime = Time.time + Random.Range(minTimeBetweenClients, maxTimeBetweenClients);
+        //nextClientTime = Time.time + Random.Range(minTimeBetweenClients, maxTimeBetweenClients);
     }
 
     // GameManager
     private void Update()
     {
-        if (Time.time >= nextClientTime && clients.Count < maxClients)
-        {
-            SpawnClient();
-            nextClientTime = Time.time + Random.Range(minTimeBetweenClients, maxTimeBetweenClients);
-        }
+        //if (Time.time >= nextClientTime && clients.Count < maxClients)
+        //{
+        //    SpawnClient();
+        //    nextClientTime = Time.time + Random.Range(minTimeBetweenClients, maxTimeBetweenClients);
+        //}
     }
 
     public void SpawnClient()
@@ -95,7 +95,7 @@ public class ClientManager : MonoBehaviour
 
     public bool TrySpawnClient()
     {
-        if (clients.Count < maxClients)
+        if (clients.Count < GameManager.Instance.maxClients)
         {
             SpawnClient();
             return true;
