@@ -42,7 +42,7 @@ public class ClientManager : MonoBehaviour
         if (freePosition == null)
             return;
 
-        GameObject clientObject = Instantiate(clientPrefab, clientSpawnPoint, Quaternion.Euler(0, 180, 0)); 
+        GameObject clientObject = Instantiate(clientPrefab, clientSpawnPoint, Quaternion.Euler(180, 180, 0)); 
         Client client = clientObject.GetComponent<Client>();
 
         client.Initialize(this, freePosition);

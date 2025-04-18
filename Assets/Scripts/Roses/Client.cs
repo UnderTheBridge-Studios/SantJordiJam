@@ -32,7 +32,6 @@ public class Client : MonoBehaviour
         clientManager = manager;
         currentPosition = position;
         SetState(ClientState.Walking);
-        if (billeteObject) billeteObject.SetActive(false);
     }
 
     private void Update()
@@ -71,12 +70,11 @@ public class Client : MonoBehaviour
     private void SetState(ClientState newState)
     {
         currentState = newState;
-        //Debug.Log($"Cliente en posición {currentPosition.name} cambió a estado: {newState}");
     }
 
     private void OfrecerBillete()
     {
-        if (billeteObject)
+        if (billeteObject && currentState == ClientState.Walking)
         {
             SetState(ClientState.Offering);
         }
@@ -84,21 +82,15 @@ public class Client : MonoBehaviour
 
     public void BilleteTomado()
     {
-        if (currentState == ClientState.Offering || currentState == ClientState.Walking)
-        {
-            //if (billeteObject) billeteObject.SetActive(false);
-            SetState(ClientState.Waiting);
-            //Debug.Log("Cliente espera su rosa");
-        }
+        SetState(ClientState.Waiting);
     }
 
     public void RosaEntregada()
     {
-        if (currentState == ClientState.Waiting)
+        if (currentState == ClientState.Waiting || (currentState == ClientState.Offering && billeteObject == null) || (currentState == ClientState.Walking && billeteObject == null))
         {
             SetState(ClientState.Served);
             StartCoroutine(LeaveAfterDelay(0.2f));
-            //Debug.Log("Cliente recibió una rosa");
         }
     }
 
@@ -106,5 +98,10 @@ public class Client : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         SetState(ClientState.Leaving);
+    }
+
+    public bool billeteTaken()
+    {
+        return (billeteObject == null);
     }
 }

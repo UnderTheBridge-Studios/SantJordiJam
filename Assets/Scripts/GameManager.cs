@@ -179,7 +179,7 @@ public class GameManager : MonoBehaviour
 
     private void StartRosesGame()
     {
-        m_MaxClients = 2;
+        m_MaxClients = 4;
 
         m_clientManagerRef.TrySpawnClient();
         StartCoroutine(RosesLoop());
