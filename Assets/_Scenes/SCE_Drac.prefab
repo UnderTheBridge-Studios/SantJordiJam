@@ -2224,6 +2224,10 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5018645546253403366, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
+      propertyPath: field of view
+      value: 70.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5407465610320204324, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 4
