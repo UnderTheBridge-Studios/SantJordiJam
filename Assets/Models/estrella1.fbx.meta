@@ -3,7 +3,12 @@ guid: 351264078e57a0947b6fdfe315aabaff
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: estrella
+    second: {fileID: 2100000, guid: 876337186a793a9439ae27728ab3b9d5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
