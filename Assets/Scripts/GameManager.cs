@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Drac")]
     private DracController m_DracReference;
+    private Castell m_CastellReference;
     private Cova m_CovaReference;
 
 
@@ -219,6 +220,11 @@ public class GameManager : MonoBehaviour
         m_CovaReference = reference;
     }
 
+    public void SetCastellReference(Castell reference)
+    {
+        m_CastellReference = reference;
+    }
+
     #endregion
 
     #region Tutos
@@ -272,5 +278,6 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         Debug.Log("Last Day");
+        m_CastellReference.Jump(true);
     }
 }
