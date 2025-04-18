@@ -8,17 +8,16 @@ public class ClientHandAnimation : MonoBehaviour
     [SerializeField] private Transform manoTransform;
     [SerializeField] private Client clienteController;
 
-    [Header("Animación Idle")]
-    [SerializeField] private float amplitudRotacionIdle = 5f;
+    [Header("Animación Idle (Arriba y Abajo)")]
+    [SerializeField] private float amplitudMovimientoIdle = 0.05f;
     [SerializeField] private float velocidadIdle = 1f;
     [SerializeField] private Ease tipoEasingIdle = Ease.InOutSine;
 
-    [Header("Animación Nervioso")]
-    [SerializeField] private float amplitudRotacionNervioso = 15f;
+    [Header("Animación Nervioso (Izquierda y Derecha)")]
+    [SerializeField] private float amplitudMovimientoNervioso = 0.08f;
     [SerializeField] private float velocidadNervioso = 2.5f;
     [SerializeField] private Ease tipoEasingNervioso = Ease.InOutQuad;
     [SerializeField] private float tiempoParaPonerseNervioso = 5f;
-    [SerializeField] private float amplitudTemblor = 2f;
 
     // Estado
     private bool estaActivo = false;
@@ -26,11 +25,9 @@ public class ClientHandAnimation : MonoBehaviour
     private Sequence secuenciaActual;
     private Coroutine contadorNerviosismo;
     private Vector3 posicionOriginal;
-    private Quaternion rotacionOriginal;
 
     private void Awake()
     {
-        // Obtener referencias si no están asignadas
         if (clienteController == null)
         {
             clienteController = GetComponentInParent<Client>();
@@ -44,26 +41,18 @@ public class ClientHandAnimation : MonoBehaviour
 
     private void Start()
     {
-        // Guardar posición y rotación iniciales
-        posicionOriginal = manoTransform.localPosition;
-        rotacionOriginal = manoTransform.localRotation;
-
-        // Iniciar animación cuando el cliente ofrezca el billete
         StartCoroutine(IniciarAnimacionConDelay());
     }
 
     private IEnumerator IniciarAnimacionConDelay()
     {
-        // Esperar hasta que el cliente comience a ofrecer el billete
-        while (clienteController.CurrentState != Client.ClientState.Offering)
+        while (clienteController.CurrentState != Client.ClientState.Offering && clienteController.CurrentState != Client.ClientState.Waiting)
         {
             yield return null;
         }
 
-        // Iniciar la animación de idle
+        posicionOriginal = manoTransform.localPosition;
         IniciarAnimacionIdle();
-
-        // Iniciar el contador para ponerse nervioso
         contadorNerviosismo = StartCoroutine(ContadorNerviosismo());
     }
 
@@ -71,7 +60,6 @@ public class ClientHandAnimation : MonoBehaviour
     {
         yield return new WaitForSeconds(tiempoParaPonerseNervioso);
 
-        // Comprobar si el cliente todavía está esperando
         if (clienteController.CurrentState == Client.ClientState.Offering ||
             clienteController.CurrentState == Client.ClientState.Waiting)
         {
@@ -86,23 +74,16 @@ public class ClientHandAnimation : MonoBehaviour
             estaActivo = true;
             estaNervioso = false;
 
-            // Detener animaciones anteriores
             LimpiarAnimaciones();
-
-            // Crear secuencia de animación idle
             secuenciaActual = DOTween.Sequence();
 
-            // Pequeña rotación oscilante de la mano
-            Quaternion rotacionInicial = rotacionOriginal;
-            Quaternion rotacionDerecha = rotacionOriginal * Quaternion.Euler(0, 0, amplitudRotacionIdle);
-            Quaternion rotacionIzquierda = rotacionOriginal * Quaternion.Euler(0, 0, -amplitudRotacionIdle);
+            Vector3 posicionArriba = posicionOriginal + new Vector3(0, amplitudMovimientoIdle, 0);
+            Vector3 posicionAbajo = posicionOriginal - new Vector3(0, amplitudMovimientoIdle, 0);
 
-            secuenciaActual.Append(manoTransform.DOLocalRotateQuaternion(rotacionDerecha, velocidadIdle / 2).SetEase(tipoEasingIdle));
-            secuenciaActual.Append(manoTransform.DOLocalRotateQuaternion(rotacionIzquierda, velocidadIdle).SetEase(tipoEasingIdle));
-            secuenciaActual.Append(manoTransform.DOLocalRotateQuaternion(rotacionInicial, velocidadIdle / 2).SetEase(tipoEasingIdle));
+            secuenciaActual.Append(manoTransform.DOLocalMove(posicionArriba, velocidadIdle / 2).SetEase(tipoEasingIdle));
+            secuenciaActual.Append(manoTransform.DOLocalMove(posicionAbajo, velocidadIdle / 2).SetEase(tipoEasingIdle));
 
-            // Hacer que la secuencia se repita indefinidamente
-            secuenciaActual.SetLoops(-1);
+            secuenciaActual.SetLoops(-1, LoopType.Yoyo);
             secuenciaActual.Play();
         }
     }
@@ -112,34 +93,15 @@ public class ClientHandAnimation : MonoBehaviour
         if (!estaNervioso && estaActivo)
         {
             estaNervioso = true;
-
-            // Detener animaciones anteriores
             LimpiarAnimaciones();
-
-            // Crear secuencia de animación nerviosa
             secuenciaActual = DOTween.Sequence();
 
-            // Rotación más rápida y amplia
-            Quaternion rotacionInicial = rotacionOriginal;
-            Quaternion rotacionDerecha = rotacionOriginal * Quaternion.Euler(0, 0, amplitudRotacionNervioso);
-            Quaternion rotacionIzquierda = rotacionOriginal * Quaternion.Euler(0, 0, -amplitudRotacionNervioso);
+            Vector3 posicionIzquierda = posicionOriginal - new Vector3(0, 0, amplitudMovimientoNervioso);
+            Vector3 posicionDerecha = posicionOriginal + new Vector3(0, 0, amplitudMovimientoNervioso);
 
-            // Añadir también un ligero temblor en la posición
-            Vector3 posicionTemblor1 = posicionOriginal + new Vector3(amplitudTemblor, 0, 0);
-            Vector3 posicionTemblor2 = posicionOriginal - new Vector3(amplitudTemblor, 0, 0);
+            secuenciaActual.Append(manoTransform.DOLocalMove(posicionIzquierda, velocidadNervioso / 2).SetEase(tipoEasingNervioso));
+            secuenciaActual.Append(manoTransform.DOLocalMove(posicionDerecha, velocidadNervioso / 2).SetEase(tipoEasingNervioso));
 
-            // Combinar rotación y temblor
-            secuenciaActual.Append(DOTween.Sequence()
-                .Join(manoTransform.DOLocalRotateQuaternion(rotacionDerecha, velocidadNervioso / 2).SetEase(tipoEasingNervioso))
-                .Join(manoTransform.DOLocalMove(posicionTemblor1, velocidadNervioso / 2).SetEase(Ease.OutQuad))
-            );
-
-            secuenciaActual.Append(DOTween.Sequence()
-                .Join(manoTransform.DOLocalRotateQuaternion(rotacionIzquierda, velocidadNervioso / 2).SetEase(tipoEasingNervioso))
-                .Join(manoTransform.DOLocalMove(posicionTemblor2, velocidadNervioso / 2).SetEase(Ease.OutQuad))
-            );
-
-            // Hacer que la secuencia se repita indefinidamente
             secuenciaActual.SetLoops(-1, LoopType.Yoyo);
             secuenciaActual.Play();
         }
@@ -147,7 +109,6 @@ public class ClientHandAnimation : MonoBehaviour
 
     private void Update()
     {
-        // Detener las animaciones cuando el cliente ya no está ofreciendo o esperando
         if (estaActivo &&
             clienteController.CurrentState != Client.ClientState.Offering &&
             clienteController.CurrentState != Client.ClientState.Waiting)
@@ -161,53 +122,21 @@ public class ClientHandAnimation : MonoBehaviour
         estaActivo = false;
         estaNervioso = false;
         LimpiarAnimaciones();
-
-        // Restaurar posición y rotación originales
         manoTransform.localPosition = posicionOriginal;
-        manoTransform.localRotation = rotacionOriginal;
     }
 
     private void LimpiarAnimaciones()
     {
-        // Detener secuencia de animación si existe
         if (secuenciaActual != null && secuenciaActual.IsActive())
         {
             secuenciaActual.Kill();
             secuenciaActual = null;
         }
 
-        // Detener el contador de nerviosismo si está activo
         if (contadorNerviosismo != null)
         {
             StopCoroutine(contadorNerviosismo);
             contadorNerviosismo = null;
         }
-    }
-
-    // Método público para restablecer el contador de nerviosismo (útil si el jugador interactúa pero no toma el billete)
-    public void ReiniciarContadorNerviosismo()
-    {
-        if (estaNervioso)
-        {
-            estaNervioso = false;
-            IniciarAnimacionIdle();
-        }
-
-        if (contadorNerviosismo != null)
-        {
-            StopCoroutine(contadorNerviosismo);
-        }
-
-        contadorNerviosismo = StartCoroutine(ContadorNerviosismo());
-    }
-
-    private void OnDisable()
-    {
-        LimpiarAnimaciones();
-    }
-
-    private void OnDestroy()
-    {
-        LimpiarAnimaciones();
     }
 }

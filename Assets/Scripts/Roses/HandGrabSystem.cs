@@ -99,17 +99,13 @@ public class HandGrabSystem : MonoBehaviour
                 heldObject = null;
                 isHolding = false;
 
-                Debug.Log("Pago recibido en caja registradora");
                 break;
             }
             else if (heldObject.CompareTag(rosaTag) && collider.CompareTag(clienteTag))
             {
                 Client targetClient = collider.GetComponent<Client>();
-                Debug.Log("targetClient: " + targetClient);
-                Debug.Log("CurrentState: " + targetClient.CurrentState);
                 if (targetClient != null && targetClient.CurrentState == Client.ClientState.Waiting)
                 {
-                    Debug.Log("E");
                     targetClient.RosaEntregada();
 
                     // Cambiar para que entregue la rosa en vez de eliminarla
@@ -118,7 +114,6 @@ public class HandGrabSystem : MonoBehaviour
                     heldObject = null;
                     isHolding = false;
 
-                    Debug.Log("Rosa entregada al cliente");
                     break;
                 }
             }

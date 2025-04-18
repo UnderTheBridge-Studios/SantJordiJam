@@ -45,6 +45,10 @@ public class Client : MonoBehaviour
                     currentPosition.position,
                     walkSpeed * Time.deltaTime
                 );
+                if (Vector3.Distance(transform.position, currentPosition.position) < 0.1f)
+                {
+                    OfrecerBillete();
+                }
                 break;
             case ClientState.Leaving:
                 Vector3 exitPosition = new Vector3(-230f, transform.position.y, transform.position.z);
@@ -67,16 +71,24 @@ public class Client : MonoBehaviour
     private void SetState(ClientState newState)
     {
         currentState = newState;
-        Debug.Log($"Cliente en posición {currentPosition.name} cambió a estado: {newState}");
+        //Debug.Log($"Cliente en posición {currentPosition.name} cambió a estado: {newState}");
+    }
+
+    private void OfrecerBillete()
+    {
+        if (billeteObject)
+        {
+            SetState(ClientState.Offering);
+        }
     }
 
     public void BilleteTomado()
     {
-        if (currentState == ClientState.Walking)
+        if (currentState == ClientState.Offering || currentState == ClientState.Walking)
         {
             //if (billeteObject) billeteObject.SetActive(false);
             SetState(ClientState.Waiting);
-            Debug.Log("Cliente espera su rosa");
+            //Debug.Log("Cliente espera su rosa");
         }
     }
 
@@ -86,7 +98,7 @@ public class Client : MonoBehaviour
         {
             SetState(ClientState.Served);
             StartCoroutine(LeaveAfterDelay(0.2f));
-            Debug.Log("Cliente recibió una rosa");
+            //Debug.Log("Cliente recibió una rosa");
         }
     }
 

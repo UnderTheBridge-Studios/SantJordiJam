@@ -139,14 +139,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manoTransform: {fileID: 4662913580725753378}
   clienteController: {fileID: 3544416171203962051}
-  amplitudRotacionIdle: 78.45
-  velocidadIdle: 20.89
+  amplitudMovimientoIdle: 1.5
+  velocidadIdle: 2
   tipoEasingIdle: 4
-  amplitudRotacionNervioso: 123
-  velocidadNervioso: 39.81
+  amplitudMovimientoNervioso: 5
+  velocidadNervioso: 0.35
   tipoEasingNervioso: 7
-  tiempoParaPonerseNervioso: 5
-  amplitudTemblor: 2
+  tiempoParaPonerseNervioso: 8
 --- !u!1 &9110014785644481718
 GameObject:
   m_ObjectHideFlags: 0
