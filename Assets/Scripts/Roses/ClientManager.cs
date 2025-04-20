@@ -42,12 +42,12 @@ public class ClientManager : MonoBehaviour
         if (freePosition == null)
             return;
 
-        GameObject clientObject = Instantiate(clientPrefab, clientSpawnPoint, Quaternion.Euler(0, 180, 0)); 
+        GameObject clientObject = Instantiate(clientPrefab, clientSpawnPoint, Quaternion.Euler(180, 180, 0)); 
         Client client = clientObject.GetComponent<Client>();
 
         client.Initialize(this, freePosition);
         clients.Add(client);
-        Debug.Log($"Cliente generado en posición {freePosition.name}. Total clientes: {clients.Count}");
+        //Debug.Log($"Cliente generado en posición {freePosition.name}. Total clientes: {clients.Count}");
     }
 
     private Transform GetFreePosition()
@@ -84,7 +84,7 @@ public class ClientManager : MonoBehaviour
         if (clients.Contains(client))
         {
             clients.Remove(client);
-            Debug.Log($"Cliente eliminado. Clientes restantes: {clients.Count}");
+            //Debug.Log($"Cliente eliminado. Clientes restantes: {clients.Count}");
         }
     }
 
@@ -108,16 +108,12 @@ public class ClientManager : MonoBehaviour
         Client nearestClient = null;
         float closestDistance = maxDistance;
 
-        Debug.Log("clients: " + clients.Count);
-
         foreach (Client client in clients)
         {
             float distance = Vector3.Distance(position, client.transform.position);
 
-            Debug.Log("distance: " + distance);
             if (distance < closestDistance)
             {
-                Debug.Log("closestDistance: " + closestDistance);
                 closestDistance = distance;
                 nearestClient = client;
             }

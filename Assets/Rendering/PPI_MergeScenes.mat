@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PPI_MergeScenes
-  m_Shader: {fileID: -6465566751694194690, guid: ea3208eff14fc5d44a9040a72d2b2173, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: b04eb6be4adfaeb4dacdd4d68b543489, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -52,6 +52,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: 7d1dd433d15ba7c438002eb5f81bd336, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -64,6 +68,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_1e77dcf1aef5458b929f65368af670f2_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 7118e027cb8052444a3a31012bcc47af, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_955287adee5b4ece8b8585c529ccc943_Texture_1_Texture2D:
         m_Texture: {fileID: 8400000, guid: 20daa762181d9a54b88f24ecd9f5f71a, type: 2}
         m_Scale: {x: 1, y: 1}
@@ -74,6 +82,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_d87b121f1118431097b6f9386b11db83_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: f97febd4781da474386b777479acff6c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_d8a7c5bf30344419ae179caf3b598774_Texture_1_Texture2D:
+        m_Texture: {fileID: 8400000, guid: 20daa762181d9a54b88f24ecd9f5f71a, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -99,6 +111,8 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
+    - _BreatheAmount: 0.25
+    - _BreatheSpeed: 1.5
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -113,14 +127,19 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _HistogramSharpness: 25
     - _Metallic: 0
     - _Mult: 2.5
     - _OcclusionStrength: 1
     - _Offset: 0.39
+    - _OpacityMin: 0.69
     - _Parallax: 0.005
     - _Pow: 20
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _SaturationMin: 0.2
+    - _SaturationMult: 3
+    - _SceneLerp: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -133,14 +152,26 @@ Material:
     - _UVwobble_pow: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _position: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Breathe_min_max: {r: -0.25, g: 0.75, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ImageOffset: {r: 0.12, g: -0.45, b: 0, a: 0}
+    - _ImageTiling: {r: 1.45, g: 1.45, b: 0, a: 0}
+    - _Image_offset: {r: 0, g: -0.8, b: 0, a: 0}
+    - _Image_tiling: {r: 1.75, g: 1.75, b: 0, a: 0}
+    - _Image_tiling_1: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskOffset: {r: 0.26, g: -0.14, b: 0, a: 0}
+    - _MaskTiling: {r: 1.12, g: 0.89, b: 0, a: 0}
+    - _RemapLerpIn: {r: 0.02, g: 1.06, b: 0, a: 0}
+    - _RemapLerpOut: {r: 0.97, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _UVoffset: {r: 0.21, g: -0.14, b: 0, a: 0}
     - _UVscale: {r: 0.68, g: 0.54, b: 0, a: 0}
+    - _debugin: {r: 0.03, g: 1.03, b: 0, a: 0}
+    - _debugout: {r: 0.7, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &944836017938058106

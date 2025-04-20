@@ -151,7 +151,6 @@ public class GameManager : MonoBehaviour
         {
             m_AnimalsCounter += animal.second;
         }
-        Debug.Log("m_SpawnerReference: " + m_SpawnerReference);
 
         m_SpawnerReference.Spawn(m_SpawnerAnimalsInfo[m_DayCount]);
     }
@@ -180,7 +179,7 @@ public class GameManager : MonoBehaviour
 
     private void StartRosesGame()
     {
-        m_MaxClients = 2;
+        m_MaxClients = 4;
 
         m_clientManagerRef.TrySpawnClient();
         StartCoroutine(RosesLoop());
