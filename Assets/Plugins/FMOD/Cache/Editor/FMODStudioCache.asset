@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/OST paralela.bank
   Name: OST paralela
   StudioPath: bank:/OST paralela
-  lastModified: 638807718931832109
+  lastModified: 638807782469546395
   FileSizes: []
   Exists: 1
 --- !u!114 &-7835164983382894495
@@ -87,7 +87,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638807747178273191
+  lastModified: 638807782469447934
   FileSizes: []
   Exists: 1
 --- !u!114 &-5023653612087044828
@@ -263,7 +263,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 8140643792573350462}
   cacheVersion: 131847
-  cacheTime: 638807776119399439
+  cacheTime: 638807782469586402
   SerializableEventsDict:
   - key: event:/PlayerFootsteps
     index: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638807776119399439
+  lastModified: 638807782469586402
   FileSizes: []
   Exists: 1
 --- !u!114 &5319788331484814606
@@ -476,7 +476,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638807756001627132
+  lastModified: 638807782469457943
   FileSizes:
   - Name: 
     Value: 1674
