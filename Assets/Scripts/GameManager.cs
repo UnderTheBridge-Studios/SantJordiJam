@@ -73,9 +73,12 @@ public class GameManager : MonoBehaviour
     {
         m_DayCycleAnimation = GameObject.FindAnyObjectByType<DayCycleAnimation>().GetComponent<DayCycleAnimation>();
 
+        //Shader = 0;
+
         //Test
-        Invoke("StartRosesGame", 3);
-        StartCoroutine(StartDracGame());
+        //Invoke("StartRosesGame", 3);
+        Invoke("RosesTutorial", 5);
+        //StartCoroutine(StartDracGame());
     }
 
     #region Escena Drac
@@ -84,6 +87,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator StartDracGame()
     {
         //Obri nuvol
+        //shader = 1
 
         yield return new WaitForSeconds(6f);
 
@@ -177,9 +181,15 @@ public class GameManager : MonoBehaviour
 
     #region Escena Roses
 
+    private void RosesTutorial()
+    {
+        m_clientManagerRef.SpawnClientTutorial();
+    }
+
+
     private void StartRosesGame()
     {
-        m_MaxClients = 4;
+        m_MaxClients = 2;
 
         m_clientManagerRef.TrySpawnClient();
         StartCoroutine(RosesLoop());
