@@ -9,12 +9,8 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Music")]
     [field: SerializeField] public EventReference music { get; private set; }
 
-    [field: Header("SFX")]
-    [field: SerializeField] public EventReference playerFootsteps { get; private set; }
-
     [field: Header("Caja SFX")]
     [field: SerializeField] public EventReference cajaAbrir { get; private set; }
-    [field: SerializeField] public EventReference cajaCerrar { get; private set; }
     [field: Header("Quejas SFX")]
     [field: SerializeField] public EventReference quejas { get; private set; }
     [field: Header("Ovejas SFX")]
