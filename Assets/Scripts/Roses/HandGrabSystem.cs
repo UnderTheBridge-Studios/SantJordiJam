@@ -9,7 +9,7 @@ public class HandGrabSystem : MonoBehaviour
     [SerializeField] private Transform grabPoint;
     [SerializeField] private LayerMask grabbableLayer;
     [SerializeField] private float grabRadius = 0.5f;
-    private float interactionRadius = 1.5f;
+    private float interactionRadius = 5f;
 
     [Header("Configuración")]
     [SerializeField] private string billeteTag = "Billete";
@@ -35,10 +35,9 @@ public class HandGrabSystem : MonoBehaviour
         }
     }
 
-    // Ahora mismo puedes agarrar billetes de gente que esta llegando y eso lo bugea porque no pasan al estado waiting y no aceptan la rosa
     private void GrabObject()
     {
-        Vector3 boxHalfExtents = new Vector3(0.5f, 200f, 0.5f);
+        Vector3 boxHalfExtents = new Vector3(1.5f, 200f, 1.5f);
         Vector3 boxCenter = grabPoint.position + new Vector3(0, 100f, 0);
         Collider[] hitColliders = Physics.OverlapBox(boxCenter, boxHalfExtents,
                                                Quaternion.identity, grabbableLayer);
@@ -78,6 +77,17 @@ public class HandGrabSystem : MonoBehaviour
                 {
                     nearestClient.BilleteTomado();
                 }
+                else 
+                {
+                    nearestClient = clientManager.FindNearestClientInState(
+                        transform.position,
+                        1500f
+                    );
+                    if (nearestClient != null)
+                    {
+                        nearestClient.BilleteTomado();
+                    }
+                }
             }
 
             // Efectos de audio opcionales
@@ -88,7 +98,9 @@ public class HandGrabSystem : MonoBehaviour
     private void DropObject()
     {
         if (heldObject == null)
+        {
             return;
+        }
 
         Collider[] hitColliders = Physics.OverlapSphere(grabPoint.position, interactionRadius);
         foreach (Collider collider in hitColliders)
@@ -99,17 +111,13 @@ public class HandGrabSystem : MonoBehaviour
                 heldObject = null;
                 isHolding = false;
 
-                Debug.Log("Pago recibido en caja registradora");
                 break;
             }
             else if (heldObject.CompareTag(rosaTag) && collider.CompareTag(clienteTag))
             {
                 Client targetClient = collider.GetComponent<Client>();
-                Debug.Log("targetClient: " + targetClient);
-                Debug.Log("CurrentState: " + targetClient.CurrentState);
-                if (targetClient != null && targetClient.CurrentState == Client.ClientState.Waiting)
+                if ((targetClient != null && targetClient.CurrentState == Client.ClientState.Waiting) || (targetClient != null && targetClient.billeteTaken()))
                 {
-                    Debug.Log("E");
                     targetClient.RosaEntregada();
 
                     // Cambiar para que entregue la rosa en vez de eliminarla
@@ -118,7 +126,6 @@ public class HandGrabSystem : MonoBehaviour
                     heldObject = null;
                     isHolding = false;
 
-                    Debug.Log("Rosa entregada al cliente");
                     break;
                 }
             }
