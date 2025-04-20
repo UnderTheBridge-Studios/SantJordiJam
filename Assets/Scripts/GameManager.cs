@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+
 public enum DayTime
 {
     day = 0,
@@ -53,6 +55,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TutoPopUP m_ClickRef_Client;
     [SerializeField] private TutoPopUP m_ClickRef_Rosa;
 
+    [SerializeField] private FullScreenPassRendererFeature renderPass;
+
     //Accesors
     public DayTime currentDayTime => m_CurrentDayTime;
     public float minDistance => m_MinDistance;
@@ -71,12 +75,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        renderPass.passMaterial.SetFloat("_SceneLerp", -1);
         m_DayCycleAnimation = GameObject.FindAnyObjectByType<DayCycleAnimation>().GetComponent<DayCycleAnimation>();
 
-        //Shader = 0;
-
         //Test
-        //Invoke("StartRosesGame", 3);
         Invoke("RosesTutorial", 5);
         //StartCoroutine(StartDracGame());
     }
@@ -87,7 +89,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator StartDracGame()
     {
         //Obri nuvol
-        //shader = 1
+        renderPass.passMaterial.SetFloat("_SceneLerp", 1);
 
         yield return new WaitForSeconds(6f);
 
@@ -187,21 +189,24 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void StartRosesGame()
+    public void StartRosesGame()
     {
         m_MaxClients = 2;
 
-        m_clientManagerRef.TrySpawnClient();
         StartCoroutine(RosesLoop());
     }
 
     private IEnumerator RosesLoop()
     {
+        yield return new WaitForSeconds(2f);
+
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(minTimeBetweenClients, maxTimeBetweenClients));
             if (m_clientManagerRef.GetClientCount() < m_MaxClients)
                 m_clientManagerRef.TrySpawnClient();
+
+
 
             if (m_DayCount > 3)
                 m_MaxClients = 4;

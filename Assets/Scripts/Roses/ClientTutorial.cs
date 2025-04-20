@@ -73,6 +73,7 @@ public class ClientTutorial : MonoBehaviour
     {
         if (currentState == ClientState.Waiting || currentState == ClientState.Walking)
         {
+            GameManager.Instance.StartRosesGame();
             SetState(ClientState.Served);
             StartCoroutine(LeaveAfterDelay(0.2f));
         }

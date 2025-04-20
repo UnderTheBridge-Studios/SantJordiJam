@@ -621,13 +621,6 @@ MonoBehaviour:
       Data3: -578837607
       Data4: 1309188161
     Path: event:/Music/OST paralela
-  <playerFootsteps>k__BackingField:
-    Guid:
-      Data1: 1621251942
-      Data2: 1342007351
-      Data3: 1633839752
-      Data4: 566805079
-    Path: event:/PlayerFootsteps
   <cajaAbrir>k__BackingField:
     Guid:
       Data1: -1269395596
@@ -635,13 +628,6 @@ MonoBehaviour:
       Data3: -1876551786
       Data4: 1849786344
     Path: event:/SFX/CajaAbrir
-  <cajaCerrar>k__BackingField:
-    Guid:
-      Data1: -1099605656
-      Data2: 1151042721
-      Data3: 228120763
-      Data4: 690417161
-    Path: event:/SFX/CajaCerrar
   <quejas>k__BackingField:
     Guid:
       Data1: 2084019412
@@ -1581,17 +1567,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4857729553547699341, guid: 018b12b2c6cfd0a46b40011c9ce8ecf2, type: 3}
   m_PrefabInstance: {fileID: 1496614613}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2044130282 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6802424743500006137, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
-  m_PrefabInstance: {fileID: 1414508897}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5bfc29ebd0cca458226d93773413af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1680518643076039229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1649,10 +1624,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1726192601}
     - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: m_ClickRef
-      value: 
-      objectReference: {fileID: 2003137676}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
       propertyPath: m_EspaiRef
       value: 
       objectReference: {fileID: 1683482461}
@@ -1669,21 +1640,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1572639028}
     - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: m_SpawnerReference
-      value: 
-      objectReference: {fileID: 2044130282}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
       propertyPath: m_clientManagerRef
       value: 
       objectReference: {fileID: 1428366736}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: maxTimeBetweenClients
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: minTimeBetweenClients
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
