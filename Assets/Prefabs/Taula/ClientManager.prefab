@@ -47,11 +47,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clientPrefab: {fileID: 1985391814559771833, guid: bc2d27e49ff70404a9c0f230c335fa50, type: 3}
-  clientPositions: []
-  handGrabSystem: {fileID: 1943582262741668406, guid: 6bb4d7598f95c914c8be6c275c0bb0e6, type: 3}
-  minTimeBetweenClients: 5
-  maxTimeBetweenClients: 15
+  clientPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  minTimeBetweenClients: 1
+  maxTimeBetweenClients: 2
   maxClients: 4
+  clientSpawnPoint: {x: -230, y: 110, z: 0}
 --- !u!1 &8286191741477040754
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,10 +102,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clientPrefab: {fileID: 0}
   clientPositions: []
-  handGrabSystem: {fileID: 0}
   minTimeBetweenClients: 5
   maxTimeBetweenClients: 15
   maxClients: 4
+  clientSpawnPoint: {x: -230, y: 110, z: 0}
 --- !u!1 &8676424876463847375
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clientPrefab: {fileID: 0}
   clientPositions: []
-  handGrabSystem: {fileID: 0}
   minTimeBetweenClients: 5
   maxTimeBetweenClients: 15
   maxClients: 4
+  clientSpawnPoint: {x: -230, y: 110, z: 0}

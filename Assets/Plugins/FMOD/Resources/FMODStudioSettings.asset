@@ -414,7 +414,12 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  Banks: []
+  Banks:
+  - Ambience
+  - Level
+  - OST
+  - OST paralela
+  - SFX
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
@@ -428,7 +433,7 @@ MonoBehaviour:
   SharedLibraryTimeSinceStart: 0
   CurrentVersion: 131847
   HideSetupWizard: 1
-  LastEventReferenceScanVersion: 131624
+  LastEventReferenceScanVersion: 131847
   Platforms:
   - {fileID: 8660911990983086714}
   - {fileID: -8857069468091709078}

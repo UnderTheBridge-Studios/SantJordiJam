@@ -58,3 +58,11 @@ MonoBehaviour:
       second: 6
     radius: 3
   m_MinDistance: 3
+  m_clientManagerRef: {fileID: 0}
+  minTimeBetweenClients: 1
+  maxTimeBetweenClients: 2
+  m_wasdRef: {fileID: 0}
+  m_EspaiRef: {fileID: 0}
+  m_ClickRef_Caixa: {fileID: 0}
+  m_ClickRef_Client: {fileID: 0}
+  m_ClickRef_Rosa: {fileID: 0}

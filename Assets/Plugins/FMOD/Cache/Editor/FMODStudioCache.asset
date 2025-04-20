@@ -1,5 +1,132 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8235183982161152953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/OST paralela.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/OST paralela.bank
+  Name: OST paralela
+  StudioPath: bank:/OST paralela
+  lastModified: 638807624153614477
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-7835164983382894495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/Ambience.bank
+  Name: Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 638807624154023247
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-5023653612087044828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/OST paralela
+  m_EditorClassIdentifier: 
+  Path: event:/Music/OST paralela
+  Guid:
+    Data1: -341733731
+    Data2: 1316194118
+    Data3: -578837607
+    Data4: 1309188161
+  Banks:
+  - {fileID: -8235183982161152953}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8216402053880221884}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 105714
+--- !u!114 &-4449714681814462490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Level.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/Level.bank
+  Name: Level
+  StudioPath: bank:/Level
+  lastModified: 638807609260039915
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-2627076134603627798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CoinCollected
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/CoinCollected
+  Guid:
+    Data1: -1519237564
+    Data2: 1287267408
+    Data3: 1447928767
+    Data4: -1869755114
+  Banks:
+  - {fileID: 5103884507651723021}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1088660101099719887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/OST.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/OST.bank
+  Name: OST
+  StudioPath: bank:/OST
+  lastModified: 638807624153370516
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-114952545988899698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,7 +142,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638805721647469500
+  lastModified: 638807624153100268
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -33,28 +160,36 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: 8140643792573350462}
   - {fileID: -114952545988899698}
+  - {fileID: -1088660101099719887}
+  - {fileID: -8235183982161152953}
+  - {fileID: 5103884507651723021}
+  - {fileID: -7835164983382894495}
+  - {fileID: -4449714681814462490}
   EditorEvents:
-  - {fileID: 6417662837194705817}
-  - {fileID: 9050203924866610350}
-  - {fileID: 5252324269121462993}
-  - {fileID: 3466645097343196074}
+  - {fileID: 5528037420838733824}
+  - {fileID: -2627076134603627798}
+  - {fileID: 4920513303183633315}
+  - {fileID: -5023653612087044828}
+  - {fileID: 821154923276980892}
   EditorParameters: []
   MasterBanks:
   - {fileID: -114952545988899698}
   StringsBanks:
   - {fileID: 8140643792573350462}
   cacheVersion: 131847
-  cacheTime: 638805721647479494
+  cacheTime: 638807624154023247
   SerializableEventsDict:
-  - key: event:/New Event 3
+  - key: event:/PlayerFootsteps
     index: 0
-  - key: event:/testEvent
+  - key: event:/SFX/CoinCollected
     index: 1
-  - key: event:/New Event
+  - key: event:/Ambience/People
     index: 2
-  - key: event:/New Event 2
+  - key: event:/Music/OST paralela
     index: 3
---- !u!114 &3466645097343196074
+  - key: event:/OldMusic/OST
+    index: 4
+--- !u!114 &821154923276980892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,51 +199,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/New Event 2
+  m_Name: event:/OldMusic/OST
   m_EditorClassIdentifier: 
-  Path: event:/New Event 2
+  Path: event:/OldMusic/OST
   Guid:
-    Data1: 1242564514
-    Data2: 1235935270
-    Data3: 821068685
-    Data4: 1381543232
+    Data1: 560395429
+    Data2: 1098320844
+    Data3: -530185817
+    Data4: 249266670
   Banks:
-  - {fileID: -114952545988899698}
+  - {fileID: -1088660101099719887}
   IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &5252324269121462993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/New Event
-  m_EditorClassIdentifier: 
-  Path: event:/New Event
-  Guid:
-    Data1: -1584077481
-    Data2: 1174359132
-    Data3: 918453170
-    Data4: -494705538
-  Banks:
-  - {fileID: -114952545988899698}
-  IsStream: 0
   Is3D: 0
-  IsOneShot: 1
-  Parameters: []
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 5319788331484814606}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &6417662837194705817
+--- !u!114 &4920513303183633315
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,23 +227,119 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/New Event 3
+  m_Name: event:/Ambience/People
   m_EditorClassIdentifier: 
-  Path: event:/New Event 3
+  Path: event:/Ambience/People
   Guid:
-    Data1: -1915625952
-    Data2: 1120535191
-    Data3: -967208533
-    Data4: -1322248273
+    Data1: -1608419792
+    Data2: 1208642063
+    Data3: -567795013
+    Data4: -994395090
   Banks:
-  - {fileID: -114952545988899698}
+  - {fileID: -7835164983382894495}
   IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 6174595622625754266}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 29999
+--- !u!114 &5103884507651723021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638807624153823057
+  FileSizes: []
+  Exists: 1
+--- !u!114 &5319788331484814606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/OST/DayNight
+  m_EditorClassIdentifier: 
+  Name: DayNight
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2925153048
+    data2: 3829462215
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Day
+  - Night
+  Exists: 1
+--- !u!114 &5528037420838733824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerFootsteps
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerFootsteps
+  Guid:
+    Data1: 1621251942
+    Data2: 1342007351
+    Data3: 1633839752
+    Data4: 566805079
+  Banks:
+  - {fileID: 5103884507651723021}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 53028
+  Length: 29999
+--- !u!114 &6174595622625754266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/People/SoundIntensity
+  m_EditorClassIdentifier: 
+  Name: SoundIntensity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 459816723
+    data2: 2067096338
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &8140643792573350462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,12 +355,12 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638805721647479494
+  lastModified: 638807624153120285
   FileSizes:
   - Name: 
-    Value: 910
+    Value: 1444
   Exists: 1
---- !u!114 &9050203924866610350
+--- !u!114 &8216402053880221884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,21 +369,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/testEvent
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/OST paralela/ChangeDayAndNight
   m_EditorClassIdentifier: 
-  Path: event:/testEvent
-  Guid:
-    Data1: 14608972
-    Data2: 1218670138
-    Data3: 1449727643
-    Data4: -710548270
-  Banks:
-  - {fileID: -114952545988899698}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 48000
+  Name: ChangeDayAndNight
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3437540207
+    data2: 386317597
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Day
+  - Night
+  Exists: 1
