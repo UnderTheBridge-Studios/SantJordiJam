@@ -11,7 +11,19 @@ PrefabInstance:
     - target: {fileID: 1928080956025569477, guid: 131dd6fb98a33514788663e7ed7bce2c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: de01f2cf2f88a5f44b30850f4b616486, type: 3}
+      objectReference: {fileID: 21300000, guid: 114e8d67121339e48b9ad627bbd166f4, type: 3}
+    - target: {fileID: 1928080956025569477, guid: 131dd6fb98a33514788663e7ed7bce2c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928080956025569477, guid: 131dd6fb98a33514788663e7ed7bce2c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928080956025569477, guid: 131dd6fb98a33514788663e7ed7bce2c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2231579317741502188, guid: 131dd6fb98a33514788663e7ed7bce2c, type: 3}
       propertyPath: m_Name
       value: TutoPopUp Espai

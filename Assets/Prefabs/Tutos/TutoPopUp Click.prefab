@@ -11,7 +11,19 @@ PrefabInstance:
     - target: {fileID: 1928080956025569477, guid: 131dd6fb98a33514788663e7ed7bce2c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: abad1649d75edd94ca79700831a862a8, type: 3}
+      objectReference: {fileID: 21300000, guid: fd8182279bb2042418ac726e0ee3638f, type: 3}
+    - target: {fileID: 1928080956025569477, guid: 131dd6fb98a33514788663e7ed7bce2c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928080956025569477, guid: 131dd6fb98a33514788663e7ed7bce2c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928080956025569477, guid: 131dd6fb98a33514788663e7ed7bce2c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2231579317741502188, guid: 131dd6fb98a33514788663e7ed7bce2c, type: 3}
       propertyPath: m_Name
       value: TutoPopUp Click
