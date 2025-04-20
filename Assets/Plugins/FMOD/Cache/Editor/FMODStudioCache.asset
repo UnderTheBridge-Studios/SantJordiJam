@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/OST paralela.bank
   Name: OST paralela
   StudioPath: bank:/OST paralela
-  lastModified: 638807624153614477
+  lastModified: 638807661977182801
   FileSizes: []
   Exists: 1
 --- !u!114 &-7835164983382894495
@@ -33,7 +33,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638807624154023247
+  lastModified: 638807661977062702
   FileSizes: []
   Exists: 1
 --- !u!114 &-5023653612087044828
@@ -79,7 +79,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Level.bank
   Name: Level
   StudioPath: bank:/Level
-  lastModified: 638807609260039915
+  lastModified: 638807661977082720
   FileSizes: []
   Exists: 1
 --- !u!114 &-2627076134603627798
@@ -124,7 +124,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/OST.bank
   Name: OST
   StudioPath: bank:/OST
-  lastModified: 638807624153370516
+  lastModified: 638807661977262879
   FileSizes: []
   Exists: 1
 --- !u!114 &-114952545988899698
@@ -142,7 +142,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638807624153100268
+  lastModified: 638807661977092724
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -177,7 +177,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 8140643792573350462}
   cacheVersion: 131847
-  cacheTime: 638807624154023247
+  cacheTime: 638807661977302917
   SerializableEventsDict:
   - key: event:/PlayerFootsteps
     index: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638807624153823057
+  lastModified: 638807661977302917
   FileSizes: []
   Exists: 1
 --- !u!114 &5319788331484814606
@@ -355,7 +355,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638807624153120285
+  lastModified: 638807661977102738
   FileSizes:
   - Name: 
     Value: 1444

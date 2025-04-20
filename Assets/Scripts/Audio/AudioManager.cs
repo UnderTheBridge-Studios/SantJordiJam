@@ -42,6 +42,11 @@ public class AudioManager : MonoBehaviour
 
         RuntimeManager.LoadBank("Master", true);
         RuntimeManager.LoadBank("Master.strings", true);
+        RuntimeManager.LoadBank("Level", true);
+        RuntimeManager.LoadBank("Ambience", true);
+        RuntimeManager.LoadBank("SFX", true);
+        RuntimeManager.LoadBank("OST paralela", true);
+
 
         masterBus = RuntimeManager.GetBus("bus:/");
         musicBus = RuntimeManager.GetBus("bus:/Music");
