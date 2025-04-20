@@ -17,13 +17,6 @@ public class AnimacionCaja : MonoBehaviour
     [SerializeField] private Ease easingApertura = Ease.OutBack;
     [SerializeField] private Ease easingCierre = Ease.InQuad;
 
-    [Header("Audio")]
-    [SerializeField] private AudioClip sonidoApertura;
-    [SerializeField] private AudioClip sonidoCierre;
-
-    // Componentes
-    private AudioSource audioSource;
-
     // Estados
     private bool estaAbierta = false;
     private Sequence secuenciaActual;
@@ -75,10 +68,7 @@ public class AnimacionCaja : MonoBehaviour
 
         LimpiarAnimaciones();
 
-        if (sonidoApertura != null && audioSource != null)
-        {
-            //audioSource.PlayOneShot(sonidoApertura);
-        }
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.coinCollected, this.transform.position);
 
         Vector3 posicionFinal = new Vector3(posicionXinicial+distanciaApertura, cajonTransform.localPosition.y, cajonTransform.localPosition.z);
 
@@ -101,11 +91,6 @@ public class AnimacionCaja : MonoBehaviour
             return;
 
         LimpiarAnimaciones();
-
-        if (sonidoCierre != null && audioSource != null)
-        {
-            //audioSource.PlayOneShot(sonidoCierre);
-        }
 
         Vector3 posicionCerrada = new Vector3(posicionXinicial, cajonTransform.localPosition.y, cajonTransform.localPosition.z);
 
