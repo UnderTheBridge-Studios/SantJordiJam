@@ -12,22 +12,27 @@ public class VolumeManager : MonoBehaviour
         if(clientManager.GetClientCount() == 0)
         {
             AudioManager.instance.SetAmbienceParameter("SoundIntensity", 0.20f);
+            AudioManager.instance.SetMusicParameter("SoundIntensity 2", 1f);
         }
         else if(clientManager.GetClientCount() == 1)
         {
             AudioManager.instance.SetAmbienceParameter("SoundIntensity", 0.40f);
+            AudioManager.instance.SetMusicParameter("SoundIntensity 2", 0.8f);
         }
         else if (clientManager.GetClientCount() == 2)
         {
             AudioManager.instance.SetAmbienceParameter("SoundIntensity", 0.60f);
+            AudioManager.instance.SetMusicParameter("SoundIntensity 2", 0.6f);
         }
         else if (clientManager.GetClientCount() == 3)
         {
             AudioManager.instance.SetAmbienceParameter("SoundIntensity", 0.80f);
+            AudioManager.instance.SetMusicParameter("SoundIntensity 2", 0.4f);
         }
         else if (clientManager.GetClientCount() == 4)
         {
             AudioManager.instance.SetAmbienceParameter("SoundIntensity", 1f);
+            AudioManager.instance.SetMusicParameter("SoundIntensity 2", 0.2f);
         }
 
         // Music

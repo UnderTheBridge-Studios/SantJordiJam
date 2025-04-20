@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
-  attenuationObject: {fileID: 5181171041931891913}
+  attenuationObject: {fileID: 0}
 --- !u!1 &6740567061377884925
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,11 +2352,6 @@ PrefabInstance:
 --- !u!4 &2080469482822266450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4662913580725753378, guid: 6bb4d7598f95c914c8be6c275c0bb0e6, type: 3}
-  m_PrefabInstance: {fileID: 6659329382867908720}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5181171041931891913 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1985391814559771833, guid: 6bb4d7598f95c914c8be6c275c0bb0e6, type: 3}
   m_PrefabInstance: {fileID: 6659329382867908720}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6673101760131262722

@@ -23,10 +23,13 @@ public class AnimacionCaja : MonoBehaviour
     private Tween timerAutocierre;
     private float posicionXinicial;
 
+    // Audio
+    private bool seEstaAbriendo = false;
+    //private bool seEstaCerrando = false;
+
     private void Awake()
     {
         posicionXinicial = cajonTransform.position.x;
-        // Audios
     }
 
     private void Update()
@@ -68,7 +71,10 @@ public class AnimacionCaja : MonoBehaviour
 
         LimpiarAnimaciones();
 
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.coinCollected, this.transform.position);
+        if(!seEstaAbriendo)
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.cajaAbrir, this.transform.position);
+        
+        seEstaAbriendo = true;
 
         Vector3 posicionFinal = new Vector3(posicionXinicial+distanciaApertura, cajonTransform.localPosition.y, cajonTransform.localPosition.z);
 
@@ -80,6 +86,7 @@ public class AnimacionCaja : MonoBehaviour
 
         secuenciaActual.OnComplete(() => {
             estaAbierta = true;
+            seEstaAbriendo = false;
         });
 
         secuenciaActual.Play();
@@ -92,6 +99,11 @@ public class AnimacionCaja : MonoBehaviour
 
         LimpiarAnimaciones();
 
+        //if (!seEstaCerrando)
+        //    AudioManager.instance.PlayOneShot(FMODEvents.instance.cajaCerrar, this.transform.position);
+
+        //seEstaCerrando = true;
+
         Vector3 posicionCerrada = new Vector3(posicionXinicial, cajonTransform.localPosition.y, cajonTransform.localPosition.z);
 
         secuenciaActual = DOTween.Sequence();
@@ -102,6 +114,7 @@ public class AnimacionCaja : MonoBehaviour
 
         secuenciaActual.OnComplete(() => {
             estaAbierta = false;
+            //seEstaCerrando = false;
         });
 
         secuenciaActual.Play();

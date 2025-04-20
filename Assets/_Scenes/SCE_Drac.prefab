@@ -1239,6 +1239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1340676773606905465}
+  - component: {fileID: 8240278607810271469}
   m_Layer: 0
   m_Name: SCE_Drac
   m_TagString: Untagged
@@ -3343,7 +3344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 526334148332424656, guid: 6db08b8a2e637a94a8f652ee5c4d1216, type: 3}
       propertyPath: m_VersionIndex
-      value: 599
+      value: 980
       objectReference: {fileID: 0}
     - target: {fileID: 1402612903215610181, guid: 6db08b8a2e637a94a8f652ee5c4d1216, type: 3}
       propertyPath: m_Name
@@ -3362,9 +3363,17 @@ PrefabInstance:
       value: -0.78515625
       objectReference: {fileID: 0}
     - target: {fileID: 4617587781220611975, guid: 6db08b8a2e637a94a8f652ee5c4d1216, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617587781220611975, guid: 6db08b8a2e637a94a8f652ee5c4d1216, type: 3}
       propertyPath: m_LocalPosition.z
       value: -2.517784
       objectReference: {fileID: 0}
+    - target: {fileID: 4941023944040605314, guid: 6db08b8a2e637a94a8f652ee5c4d1216, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 62e0d53214e0531408d891b09d7af8f9, type: 2}
     - target: {fileID: 5122999283956938163, guid: 6db08b8a2e637a94a8f652ee5c4d1216, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -4682,15 +4691,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5018645546253403366, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.41509432
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5018645546253403366, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.32780612
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5018645546253403366, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.2956568
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5407465610320204324, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
       propertyPath: m_ActionEvents.Array.size
@@ -4769,6 +4778,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
+--- !u!1 &4819522725120663192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8455309138667005156, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
+  m_PrefabInstance: {fileID: 4014159444712700540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7316736846078846667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5926576419532151991, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
