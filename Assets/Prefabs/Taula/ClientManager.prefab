@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clientPrefab: {fileID: 1985391814559771833, guid: bc2d27e49ff70404a9c0f230c335fa50, type: 3}
+  clientTutorialPrefab: {fileID: 2032639509247222710, guid: f7cf0bf87fb04954a829272dcbabcc39, type: 3}
   clientPositions:
   - {fileID: 0}
   - {fileID: 0}
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clientPrefab: {fileID: 0}
+  clientTutorialPrefab: {fileID: 0}
   clientPositions: []
   minTimeBetweenClients: 5
   maxTimeBetweenClients: 15
@@ -151,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clientPrefab: {fileID: 0}
+  clientTutorialPrefab: {fileID: 0}
   clientPositions: []
   minTimeBetweenClients: 5
   maxTimeBetweenClients: 15

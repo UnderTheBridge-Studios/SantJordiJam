@@ -8,6 +8,7 @@ public class ClientManager : MonoBehaviour
     [SerializeField] private GameObject clientPrefab;
     [SerializeField] private GameObject clientTutorialPrefab;
     [SerializeField] private Transform[] clientPositions;
+    private GameObject clientTutorial;
 
     [Header("Configuración")]
     [SerializeField] private float minTimeBetweenClients = 5f;
@@ -60,13 +61,13 @@ public class ClientManager : MonoBehaviour
         if (freePosition == null)
             return;
 
-        GameObject clientObject = Instantiate(clientTutorialPrefab, clientSpawnPoint, Quaternion.Euler(90, 180, 90));
-        Client client = clientObject.GetComponent<Client>();
+        clientTutorial = Instantiate(clientTutorialPrefab, clientSpawnPoint, Quaternion.Euler(90, 180, 90));
+        ClientTutorial client = clientTutorial.GetComponent<ClientTutorial>();
 
         client.Initialize(this, freePosition);
-        clients.Add(client);
-        Debug.Log($"Cliente generado en posición {freePosition.name}. Total clientes: {clients.Count}");
     }
+
+
 
     private Transform GetFreePosition()
     {
@@ -102,6 +103,15 @@ public class ClientManager : MonoBehaviour
         if (clients.Contains(client))
         {
             clients.Remove(client);
+            //Debug.Log($"Cliente eliminado. Clientes restantes: {clients.Count}");
+        }
+    }
+
+    public void RemoveClientTutorial()
+    {
+        if (clientTutorial)
+        {
+            Destroy(clientTutorial);
             //Debug.Log($"Cliente eliminado. Clientes restantes: {clients.Count}");
         }
     }

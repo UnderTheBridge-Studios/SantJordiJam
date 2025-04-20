@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 247678604066188722}
   - component: {fileID: 8049404400946997206}
   - component: {fileID: 9117234702318328190}
-  - component: {fileID: 6573950037085437809}
-  - component: {fileID: 5750533058063195045}
+  - component: {fileID: -6349072902541252793}
+  - component: {fileID: -7592962386317829078}
+  - component: {fileID: -5549962768996702108}
   m_Layer: 0
   m_Name: ManoClienteTutorial
-  m_TagString: Untagged
+  m_TagString: Cliente
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +89,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6573950037085437809
+--- !u!114 &-6349072902541252793
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,12 +98,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2032639509247222710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19266c345dd53704e8547dd9cd95b704, type: 3}
+  m_Script: {fileID: 11500000, guid: 7913ca2fbea4d2240944976e02678f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  billeteObject: {fileID: 0}
-  walkSpeed: 72.1
---- !u!114 &5750533058063195045
+  walkSpeed: 72
+--- !u!114 &-7592962386317829078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,16 +111,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 2032639509247222710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d68fe52c5504ef4eb074c365dddc841, type: 3}
+  m_Script: {fileID: 11500000, guid: 5574096d7a2c03a4086155ab461193ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   manoTransform: {fileID: 247678604066188722}
-  clienteController: {fileID: 6573950037085437809}
-  amplitudMovimientoIdle: 0.05
-  velocidadIdle: 1
+  clienteController: {fileID: -6349072902541252793}
+  amplitudMovimientoIdle: 1.5
+  velocidadIdle: 2
   tipoEasingIdle: 4
-  amplitudMovimientoNervioso: 0.08
-  velocidadNervioso: 2.5
-  tipoEasingNervioso: 7
-  tiempoParaPonerseNervioso: 5
-  probabilidadQueja: 0.5
+--- !u!65 &-5549962768996702108
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032639509247222710}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 66.33235, y: 369.2214, z: 859.0034}
+  m_Center: {x: 11.034937, y: -46.506214, z: -54.9815}
