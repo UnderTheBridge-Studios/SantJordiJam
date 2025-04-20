@@ -30,8 +30,12 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.Instance.SetSpawnerReference(this);
         m_Positions = new List<Vector3>();
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.SetSpawnerReference(this);
     }
 
     public void Spawn(SpawnerInfo info)

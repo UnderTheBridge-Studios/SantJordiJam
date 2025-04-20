@@ -206,6 +206,8 @@ public class GameManager : MonoBehaviour
             if (m_clientManagerRef.GetClientCount() < m_MaxClients)
                 m_clientManagerRef.TrySpawnClient();
 
+            if (m_clientManagerRef.getTotalClients() > 5)
+                StartCoroutine(StartDracGame());
 
 
             if (m_DayCount > 3)
