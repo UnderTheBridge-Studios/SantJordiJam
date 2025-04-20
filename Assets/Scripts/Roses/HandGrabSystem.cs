@@ -173,7 +173,7 @@ public class HandGrabSystem : MonoBehaviour
                     if (isHolding)
                     {
                         accionMano();
-                        targetClient.accionMano();
+                        targetClientTutorial.accionMano();
                     }
 
                     Transform clientGrabPoint = collider.transform.Find("GrabPoint");

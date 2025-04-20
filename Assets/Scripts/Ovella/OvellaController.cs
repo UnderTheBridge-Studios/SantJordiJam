@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using Unity.Behavior;
 using UnityEngine;
@@ -6,17 +7,17 @@ public class OvellaController : IEdable
 {
     [SerializeField] private Transform m_OvellaModel;
     [SerializeField] private BehaviorGraphAgent m_BehaviorAgent;
-
+    [SerializeField] private ParticleSystem m_ParticleSystem;
+    [SerializeField] private SphereCollider m_Collider;
+    
     private float m_InitialVerticalPosition;
     private Tween m_JumpTween;
     private BlackboardVariable m_IsMoving;
-    private BlackboardVariable m_IsRunning;
 
     private void Start()
     {
         m_InitialVerticalPosition = m_OvellaModel.transform.position.y;
         m_BehaviorAgent.BlackboardReference.GetVariable("IsMoving", out m_IsMoving);
-        m_BehaviorAgent.BlackboardReference.GetVariable("IsRunning", out m_IsRunning);
     }
 
     // Update is called once per frame
@@ -61,8 +62,17 @@ public class OvellaController : IEdable
 
     public override void OnEat()
     {
-        m_JumpTween.Kill();
+        StartCoroutine(EatenAnimation());
         GameManager.Instance.AnimalEaten();
+    }
+
+    private IEnumerator EatenAnimation()
+    {
+        m_ParticleSystem.Play();
+        m_JumpTween.Kill();
+        m_Collider.enabled = false;
+        m_OvellaModel.GetChild(0).gameObject.SetActive(false);
+        yield return new WaitWhile(m_ParticleSystem.IsAlive);
         Destroy(gameObject);
     }
 }
