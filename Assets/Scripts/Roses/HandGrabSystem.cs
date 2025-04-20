@@ -146,6 +146,23 @@ public class HandGrabSystem : MonoBehaviour
 
                     break;
                 }
+                ClientTutorial targetClientTutorial = collider.GetComponent<ClientTutorial>();
+                if ((targetClientTutorial != null && targetClientTutorial.CurrentState == ClientTutorial.ClientState.Waiting))
+                {
+                    targetClientTutorial.RosaEntregada();
+
+                    if (isHolding)
+                    {
+                        accionMano();
+                    }
+                    // Cambiar para que entregue la rosa en vez de eliminarla
+                    // Eliminar la rosa
+                    Destroy(heldObject);
+                    heldObject = null;
+                    isHolding = false;
+
+                    break;
+                }
             }
         }
 
