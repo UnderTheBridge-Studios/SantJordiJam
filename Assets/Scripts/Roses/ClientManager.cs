@@ -6,6 +6,7 @@ public class ClientManager : MonoBehaviour
 {
     [Header("Referencias")]
     [SerializeField] private GameObject clientPrefab;
+    [SerializeField] private GameObject clientTutorialPrefab;
     [SerializeField] private Transform[] clientPositions;
 
     [Header("Configuración")]
@@ -48,6 +49,23 @@ public class ClientManager : MonoBehaviour
         client.Initialize(this, freePosition);
         clients.Add(client);
         //Debug.Log($"Cliente generado en posición {freePosition.name}. Total clientes: {clients.Count}");
+    }
+
+    public void SpawnClientTutorial()
+    {
+        if (clients.Count >= maxClients)
+            return;
+
+        Transform freePosition = GetFreePosition();
+        if (freePosition == null)
+            return;
+
+        GameObject clientObject = Instantiate(clientTutorialPrefab, clientSpawnPoint, Quaternion.Euler(90, 180, 90));
+        Client client = clientObject.GetComponent<Client>();
+
+        client.Initialize(this, freePosition);
+        clients.Add(client);
+        Debug.Log($"Cliente generado en posición {freePosition.name}. Total clientes: {clients.Count}");
     }
 
     private Transform GetFreePosition()

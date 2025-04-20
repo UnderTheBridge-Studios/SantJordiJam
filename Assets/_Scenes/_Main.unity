@@ -1351,10 +1351,6 @@ PrefabInstance:
       propertyPath: clientManager
       value: 
       objectReference: {fileID: 1428366736}
-    - target: {fileID: 5657221332908735698, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
-      propertyPath: attenuationObject
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7748602438697092468, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1456,6 +1452,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5446989501004348935, guid: c2ae7e69aa6c787459abc9c99d61c3d7, type: 3}
+      propertyPath: clientTutorialPrefab
+      value: 
+      objectReference: {fileID: 2032639509247222710, guid: f7cf0bf87fb04954a829272dcbabcc39, type: 3}
     - target: {fileID: 5446989501004348935, guid: c2ae7e69aa6c787459abc9c99d61c3d7, type: 3}
       propertyPath: 'clientPositions.Array.data[0]'
       value: 
