@@ -70,7 +70,7 @@ public class ClientHandAnimationTutorial : MonoBehaviour
     private void Update()
     {
         if (estaActivo &&
-            clienteController.CurrentState != ClientTutorial.ClientState.Walking)
+            clienteController.CurrentState != ClientTutorial.ClientState.Waiting)
         {
             DetenerAnimaciones();
         }

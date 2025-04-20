@@ -71,7 +71,15 @@ public class HandGrabSystem : MonoBehaviour
 
             heldObject.transform.SetParent(grabPoint);
             heldObject.transform.localPosition = Vector3.zero;
-            heldObject.transform.localRotation = Quaternion.identity;
+            if (heldObject.CompareTag(rosaTag))
+            {
+                heldObject.transform.localRotation = Quaternion.Euler(-90, 0, 0);
+            }
+            else
+            {
+                
+                heldObject.transform.localRotation = Quaternion.identity;
+            }
 
             accionMano();
 
@@ -137,27 +145,49 @@ public class HandGrabSystem : MonoBehaviour
                     if (isHolding)
                     {
                         accionMano();
+                        targetClient.accionMano();
                     }
-                    // Cambiar para que entregue la rosa en vez de eliminarla
-                    // Eliminar la rosa
-                    Destroy(heldObject);
+
+                    Transform clientGrabPoint = collider.transform.Find("GrabPoint");
+                    if(clientGrabPoint != null)
+                    {
+                        heldObject.transform.SetParent(clientGrabPoint);
+                        heldObject.transform.localPosition = Vector3.zero;
+                    }
+                    else
+                    {
+                        heldObject.transform.SetParent(collider.transform);
+                        heldObject.transform.localPosition = Vector3.zero;
+                    }
+                    
                     heldObject = null;
                     isHolding = false;
 
                     break;
                 }
                 ClientTutorial targetClientTutorial = collider.GetComponent<ClientTutorial>();
-                if ((targetClientTutorial != null && targetClientTutorial.CurrentState == ClientTutorial.ClientState.Waiting))
+                if ((targetClientTutorial != null) && ((targetClientTutorial.CurrentState == ClientTutorial.ClientState.Waiting) || (targetClientTutorial.CurrentState == ClientTutorial.ClientState.Walking)))
                 {
                     targetClientTutorial.RosaEntregada();
 
                     if (isHolding)
                     {
                         accionMano();
+                        targetClient.accionMano();
                     }
-                    // Cambiar para que entregue la rosa en vez de eliminarla
-                    // Eliminar la rosa
-                    Destroy(heldObject);
+
+                    Transform clientGrabPoint = collider.transform.Find("GrabPoint");
+                    if (clientGrabPoint != null)
+                    {
+                        heldObject.transform.SetParent(clientGrabPoint);
+                        heldObject.transform.localPosition = Vector3.zero;
+                    }
+                    else
+                    {
+                        heldObject.transform.SetParent(collider.transform);
+                        heldObject.transform.localPosition = Vector3.zero;
+
+                    }
                     heldObject = null;
                     isHolding = false;
 

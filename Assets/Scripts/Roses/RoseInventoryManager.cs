@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class RoseInventoryManager : MonoBehaviour
 {
-    private BoxCollider detectionArea;
+    private CapsuleCollider detectionArea;
     [SerializeField] private List<GameObject> detectedRoses = new List<GameObject>();
     [SerializeField] private string roseTag = "Rosa";
     public delegate void RoseCountChanged(int count);
@@ -23,12 +23,7 @@ public class RoseInventoryManager : MonoBehaviour
 
     private void Awake()
     {
-        detectionArea = GetComponent<BoxCollider>();
-        if (detectionArea == null)
-        {
-            detectionArea = gameObject.AddComponent<BoxCollider>();
-            detectionArea.isTrigger = true;
-        }
+        detectionArea = GetComponent<CapsuleCollider>();
         detectionArea.isTrigger = true;
 
         initialPosition = transform.position;
