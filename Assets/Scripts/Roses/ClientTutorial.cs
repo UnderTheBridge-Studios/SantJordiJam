@@ -15,6 +15,8 @@ public class ClientTutorial : MonoBehaviour
 
     [Header("Referencias")]
     [SerializeField] private float walkSpeed = 20f;
+    [SerializeField] private GameObject ManoAbierta;
+    [SerializeField] private GameObject ManoCerrada;
 
     // Referencias
     private ClientManager clientManager;
@@ -83,5 +85,13 @@ public class ClientTutorial : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         SetState(ClientState.Leaving);
+    }
+
+    public void accionMano()
+    {
+        bool manoActiva = ManoAbierta.activeSelf;
+
+        ManoAbierta.SetActive(!manoActiva);
+        ManoCerrada.SetActive(manoActiva);
     }
 }

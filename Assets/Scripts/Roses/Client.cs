@@ -17,6 +17,8 @@ public class Client : MonoBehaviour
     [Header("Referencias")]
     [SerializeField] private GameObject billeteObject;
     [SerializeField] private float walkSpeed = 20f;
+    [SerializeField] private GameObject ManoAbierta;
+    [SerializeField] private GameObject ManoCerrada;
 
     // Referencias
     private ClientManager clientManager;
@@ -103,5 +105,13 @@ public class Client : MonoBehaviour
     public bool billeteTaken()
     {
         return (billeteObject == null);
+    }
+
+    public void accionMano()
+    {
+        bool manoActiva = ManoAbierta.activeSelf;
+
+        ManoAbierta.SetActive(!manoActiva);
+        ManoCerrada.SetActive(manoActiva);
     }
 }

@@ -1361,11 +1361,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8382829007936240838, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8819138619855621036, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
       propertyPath: m_Name
       value: SCE_Taula
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3313641361960900973, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
