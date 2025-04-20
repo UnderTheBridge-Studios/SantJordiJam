@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 2c09bbbf64288244ea00256d94ba6f8e
+guid: e57b8a68adc54344d89f3576fc9119cc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: pedra
-    second: {fileID: 2100000, guid: 0ba1aa26a1e755f4787b4c8c67fb6046, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: standardSurface1
-    second: {fileID: 2100000, guid: 0ba1aa26a1e755f4787b4c8c67fb6046, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -75,7 +65,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60

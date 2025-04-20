@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2c09bbbf64288244ea00256d94ba6f8e
+guid: 266a1db184d26654fa348b9cb7c7b3c2
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: pedra
-    second: {fileID: 2100000, guid: 0ba1aa26a1e755f4787b4c8c67fb6046, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: standardSurface1
-    second: {fileID: 2100000, guid: 0ba1aa26a1e755f4787b4c8c67fb6046, type: 2}
+      name: MAT_Ovella
+    second: {fileID: 2100000, guid: 4e7adbace2c79fe478d06d0f136fefc1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -75,7 +70,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60

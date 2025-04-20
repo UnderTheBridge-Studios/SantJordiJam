@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2c09bbbf64288244ea00256d94ba6f8e
+guid: d92a18290f335bd4d915bd3ed80194a1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: pedra
-    second: {fileID: 2100000, guid: 0ba1aa26a1e755f4787b4c8c67fb6046, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: standardSurface1
-    second: {fileID: 2100000, guid: 0ba1aa26a1e755f4787b4c8c67fb6046, type: 2}
+      name: Material
+    second: {fileID: 2100000, guid: 71a52d6ceca374545a0aebca371377b7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
