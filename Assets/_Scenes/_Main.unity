@@ -621,13 +621,6 @@ MonoBehaviour:
       Data3: -578837607
       Data4: 1309188161
     Path: event:/Music/OST paralela
-  <playerFootsteps>k__BackingField:
-    Guid:
-      Data1: 1621251942
-      Data2: 1342007351
-      Data3: 1633839752
-      Data4: 566805079
-    Path: event:/PlayerFootsteps
   <cajaAbrir>k__BackingField:
     Guid:
       Data1: -1269395596
@@ -635,13 +628,6 @@ MonoBehaviour:
       Data3: -1876551786
       Data4: 1849786344
     Path: event:/SFX/CajaAbrir
-  <cajaCerrar>k__BackingField:
-    Guid:
-      Data1: -1099605656
-      Data2: 1151042721
-      Data3: 228120763
-      Data4: 690417161
-    Path: event:/SFX/CajaCerrar
   <quejas>k__BackingField:
     Guid:
       Data1: 2084019412
@@ -1375,11 +1361,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8382829007936240838, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8819138619855621036, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
       propertyPath: m_Name
       value: SCE_Taula
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3313641361960900973, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
