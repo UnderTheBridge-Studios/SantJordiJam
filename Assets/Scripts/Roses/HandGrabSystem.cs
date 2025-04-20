@@ -9,6 +9,9 @@ public class HandGrabSystem : MonoBehaviour
     [SerializeField] private Transform grabPoint;
     [SerializeField] private LayerMask grabbableLayer;
     [SerializeField] private float grabRadius = 0.5f;
+    [SerializeField] private GameObject ManoAbierta;
+    [SerializeField] private GameObject ManoCerrada;
+
     private float interactionRadius = 5f;
 
     [Header("Configuración")]
@@ -33,6 +36,14 @@ public class HandGrabSystem : MonoBehaviour
             else
                 DropObject();
         }
+    }
+
+    private void accionMano()
+    {
+        bool manoActiva = ManoAbierta.activeSelf;
+
+        ManoAbierta.SetActive(!manoActiva);
+        ManoCerrada.SetActive(manoActiva);
     }
 
     private void GrabObject()
@@ -62,6 +73,8 @@ public class HandGrabSystem : MonoBehaviour
             heldObject.transform.localPosition = Vector3.zero;
             heldObject.transform.localRotation = Quaternion.identity;
 
+            accionMano();
+
             if (heldObject.CompareTag(billeteTag))
             {
                 if (clientManager == null)
@@ -89,9 +102,6 @@ public class HandGrabSystem : MonoBehaviour
                     }
                 }
             }
-
-            // Efectos de audio opcionales
-            // AudioSource.PlayClipAtPoint(grabSound, transform.position);
         }
     }
 
@@ -107,6 +117,10 @@ public class HandGrabSystem : MonoBehaviour
         {
             if (heldObject.CompareTag(billeteTag) && collider.CompareTag(registradoraTag))
             {
+                if (isHolding)
+                {
+                    accionMano();
+                }
                 Destroy(heldObject);
                 heldObject = null;
                 isHolding = false;
@@ -120,6 +134,27 @@ public class HandGrabSystem : MonoBehaviour
                 {
                     targetClient.RosaEntregada();
 
+                    if (isHolding)
+                    {
+                        accionMano();
+                    }
+                    // Cambiar para que entregue la rosa en vez de eliminarla
+                    // Eliminar la rosa
+                    Destroy(heldObject);
+                    heldObject = null;
+                    isHolding = false;
+
+                    break;
+                }
+                ClientTutorial targetClientTutorial = collider.GetComponent<ClientTutorial>();
+                if ((targetClientTutorial != null && targetClientTutorial.CurrentState == ClientTutorial.ClientState.Waiting))
+                {
+                    targetClientTutorial.RosaEntregada();
+
+                    if (isHolding)
+                    {
+                        accionMano();
+                    }
                     // Cambiar para que entregue la rosa en vez de eliminarla
                     // Eliminar la rosa
                     Destroy(heldObject);
@@ -134,6 +169,7 @@ public class HandGrabSystem : MonoBehaviour
         // Logica para no bloquear al jugador con la rosa, cambiable
         if (isHolding && heldObject.CompareTag(rosaTag))
         {
+            accionMano();
             heldObject.transform.SetParent(null);
             heldObject = null;
             isHolding = false;

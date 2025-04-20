@@ -19,12 +19,17 @@ public class ClientHandAnimation : MonoBehaviour
     [SerializeField] private Ease tipoEasingNervioso = Ease.InOutQuad;
     [SerializeField] private float tiempoParaPonerseNervioso = 5f;
 
+    [Header("Probabilidad de quejarse")]
+    [Range(0, 1)]
+    [SerializeField] private float probabilidadQueja = 0.5f;
+
     // Estado
     private bool estaActivo = false;
     private bool estaNervioso = false;
     private Sequence secuenciaActual;
     private Coroutine contadorNerviosismo;
     private Vector3 posicionOriginal;
+    private bool seEstaEnfadando = false;
 
     private void Awake()
     {
@@ -94,6 +99,17 @@ public class ClientHandAnimation : MonoBehaviour
         {
             estaNervioso = true;
             LimpiarAnimaciones();
+
+            if (!seEstaEnfadando)
+            {
+                if (Random.value < probabilidadQueja)
+                {
+                    AudioManager.instance.PlayOneShot(FMODEvents.instance.quejas, this.transform.position);
+                }
+            }
+
+            seEstaEnfadando = true;
+
             secuenciaActual = DOTween.Sequence();
 
             Vector3 posicionIzquierda = posicionOriginal - new Vector3(0, 0, amplitudMovimientoNervioso);
