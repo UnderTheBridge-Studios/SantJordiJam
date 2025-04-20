@@ -85,6 +85,11 @@ public class AudioManager : MonoBehaviour
         ambienceEventInstance.setParameterByName(parameterName, parameterValue);
     }
 
+    public void SetMusicParameter(string parameterName, float parameterValue)
+    {
+        musicEventInstance.setParameterByName(parameterName, parameterValue);
+    }
+
     public void SetMusicTime(string time)
     {
         float floatTime = 0;

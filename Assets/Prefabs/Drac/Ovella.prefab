@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2841061401686870424}
   - component: {fileID: 6273471276397648071}
   - component: {fileID: 6507709505260398101}
+  - component: {fileID: 4399333759093661077}
   m_Layer: 8
   m_Name: Ovella
   m_TagString: Sheep
@@ -98,6 +99,37 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.2148483
   m_Center: {x: -0.21484809, y: 0.9539995, z: 0}
+--- !u!114 &4399333759093661077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5217958119465714524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1886305080
+      Data2: 1190817461
+      Data3: 1669199271
+      Data4: 691602351
+    Path: event:/SFX/Ovejas
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 30
 --- !u!1001 &6181007841179326409
 PrefabInstance:
   m_ObjectHideFlags: 0
