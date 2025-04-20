@@ -147,7 +147,7 @@ public class HandGrabSystem : MonoBehaviour
                     break;
                 }
                 ClientTutorial targetClientTutorial = collider.GetComponent<ClientTutorial>();
-                if ((targetClientTutorial != null && targetClientTutorial.CurrentState == ClientTutorial.ClientState.Waiting))
+                if ((targetClientTutorial != null) && ((targetClientTutorial.CurrentState == ClientTutorial.ClientState.Waiting) || (targetClientTutorial.CurrentState == ClientTutorial.ClientState.Walking)))
                 {
                     targetClientTutorial.RosaEntregada();
 
