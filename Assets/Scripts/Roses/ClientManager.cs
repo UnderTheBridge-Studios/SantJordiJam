@@ -18,6 +18,7 @@ public class ClientManager : MonoBehaviour
 
     private List<Client> clients = new List<Client>();
     private float nextClientTime;
+    private int totalClients = 0;
 
     // GameManager
     private void Start()
@@ -35,6 +36,11 @@ public class ClientManager : MonoBehaviour
         //}
     }
 
+    private void Awake()
+    {
+        totalClients = 0;
+    }
+
     public void SpawnClient()
     {
         if (clients.Count >= maxClients)
@@ -46,7 +52,7 @@ public class ClientManager : MonoBehaviour
 
         GameObject clientObject = Instantiate(clientPrefab, clientSpawnPoint, Quaternion.Euler(180, 180, 0)); 
         Client client = clientObject.GetComponent<Client>();
-
+        totalClients++;
         client.Initialize(this, freePosition);
         clients.Add(client);
         //Debug.Log($"Cliente generado en posición {freePosition.name}. Total clientes: {clients.Count}");
@@ -63,7 +69,6 @@ public class ClientManager : MonoBehaviour
 
         clientTutorial = Instantiate(clientTutorialPrefab, clientSpawnPoint, Quaternion.Euler(90, 180, 90));
         ClientTutorial client = clientTutorial.GetComponent<ClientTutorial>();
-
         client.Initialize(this, freePosition);
     }
 
@@ -148,5 +153,10 @@ public class ClientManager : MonoBehaviour
         }
 
         return nearestClient;
+    }
+
+    public int getTotalClients()
+    {
+        return totalClients;
     }
 }
