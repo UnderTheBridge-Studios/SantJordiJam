@@ -74,7 +74,7 @@ Transform:
   m_GameObject: {fileID: 4824980719284927398}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -123.8, y: 136.7, z: 83}
+  m_LocalPosition: {x: -34.6, y: 136.7, z: 83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -105,7 +105,7 @@ Transform:
   m_GameObject: {fileID: 5987448176945857006}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -114.8, y: 136.7, z: 35}
+  m_LocalPosition: {x: -25.6, y: 136.7, z: 35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -136,7 +136,7 @@ Transform:
   m_GameObject: {fileID: 6664342625896300751}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -109.8, y: 136.7, z: 164}
+  m_LocalPosition: {x: -20.599998, y: 136.7, z: 164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -154,7 +154,6 @@ GameObject:
   - component: {fileID: 7792857956258953642}
   - component: {fileID: 4582427514811140795}
   - component: {fileID: 5657221332908735698}
-  - component: {fileID: 5405207263098078066}
   m_Layer: 0
   m_Name: CAM_Taula
   m_TagString: MainCamera
@@ -285,21 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
-  attenuationObject: {fileID: 0}
---- !u!114 &5405207263098078066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6682647721980696994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nonRigidbodyVelocity: 0
-  attenuationObject: {fileID: 0}
+  attenuationObject: {fileID: 5181171041931891913}
 --- !u!1 &6740567061377884925
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,9 +400,9 @@ MonoBehaviour:
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
   m_RenderingLayers: 2
-  m_CustomShadowLayers: 0
+  m_CustomShadowLayers: 1
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
+  m_ShadowRenderingLayers: 2
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
@@ -446,7 +431,7 @@ Transform:
   m_GameObject: {fileID: 7975914948829798963}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -102.8, y: 136.7, z: 110}
+  m_LocalPosition: {x: -13.599998, y: 136.7, z: 110}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -461,6 +446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7748602438697092468}
+  - component: {fileID: 7680086292351655818}
   m_Layer: 0
   m_Name: SCE_Taula
   m_TagString: Untagged
@@ -524,6 +510,18 @@ Transform:
   - {fileID: 7000096357193560371}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7680086292351655818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819138619855621036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b45a71d2972a04eaf5fb6f62851b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &806778930073911745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2354,6 +2352,11 @@ PrefabInstance:
 --- !u!4 &2080469482822266450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4662913580725753378, guid: 6bb4d7598f95c914c8be6c275c0bb0e6, type: 3}
+  m_PrefabInstance: {fileID: 6659329382867908720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5181171041931891913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1985391814559771833, guid: 6bb4d7598f95c914c8be6c275c0bb0e6, type: 3}
   m_PrefabInstance: {fileID: 6659329382867908720}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6673101760131262722
