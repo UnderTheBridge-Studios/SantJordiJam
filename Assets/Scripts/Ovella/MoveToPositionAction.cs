@@ -16,8 +16,6 @@ public partial class MoveToPositionAction : Action
     [SerializeReference] public BlackboardVariable<float> DistanceThreshold = new BlackboardVariable<float>(0.2f);
     [SerializeReference] public BlackboardVariable<float> SlowDownDistance = new BlackboardVariable<float>(1.0f);
 
-    private bool m_firstUpdate = true;
-
     protected override Status OnStart()
     {
         if (Self.Value == null || TargetPosition.Value == null)
@@ -32,7 +30,6 @@ public partial class MoveToPositionAction : Action
     {
         if (Self.Value == null || TargetPosition.Value == null)
         {
-            m_firstUpdate = true;
             return Status.Failure;
         }
 
@@ -40,7 +37,6 @@ public partial class MoveToPositionAction : Action
         float distance = GetDistanceToLocation(out agentPosition, out locationPosition);
         if (distance <= DistanceThreshold)
         {
-            m_firstUpdate = true;
             return Status.Success;
         }
 
@@ -57,15 +53,14 @@ public partial class MoveToPositionAction : Action
         toDestination.Normalize();
         agentPosition += toDestination * (speed * Time.deltaTime);
         Self.Value.transform.position = agentPosition;
+        
+        //Vector3 velocity = toDestination * speed;
+        //selfController.SimpleMove(velocity);
 
         // Look at the target.
-        //Self.Value.transform.forward = toDestination;
-        if (m_firstUpdate)
-        {
-            float angle = Vector3.SignedAngle(agentPosition, toDestination, Vector3.up);
-            Self.Value.transform.DOLocalRotate(new Vector3(0, angle, 0), 0.3f);
-            m_firstUpdate = false;
-        }
+        float angle = Vector3.SignedAngle(agentPosition, toDestination, Vector3.up);
+        float currentAngle = Mathf.LerpAngle(0, angle, Time.time);
+        Self.Value.transform.DOLocalRotate(new Vector3(0, angle, 0), 0.3f);
 
         return Status.Running;
     }
@@ -73,10 +68,7 @@ public partial class MoveToPositionAction : Action
     private Status Initialize()
     {
         if (GetDistanceToLocation(out Vector3 agentPosition, out Vector3 locationPosition) <= DistanceThreshold)
-        {
-            m_firstUpdate = true;
             return Status.Success;
-        }
 
         return Status.Running;
     }

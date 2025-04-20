@@ -10,27 +10,29 @@ public class OvellaController : IEdable
     private float m_InitialVerticalPosition;
     private Tween m_JumpTween;
     private BlackboardVariable m_IsMoving;
+    private BlackboardVariable m_IsRunning;
 
     private void Start()
     {
         m_InitialVerticalPosition = m_OvellaModel.transform.position.y;
         m_BehaviorAgent.BlackboardReference.GetVariable("IsMoving", out m_IsMoving);
+        m_BehaviorAgent.BlackboardReference.GetVariable("IsRunning", out m_IsRunning);
     }
 
     // Update is called once per frame
     private void Update()
     {
         if ((bool)m_IsMoving.ObjectValue)
-            MoveAnimation();
+            MoveAnimation(0.5f, 0.1f);
         else
             StopAnimation();
     }
 
-    private void MoveAnimation()
+    private void MoveAnimation(float jumpHeight, float jumptDuration)
     {
         if (m_JumpTween == null)
         {
-            m_JumpTween = m_OvellaModel.DOLocalMoveY(m_OvellaModel.localPosition.y + 0.5f, 0.1f)
+            m_JumpTween = m_OvellaModel.DOLocalMoveY(m_OvellaModel.localPosition.y + jumpHeight, jumptDuration)
                 .SetLoops(-1, LoopType.Yoyo)
                 .SetEase(Ease.OutQuad);
         }
