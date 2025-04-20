@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2c09bbbf64288244ea00256d94ba6f8e
+guid: 9ea156f198a30034c8a10912346ccdda
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -12,8 +12,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: standardSurface1
-    second: {fileID: 2100000, guid: 0ba1aa26a1e755f4787b4c8c67fb6046, type: 2}
+      name: portes
+    second: {fileID: 2100000, guid: 2375680570de82d4a85eb1f465ab0cb2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: teulada
+    second: {fileID: 2100000, guid: 6d526d0bb6787d84e85917e254d0fb2a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
