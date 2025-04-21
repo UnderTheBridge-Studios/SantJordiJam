@@ -84,6 +84,7 @@ public class Client : MonoBehaviour
 
     public void BilleteTomado()
     {
+        GameManager.Instance.TutoBillete();
         SetState(ClientState.Waiting);
     }
 

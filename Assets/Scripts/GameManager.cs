@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     private DracController m_DracReference;
     private Castell m_CastellReference;
     private Cova m_CovaReference;
+    private bool m_DracGameHasStarted = false;
 
 
     [Header("Roses")]
@@ -48,9 +49,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float m_MaxTimeBetweenClients = 15f;
     private int m_MaxClients;
 
+    [Space]
     //Shader
     [SerializeField] private float m_LerpSpeed = 1;
-    [SerializeField] private float m_TarjetShaderValue;
+    private float m_TarjetShaderValue;
     private float m_CurrentShaderValue;
 
 
@@ -60,9 +62,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TutoPopUP m_ClickRef_Caixa;
     [SerializeField] private TutoPopUP m_ClickRef_Client;
     [SerializeField] private TutoPopUP m_ClickRef_Rosa;
-
+    [Space]
     [SerializeField] private FullScreenPassRendererFeature renderPass;
-
+    [Space]
+    [SerializeField] private Texture2D m_Cursor;
     //Accesors
     public DayTime currentDayTime => m_CurrentDayTime;
     public float minDistance => m_MinDistance;
@@ -81,19 +84,31 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        m_DracGameHasStarted = false;
+
         m_TarjetShaderValue = -1;
         renderPass.passMaterial.SetFloat("_SceneLerp", -1);
         m_DayCycleAnimation = GameObject.FindAnyObjectByType<DayCycleAnimation>().GetComponent<DayCycleAnimation>();
 
-        //Test
-        Invoke("RosesTutorial", 5);
-        //StartCoroutine(StartDracGame());
+        Cursor.SetCursor(m_Cursor, Vector2.zero, CursorMode.Auto);
+
+        RosesTutorial();
     }
 
     #region Escena Drac
 
     private void Update()
     {
+        if (m_DracGameHasStarted)
+        {
+            if (m_clientManagerRef.GetClientCount() == 4)
+                m_TarjetShaderValue = 0.15f;
+            else if (m_clientManagerRef.GetClientCount() == 3)
+                m_TarjetShaderValue = 0.35f;
+            else if (m_clientManagerRef.GetClientCount() == 2)
+                m_TarjetShaderValue = 0.6f;
+        }
+
         m_CurrentShaderValue = Mathf.Lerp(m_CurrentShaderValue, m_TarjetShaderValue, Time.deltaTime * m_LerpSpeed);
         renderPass.passMaterial.SetFloat("_SceneLerp", m_CurrentShaderValue);
     }
@@ -101,16 +116,12 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartDracGame()
     {
-        //Obri nuvol
-        m_CurrentShaderValue = 1;
-
-        yield return new WaitForSeconds(6f);
-
+        m_TarjetShaderValue = 1;
+        m_DracGameHasStarted = true;
         ChangeToDay();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         ShowTuto(Tutorial.wasd);
         m_DracReference.EnableControl(true);
-
     }
 
     public void EnterCave()
@@ -199,6 +210,7 @@ public class GameManager : MonoBehaviour
     private void RosesTutorial()
     {
         m_clientManagerRef.SpawnClientTutorial();
+        //ShowTuto(Tutorial.click_rosa);
     }
 
 
@@ -211,31 +223,36 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator RosesLoop()
     {
+        HideTuto(Tutorial.click_rosa);
         yield return new WaitForSeconds(2f);
+        m_clientManagerRef.TrySpawnClient();
 
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(m_MinTimeBetweenClients, m_MaxTimeBetweenClients));
             if (m_clientManagerRef.GetClientCount() < m_MaxClients)
-                m_clientManagerRef.SpawnClientTutorial();
+                m_clientManagerRef.TrySpawnClient();
 
-
-            if (m_clientManagerRef.GetClientCount() == 4)
-                m_TarjetShaderValue = 0.3f;
-            else if (m_clientManagerRef.GetClientCount() == 3)
-                m_TarjetShaderValue = 0.7f;
-
-
+       
             if (m_clientManagerRef.getTotalClients() == m_ClientsBeforeDrac)
                 StartCoroutine(StartDracGame());
 
 
-            if (m_DayCount > 3)
+            if (m_DayCount == 3)
                 m_MaxClients = 4;
-
-            else if (m_DayCount > 1)
+            else if (m_DayCount == 1)
                 m_MaxClients = 3;
         }
+    }
+
+    private bool m_TutoBilleHasShown = false;
+    public void TutoBillete()
+    {
+        if (m_TutoBilleHasShown)
+            return;
+            
+        ShowTuto(Tutorial.click_caixa);
+        m_TutoBilleHasShown = true;
     }
 
 
@@ -313,6 +330,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        m_MaxClients = 1;
         Debug.Log("Last Day");
         m_CastellReference.Jump(true);
     }

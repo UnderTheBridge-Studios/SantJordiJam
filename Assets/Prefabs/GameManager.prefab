@@ -47,7 +47,7 @@ MonoBehaviour:
   m_SpawnerAnimalsInfo:
   - animals:
     - first: {fileID: 5217958119465714524, guid: 00e7e3d955031754c9c7b2f398fa6afe, type: 3}
-      second: 5
+      second: 10
     radius: 6
   - animals:
     - first: {fileID: 5217958119465714524, guid: 00e7e3d955031754c9c7b2f398fa6afe, type: 3}
@@ -55,15 +55,26 @@ MonoBehaviour:
     radius: 10
   - animals:
     - first: {fileID: 5217958119465714524, guid: 00e7e3d955031754c9c7b2f398fa6afe, type: 3}
-      second: 6
+      second: 4
+    radius: 5
+  - animals:
+    - first: {fileID: 5217958119465714524, guid: 00e7e3d955031754c9c7b2f398fa6afe, type: 3}
+      second: 3
+    radius: 4
+  - animals:
+    - first: {fileID: 5217958119465714524, guid: 00e7e3d955031754c9c7b2f398fa6afe, type: 3}
+      second: 1
     radius: 3
   m_MinDistance: 3
   m_clientManagerRef: {fileID: 0}
-  minTimeBetweenClients: 5
-  maxTimeBetweenClients: 7
+  m_ClientsBeforeDrac: 5
+  m_MinTimeBetweenClients: 5
+  m_MaxTimeBetweenClients: 10
+  m_LerpSpeed: 0.5
   m_wasdRef: {fileID: 0}
   m_EspaiRef: {fileID: 0}
   m_ClickRef_Caixa: {fileID: 0}
   m_ClickRef_Client: {fileID: 0}
   m_ClickRef_Rosa: {fileID: 0}
   renderPass: {fileID: 6482135410036836633, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
+  m_Cursor: {fileID: 2800000, guid: 3a307b693b9eae94db2a85398d724c0b, type: 3}

@@ -129,6 +129,7 @@ public class HandGrabSystem : MonoBehaviour
                 {
                     accionMano();
                 }
+                GameManager.Instance.HideTuto(Tutorial.click_caixa);
                 Destroy(heldObject);
                 heldObject = null;
                 isHolding = false;

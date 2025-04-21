@@ -210,11 +210,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4857729553547699341, guid: 018b12b2c6cfd0a46b40011c9ce8ecf2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 101.3
+      value: 378.2
       objectReference: {fileID: 0}
     - target: {fileID: 4857729553547699341, guid: 018b12b2c6cfd0a46b40011c9ce8ecf2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -137.2
+      value: 162
       objectReference: {fileID: 0}
     - target: {fileID: 4857729553547699341, guid: 018b12b2c6cfd0a46b40011c9ce8ecf2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterVolume: 0.378
-  musicVolume: 0
+  musicVolume: 0.571
   ambienceVolume: 1
   SFXVolume: 1
 --- !u!114 &629010780
@@ -1661,6 +1661,10 @@ PrefabInstance:
       propertyPath: m_clientManagerRef
       value: 
       objectReference: {fileID: 1428366736}
+    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
+      propertyPath: m_ClientsBeforeDrac
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
