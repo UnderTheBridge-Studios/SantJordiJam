@@ -81,7 +81,7 @@ public class RoseInventoryManager : MonoBehaviour
         {
             Vector3 spawnPosition = transform.position + new Vector3(
                 Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2),
-                Random.Range(-spawnAreaSize.y / 2, spawnAreaSize.y / 2) + 120f,
+                Random.Range(-spawnAreaSize.y / 2, spawnAreaSize.y / 2) + 95f,
                 Random.Range(-spawnAreaSize.z / 2, spawnAreaSize.z / 2)
             );
 

@@ -41,9 +41,9 @@ public class HandMovement : MonoBehaviour
             worldPoint = new Vector3(0, yPosition, 0) + direction;
         }
 
-        if (worldPoint.x < -80f)
+        if (worldPoint.x < -60f)
         {
-            worldPoint.x = -80f;
+            worldPoint.x = -60f;
         }
 
         targetPosition = worldPoint;

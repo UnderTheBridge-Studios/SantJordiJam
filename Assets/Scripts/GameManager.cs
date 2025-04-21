@@ -218,9 +218,16 @@ public class GameManager : MonoBehaviour
         StartCoroutine(RosesLoop());
     }
 
+
+    private void HideRosaTuto() //hotfix
+    {
+        HideTuto(Tutorial.click_rosa);
+
+    }
     private IEnumerator RosesLoop()
     {
         HideTuto(Tutorial.click_rosa);
+        Invoke("HideRosaTuto", 3f);
         yield return new WaitForSeconds(2f);
         m_clientManagerRef.TrySpawnClient();
 
