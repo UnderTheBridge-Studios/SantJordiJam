@@ -53,10 +53,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  clientTutorialPosition: {fileID: 0}
   minTimeBetweenClients: 1
   maxTimeBetweenClients: 2
   maxClients: 4
   clientSpawnPoint: {x: -230, y: 110, z: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 77a1a0263aac7bd4c9c2b1b9478d85b2, type: 2}
+  - {fileID: 2100000, guid: 45184e608c257164e987cbe86237965a, type: 2}
+  - {fileID: 2100000, guid: 71a52d6ceca374545a0aebca371377b7, type: 2}
+  - {fileID: 2100000, guid: f60532274e92bae4d88bbe000d052705, type: 2}
+  - {fileID: 2100000, guid: 69f358ca50286b746b5b05ab6f6f54c0, type: 2}
+  - {fileID: 2100000, guid: 3eef6f1cc87a94d4d9691bc031a317a9, type: 2}
 --- !u!1 &8286191741477040754
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,10 +112,12 @@ MonoBehaviour:
   clientPrefab: {fileID: 0}
   clientTutorialPrefab: {fileID: 0}
   clientPositions: []
+  clientTutorialPosition: {fileID: 0}
   minTimeBetweenClients: 5
   maxTimeBetweenClients: 15
   maxClients: 4
   clientSpawnPoint: {x: -230, y: 110, z: 0}
+  m_Materials: []
 --- !u!1 &8676424876463847375
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +165,9 @@ MonoBehaviour:
   clientPrefab: {fileID: 0}
   clientTutorialPrefab: {fileID: 0}
   clientPositions: []
+  clientTutorialPosition: {fileID: 0}
   minTimeBetweenClients: 5
   maxTimeBetweenClients: 15
   maxClients: 4
   clientSpawnPoint: {x: -230, y: 110, z: 0}
+  m_Materials: []
