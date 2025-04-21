@@ -968,6 +968,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 994972286}
+    - target: {fileID: 3788531083816584958, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8533717183389039627, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1317,6 +1321,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2682404863580098771, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.3911595
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682404863580098771, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.10264733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682404863580098771, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.521581
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682404863580098771, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7512729
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682404863580098771, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 59.769
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682404863580098771, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -30.272
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682404863580098771, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 107.32
+      objectReference: {fileID: 0}
     - target: {fileID: 2937377786293956447, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -121
