@@ -19,6 +19,8 @@ public class HandGrabSystem : MonoBehaviour
     [SerializeField] private string rosaTag = "Rosa";
     [SerializeField] private string clienteTag = "Cliente";
     [SerializeField] private string registradoraTag = "CajaRegistradora";
+    private float minXPosition = -90f;
+    private float maxXPosition = 35f;
 
     // Estado actual del sistema
     [SerializeField] private GameObject heldObject;
@@ -26,6 +28,7 @@ public class HandGrabSystem : MonoBehaviour
 
     // Referencia al administrador de clientes
     [SerializeField] private ClientManager clientManager;
+    [SerializeField] private Mesh billeteMesh2;
 
     public void OnGrab(InputAction.CallbackContext context)
     {
@@ -48,7 +51,7 @@ public class HandGrabSystem : MonoBehaviour
 
     private void GrabObject()
     {
-        Vector3 boxHalfExtents = new Vector3(1.5f, 200f, 1.5f);
+        Vector3 boxHalfExtents = new Vector3(4f, 200f, 4f);
         Vector3 boxCenter = grabPoint.position + new Vector3(0, 100f, 0);
         Collider[] hitColliders = Physics.OverlapBox(boxCenter, boxHalfExtents,
                                                Quaternion.identity, grabbableLayer);
@@ -77,7 +80,6 @@ public class HandGrabSystem : MonoBehaviour
             }
             else
             {
-
                 heldObject.transform.localRotation = Quaternion.identity;
             }
 
@@ -85,6 +87,11 @@ public class HandGrabSystem : MonoBehaviour
 
             if (heldObject.CompareTag(billeteTag))
             {
+                MeshFilter meshFilter = heldObject.GetComponent<MeshFilter>();
+                if (meshFilter != null && billeteMesh2 != null)
+                {
+                    meshFilter.mesh = billeteMesh2;
+                }
                 if (clientManager == null)
                 {
                     clientManager = FindFirstObjectByType<ClientManager>();
@@ -200,10 +207,14 @@ public class HandGrabSystem : MonoBehaviour
         // Logica para no bloquear al jugador con la rosa, cambiable
         if (isHolding && heldObject.CompareTag(rosaTag) && clientManager.getTotalClients() > 0)
         {
-            accionMano();
-            heldObject.transform.SetParent(null);
-            heldObject = null;
-            isHolding = false;
+            if (grabPoint.position.x > minXPosition && grabPoint.position.x < maxXPosition)
+            {
+                accionMano();
+                heldObject.transform.SetParent(null);
+                heldObject.transform.localPosition = new Vector3(grabPoint.transform.position.x, 103f, grabPoint.transform.position.z);
+                heldObject = null;
+                isHolding = false;
+            }
         }
     }
 }
