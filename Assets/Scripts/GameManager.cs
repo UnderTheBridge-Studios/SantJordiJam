@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     private Castell m_CastellReference;
     private Cova m_CovaReference;
     private bool m_DracGameHasStarted = false;
+    private bool m_IsLastDay = false;
 
 
     [Header("Roses")]
@@ -71,7 +72,7 @@ public class GameManager : MonoBehaviour
     public float minDistance => m_MinDistance;
     public int maxClients => m_MaxClients;
     public DracController dracReference => m_DracReference;
-
+    public bool isLastDay => m_IsLastDay;
 
 
     private void Awake()
@@ -221,13 +222,14 @@ public class GameManager : MonoBehaviour
         StartCoroutine(RosesLoop());
     }
 
+    private bool stopRoseLoop = false;
     private IEnumerator RosesLoop()
     {
         HideTuto(Tutorial.click_rosa);
         yield return new WaitForSeconds(2f);
         m_clientManagerRef.TrySpawnClient();
 
-        while (true)
+        while (!stopRoseLoop)
         {
             yield return new WaitForSeconds(Random.Range(m_MinTimeBetweenClients, m_MaxTimeBetweenClients));
             if (m_clientManagerRef.GetClientCount() < m_MaxClients)
@@ -243,6 +245,19 @@ public class GameManager : MonoBehaviour
             else if (m_DayCount == 1)
                 m_MaxClients = 3;
         }
+    }
+
+    public void StopRoseLoop()
+    {
+        stopRoseLoop = true;
+        dracReference.EnableControl(false);
+        StartCoroutine(StopCastleBounce());
+    }
+
+    private IEnumerator StopCastleBounce()
+    {
+        yield return new WaitUntil(m_clientManagerRef.isLastClientDone);
+        m_CastellReference.Jump(false);
     }
 
     private bool m_TutoBilleHasShown = false;
@@ -328,10 +343,32 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    public void EndGame()
-    {
-        m_MaxClients = 1;
-        Debug.Log("Last Day");
-        m_CastellReference.Jump(true);
-    }
+#region Ending
+/*Final!
+Triggers:
+- Última cova:
+    - Max clients 1
+- Arrives al castell:
+    - Bounce castle.
+    - Stop spawn clients
+- Atès últim client:
+    - Apareix llibre de fons
+    - Spawn princesa
+    - Start cinemàtica final imaginació
+- Acava cinemàtica imaginacióa
+    - Deixa el llibre sobre la taula
+    - Fade imaginació
+- Dones l'última rosa
+    - Final screen
+*/
+
+public void EndGame()
+{
+    Debug.Log("Last Day");
+    m_IsLastDay = true;
+    m_MaxClients = 1;
+    m_CastellReference.Jump(true);
+}
+
+#endregion
 }

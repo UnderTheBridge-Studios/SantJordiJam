@@ -156,4 +156,12 @@ public class ClientManager : MonoBehaviour
     {
         return totalClients;
     }
+
+    public bool isLastClientDone()
+    {
+        if (clients.Count <= 0)
+            return true;
+
+        return false;
+    }
 }
