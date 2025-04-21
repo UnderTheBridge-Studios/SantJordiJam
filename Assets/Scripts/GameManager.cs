@@ -42,13 +42,19 @@ public class GameManager : MonoBehaviour
 
     [Header("Roses")]
     [SerializeField] private ClientManager m_clientManagerRef;
-    [SerializeField] private float minTimeBetweenClients = 5f;
-    [SerializeField] private float maxTimeBetweenClients = 15f;
+    [SerializeField] [Tooltip("El nombre de clients que ha de atendre abans de que començi el drac")] 
+    private int m_ClientsBeforeDrac = 5;
+    [SerializeField] private float m_MinTimeBetweenClients = 5f;
+    [SerializeField] private float m_MaxTimeBetweenClients = 15f;
     private int m_MaxClients;
 
+    //Shader
+    [SerializeField] private float m_LerpSpeed = 1;
+    [SerializeField] private float m_TarjetShaderValue;
+    private float m_CurrentShaderValue;
 
 
-    [Header("Tutos")]
+     [Header("Tutos")]
     [SerializeField] private TutoPopUP m_wasdRef;
     [SerializeField] private TutoPopUP m_EspaiRef;
     [SerializeField] private TutoPopUP m_ClickRef_Caixa;
@@ -75,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        m_TarjetShaderValue = -1;
         renderPass.passMaterial.SetFloat("_SceneLerp", -1);
         m_DayCycleAnimation = GameObject.FindAnyObjectByType<DayCycleAnimation>().GetComponent<DayCycleAnimation>();
 
@@ -85,11 +92,17 @@ public class GameManager : MonoBehaviour
 
     #region Escena Drac
 
+    private void Update()
+    {
+        m_CurrentShaderValue = Mathf.Lerp(m_CurrentShaderValue, m_TarjetShaderValue, Time.deltaTime * m_LerpSpeed);
+        renderPass.passMaterial.SetFloat("_SceneLerp", m_CurrentShaderValue);
+    }
+
 
     private IEnumerator StartDracGame()
     {
         //Obri nuvol
-        renderPass.passMaterial.SetFloat("_SceneLerp", 1);
+        m_CurrentShaderValue = 1;
 
         yield return new WaitForSeconds(6f);
 
@@ -202,11 +215,18 @@ public class GameManager : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(minTimeBetweenClients, maxTimeBetweenClients));
+            yield return new WaitForSeconds(Random.Range(m_MinTimeBetweenClients, m_MaxTimeBetweenClients));
             if (m_clientManagerRef.GetClientCount() < m_MaxClients)
                 m_clientManagerRef.TrySpawnClient();
 
-            if (m_clientManagerRef.getTotalClients() == 5)
+
+            if (m_clientManagerRef.GetClientCount() == 4)
+                m_TarjetShaderValue = 0.3f;
+            else if (m_clientManagerRef.GetClientCount() == 3)
+                m_TarjetShaderValue = 0.7f;
+
+
+            if (m_clientManagerRef.getTotalClients() == m_ClientsBeforeDrac)
                 StartCoroutine(StartDracGame());
 
 
