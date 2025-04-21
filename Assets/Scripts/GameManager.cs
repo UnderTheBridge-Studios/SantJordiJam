@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Threading;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -33,14 +35,13 @@ public class GameManager : MonoBehaviour
     private int m_AnimalsCounter;
     private Spawner m_SpawnerReference;
 
-
     [Header("Drac")]
     private DracController m_DracReference;
+    //private PrincesaController m_PrincesaReference;
     private Castell m_CastellReference;
     private Cova m_CovaReference;
     private bool m_DracGameHasStarted = false;
     private bool m_IsLastDay = false;
-
 
     [Header("Roses")]
     [SerializeField] private ClientManager m_clientManagerRef;
@@ -49,13 +50,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float m_MinTimeBetweenClients = 5f;
     [SerializeField] private float m_MaxTimeBetweenClients = 15f;
     private int m_MaxClients;
+    private bool m_TutoBilleHasShown = false;
+    private bool m_StopRoseLoop = false;
 
     [Space]
     //Shader
     [SerializeField] private float m_LerpSpeed = 1;
     private float m_TarjetShaderValue;
     private float m_CurrentShaderValue;
-
 
      [Header("Tutos")]
     [SerializeField] private TutoPopUP m_wasdRef;
@@ -67,13 +69,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FullScreenPassRendererFeature renderPass;
     [Space]
     [SerializeField] private Texture2D m_Cursor;
+
     //Accesors
     public DayTime currentDayTime => m_CurrentDayTime;
     public float minDistance => m_MinDistance;
     public int maxClients => m_MaxClients;
     public DracController dracReference => m_DracReference;
+    //public PrincesaController princesaReference => m_PrincesaReference;
     public bool isLastDay => m_IsLastDay;
-
 
     private void Awake()
     {
@@ -89,7 +92,7 @@ public class GameManager : MonoBehaviour
 
         m_TarjetShaderValue = -1;
         renderPass.passMaterial.SetFloat("_SceneLerp", -1);
-        m_DayCycleAnimation = GameObject.FindAnyObjectByType<DayCycleAnimation>().GetComponent<DayCycleAnimation>();
+        m_DayCycleAnimation = FindAnyObjectByType<DayCycleAnimation>().GetComponent<DayCycleAnimation>();
 
         Cursor.SetCursor(m_Cursor, Vector2.zero, CursorMode.Auto);
 
@@ -97,7 +100,6 @@ public class GameManager : MonoBehaviour
     }
 
     #region Escena Drac
-
     private void Update()
     {
         if (m_DracGameHasStarted)
@@ -113,7 +115,6 @@ public class GameManager : MonoBehaviour
         m_CurrentShaderValue = Mathf.Lerp(m_CurrentShaderValue, m_TarjetShaderValue, Time.deltaTime * m_LerpSpeed);
         renderPass.passMaterial.SetFloat("_SceneLerp", m_CurrentShaderValue);
     }
-
 
     private IEnumerator StartDracGame()
     {
@@ -148,9 +149,9 @@ public class GameManager : MonoBehaviour
         m_DracReference.MoveToPoints(m_CovaReference.exteriorCova);
         m_DracReference.EnableControl(true);
     }
+    #endregion
 
     #region Animals
-
     public void AnimalEaten()
     {
         m_AnimalsCounter--;
@@ -162,7 +163,6 @@ public class GameManager : MonoBehaviour
     {
         m_AnimalsCounter = count;
     }
-
     #endregion
 
     #region DayCycle
@@ -192,7 +192,6 @@ public class GameManager : MonoBehaviour
         ChangeDayNight(DayTime.night);
     }
 
-
     [ContextMenu("ChangeDayNight")]
     public void ChangeDayNight(DayTime timeToChange = DayTime.none)
     {
@@ -204,16 +203,12 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #endregion
-
     #region Escena Roses
-
     private void RosesTutorial()
     {
         m_clientManagerRef.SpawnClientTutorial();
         //ShowTuto(Tutorial.click_rosa);
     }
-
 
     public void StartRosesGame()
     {
@@ -222,14 +217,13 @@ public class GameManager : MonoBehaviour
         StartCoroutine(RosesLoop());
     }
 
-    private bool stopRoseLoop = false;
     private IEnumerator RosesLoop()
     {
         HideTuto(Tutorial.click_rosa);
         yield return new WaitForSeconds(2f);
         m_clientManagerRef.TrySpawnClient();
 
-        while (!stopRoseLoop)
+        while (!m_StopRoseLoop)
         {
             yield return new WaitForSeconds(Random.Range(m_MinTimeBetweenClients, m_MaxTimeBetweenClients));
             if (m_clientManagerRef.GetClientCount() < m_MaxClients)
@@ -247,20 +241,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StopRoseLoop()
-    {
-        stopRoseLoop = true;
-        dracReference.EnableControl(false);
-        StartCoroutine(StopCastleBounce());
-    }
-
-    private IEnumerator StopCastleBounce()
-    {
-        yield return new WaitUntil(m_clientManagerRef.isLastClientDone);
-        m_CastellReference.Jump(false);
-    }
-
-    private bool m_TutoBilleHasShown = false;
     public void TutoBillete()
     {
         if (m_TutoBilleHasShown)
@@ -283,6 +263,12 @@ public class GameManager : MonoBehaviour
     {
         m_DracReference = reference;
     }
+
+    //public void SetPrincesaReference(PrincesaController reference)
+    //{
+    //    m_PrincesaReference = reference;
+    //}
+
     public void SetCaveReference(Cova reference)
     {
         m_CovaReference = reference;
@@ -296,7 +282,6 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Tutos
-
     public void ShowTuto(Tutorial tuto)
     {
         switch (tuto)
@@ -343,32 +328,58 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-#region Ending
-/*Final!
-Triggers:
-- Última cova:
-    - Max clients 1
-- Arrives al castell:
-    - Bounce castle.
-    - Stop spawn clients
-- Atès últim client:
-    - Apareix llibre de fons
-    - Spawn princesa
-    - Start cinemàtica final imaginació
-- Acava cinemàtica imaginacióa
-    - Deixa el llibre sobre la taula
-    - Fade imaginació
-- Dones l'última rosa
-    - Final screen
-*/
+    #region Ending
+    /*Final!
+    Triggers:
+    - Última cova:
+        - Max clients 1
+    - Arrives al castell:
+        - Bounce castle.
+        - Stop spawn clients
+    - Atès últim client:
+        - Apareix llibre de fons
+        - Spawn princesa
+        - Start cinemàtica final imaginació
+    - Acava cinemàtica imaginacióa
+        - Deixa el llibre sobre la taula
+        - Fade imaginació
+    - Dones l'última rosa
+        - Final screen
+    */
+    public void EndGame()
+    {
+        Debug.Log("Last Day");
+        m_IsLastDay = true;
+        m_MaxClients = 1;
+        m_CastellReference.Jump(true);
+    }
 
-public void EndGame()
-{
-    Debug.Log("Last Day");
-    m_IsLastDay = true;
-    m_MaxClients = 1;
-    m_CastellReference.Jump(true);
-}
+    public void StopRoseLoop()
+    {
+        m_StopRoseLoop = true;
+        StartCoroutine(EndingCinematic());
+    }
 
-#endregion
+    private IEnumerator EndingCinematic()
+    {
+        // Move drac to position
+        dracReference.EnableControl(false);
+        float time = dracReference.MoveToPoints(new Vector3(-10000, 3, -6));
+        yield return new WaitForSeconds(time);
+        
+        dracReference.MoveToPoints(new Vector3(-10000, 3, -7));
+        yield return new WaitUntil(m_clientManagerRef.isLastClientDone);
+        
+        // Open doors
+        m_CastellReference.Jump(false);
+        yield return new WaitForSeconds(2f);
+        
+        Tween doorTween = m_CastellReference.OpenDoorTween();
+        yield return new WaitForSeconds(1f);
+
+        // Move princesa
+        //princesaReference.MoveToPoints(new Vector3(-10000, 3, -10));
+    }
+
+    #endregion
 }
