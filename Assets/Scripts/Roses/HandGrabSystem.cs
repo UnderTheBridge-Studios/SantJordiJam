@@ -201,6 +201,34 @@ public class HandGrabSystem : MonoBehaviour
 
                     break;
                 }
+                ClientFinal targetClientFinal = collider.GetComponent<ClientFinal>();
+                if ((targetClientFinal != null) && (targetClientFinal.CurrentState == ClientFinal.ClientFinalState.WaitingRose))
+                {
+                    targetClientFinal.RosaEntregada();
+
+                    if (isHolding)
+                    {
+                        accionMano();
+                        targetClientFinal.accionMano();
+                    }
+
+                    Transform clientGrabPoint = collider.transform.Find("GrabPoint");
+                    if (clientGrabPoint != null)
+                    {
+                        heldObject.transform.SetParent(clientGrabPoint);
+                        heldObject.transform.localPosition = Vector3.zero;
+                    }
+                    else
+                    {
+                        heldObject.transform.SetParent(collider.transform);
+                        heldObject.transform.localPosition = Vector3.zero;
+
+                    }
+                    heldObject = null;
+                    isHolding = false;
+
+                    break;
+                }
             }
         }
 
