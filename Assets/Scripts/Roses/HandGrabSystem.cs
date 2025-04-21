@@ -21,8 +21,8 @@ public class HandGrabSystem : MonoBehaviour
     [SerializeField] private string registradoraTag = "CajaRegistradora";
 
     // Estado actual del sistema
-    private GameObject heldObject = null;
-    private bool isHolding = false;
+    [SerializeField] private GameObject heldObject;
+    private bool isHolding = true;
 
     // Referencia al administrador de clientes
     [SerializeField] private ClientManager clientManager;
@@ -77,7 +77,7 @@ public class HandGrabSystem : MonoBehaviour
             }
             else
             {
-                
+
                 heldObject.transform.localRotation = Quaternion.identity;
             }
 
@@ -98,7 +98,7 @@ public class HandGrabSystem : MonoBehaviour
                 {
                     nearestClient.BilleteTomado();
                 }
-                else 
+                else
                 {
                     nearestClient = clientManager.FindNearestClientInState(
                         transform.position,
@@ -149,7 +149,7 @@ public class HandGrabSystem : MonoBehaviour
                     }
 
                     Transform clientGrabPoint = collider.transform.Find("GrabPoint");
-                    if(clientGrabPoint != null)
+                    if (clientGrabPoint != null)
                     {
                         heldObject.transform.SetParent(clientGrabPoint);
                         heldObject.transform.localPosition = Vector3.zero;
@@ -159,7 +159,7 @@ public class HandGrabSystem : MonoBehaviour
                         heldObject.transform.SetParent(collider.transform);
                         heldObject.transform.localPosition = Vector3.zero;
                     }
-                    
+
                     heldObject = null;
                     isHolding = false;
 
@@ -197,7 +197,7 @@ public class HandGrabSystem : MonoBehaviour
         }
 
         // Logica para no bloquear al jugador con la rosa, cambiable
-        if (isHolding && heldObject.CompareTag(rosaTag))
+        if (isHolding && heldObject.CompareTag(rosaTag) && clientManager.getTotalClients() > 0)
         {
             accionMano();
             heldObject.transform.SetParent(null);

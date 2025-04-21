@@ -217,7 +217,7 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(m_MinTimeBetweenClients, m_MaxTimeBetweenClients));
             if (m_clientManagerRef.GetClientCount() < m_MaxClients)
-                m_clientManagerRef.TrySpawnClient();
+                m_clientManagerRef.SpawnClientTutorial();
 
 
             if (m_clientManagerRef.GetClientCount() == 4)

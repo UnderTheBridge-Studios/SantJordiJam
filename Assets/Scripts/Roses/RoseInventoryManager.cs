@@ -35,7 +35,7 @@ public class RoseInventoryManager : MonoBehaviour
         {
             detectedRoses.Add(other.gameObject);
             OnRoseCountChanged?.Invoke(detectedRoses.Count);
-            Debug.Log("Rosa detectada. Total: " + detectedRoses.Count);
+            //Debug.Log("Rosa detectada. Total: " + detectedRoses.Count);
         }
     }
 
@@ -45,7 +45,7 @@ public class RoseInventoryManager : MonoBehaviour
         {
             detectedRoses.Remove(other.gameObject);
             OnRoseCountChanged?.Invoke(detectedRoses.Count);
-            Debug.Log("Rosa removida. Total: " + detectedRoses.Count);
+            //Debug.Log("Rosa removida. Total: " + detectedRoses.Count);
 
             if (detectedRoses.Count == 0 && !isRefilling)
             {
@@ -73,7 +73,7 @@ public class RoseInventoryManager : MonoBehaviour
     {
         if (rosePrefab == null)
         {
-            Debug.LogError("Rose prefab not assigned in RoseInventoryManager!");
+            //Debug.LogError("Rose prefab not assigned in RoseInventoryManager!");
             return;
         }
 
