@@ -7,9 +7,13 @@ public class ClientManager : MonoBehaviour
     [Header("Referencias")]
     [SerializeField] private GameObject clientPrefab;
     [SerializeField] private GameObject clientTutorialPrefab;
+    [SerializeField] private GameObject clientFinalPrefab;
     [SerializeField] private Transform[] clientPositions;
     [SerializeField] private Transform clientTutorialPosition;
+    [SerializeField] private Transform clientFinalPosition1;
+    [SerializeField] private Transform clientFinalPosition2;
     private GameObject clientTutorial;
+    private GameObject clientFinal;
 
     [Header("Configuración")]
     [SerializeField] private float minTimeBetweenClients = 5f;
@@ -155,5 +159,13 @@ public class ClientManager : MonoBehaviour
     public int getTotalClients()
     {
         return totalClients;
+    }
+
+    // Cliente final
+    public void SpawnClienteFinal()
+    {
+        clientFinal = Instantiate(clientFinalPrefab, new Vector3(-250f, 115f, 50f), Quaternion.Euler(90, 180, 90));
+        ClientFinal client = clientFinal.GetComponent<ClientFinal>();
+        client.Initialize(this, clientFinalPosition1, clientFinalPosition2);
     }
 }
