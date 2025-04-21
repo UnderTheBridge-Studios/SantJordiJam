@@ -7,12 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Pell1
+  m_Name: M_Pell 1
   m_Shader: {fileID: -6465566751694194690, guid: d18d07d54f6a9414da66227951621dd5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _TEXTURA
+  - _TINTADD
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -67,6 +68,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_2dece5303e804436842e342fe92d73b9_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: fdbe277f6ed66a8488678548ffe41867, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_3d7c1ab607274bca8ef1294feb1d91d2_Texture_1_Texture2D:
@@ -144,6 +149,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _TEXTURA: 1
+    - _TINTADD: 1
     - _Tiling: 1
     - _WindAmount: 0
     - _WindSpeed: 0
@@ -156,6 +162,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Specular: {r: 0, g: 0, b: 0, a: 1}
+    - _TextureTint: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 0}
     - _WindDir: {r: 0, g: 0, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
