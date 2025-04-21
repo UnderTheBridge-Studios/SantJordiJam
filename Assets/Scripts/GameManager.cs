@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     private Spawner m_SpawnerReference;
 
     [Header("Drac")]
+    [SerializeField]
+    private BoxCollider m_CastleCollider;
     private DracController m_DracReference;
     private PrincesaController m_PrincesaReference;
     private Castell m_CastellReference;
@@ -363,6 +365,7 @@ public class GameManager : MonoBehaviour
     {
         // Move drac to position
         dracReference.EnableControl(false);
+        m_CastleCollider.gameObject.SetActive(false);
         float time = dracReference.MoveToPoints(new Vector3(-10000, 3, -6));
         yield return new WaitForSeconds(time);
         
