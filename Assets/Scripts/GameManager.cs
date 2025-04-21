@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Drac")]
     private DracController m_DracReference;
-    //private PrincesaController m_PrincesaReference;
+    private PrincesaController m_PrincesaReference;
     private Castell m_CastellReference;
     private Cova m_CovaReference;
     private bool m_DracGameHasStarted = false;
@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
     public float minDistance => m_MinDistance;
     public int maxClients => m_MaxClients;
     public DracController dracReference => m_DracReference;
-    //public PrincesaController princesaReference => m_PrincesaReference;
     public bool isLastDay => m_IsLastDay;
 
     private void Awake()
@@ -264,10 +263,10 @@ public class GameManager : MonoBehaviour
         m_DracReference = reference;
     }
 
-    //public void SetPrincesaReference(PrincesaController reference)
-    //{
-    //    m_PrincesaReference = reference;
-    //}
+    public void SetPrincesaReference(PrincesaController reference)
+    {
+        m_PrincesaReference = reference;
+    }
 
     public void SetCaveReference(Cova reference)
     {
@@ -378,7 +377,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         // Move princesa
-        //princesaReference.MoveToPoints(new Vector3(-10000, 3, -10));
+        m_PrincesaReference.MoveToPoints(new Vector3(-10000, 3, -10));
     }
 
     #endregion
