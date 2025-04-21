@@ -77,7 +77,7 @@ MonoBehaviour:
     Ruiz'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ed3a98120712d942bbea3770e55e4a6, type: 2}
-  m_sharedMaterial: {fileID: -8043613076638705868, guid: 9ed3a98120712d942bbea3770e55e4a6, type: 2}
+  m_sharedMaterial: {fileID: 1675856570745939546, guid: 9ed3a98120712d942bbea3770e55e4a6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -285,10 +285,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Agafa la rosa per comencar el joc
+  m_text: "Agafa la rosa per comen\xE7ar el joc"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ed3a98120712d942bbea3770e55e4a6, type: 2}
-  m_sharedMaterial: {fileID: -8043613076638705868, guid: 9ed3a98120712d942bbea3770e55e4a6, type: 2}
+  m_sharedMaterial: {fileID: 1675856570745939546, guid: 9ed3a98120712d942bbea3770e55e4a6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -727,7 +727,7 @@ MonoBehaviour:
   m_text: Somnis Entre Roses
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ed3a98120712d942bbea3770e55e4a6, type: 2}
-  m_sharedMaterial: {fileID: -8043613076638705868, guid: 9ed3a98120712d942bbea3770e55e4a6, type: 2}
+  m_sharedMaterial: {fileID: 1675856570745939546, guid: 9ed3a98120712d942bbea3770e55e4a6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
