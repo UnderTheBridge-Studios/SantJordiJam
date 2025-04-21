@@ -374,7 +374,7 @@ public class GameManager : MonoBehaviour
         m_CastellReference.Jump(false);
         yield return new WaitForSeconds(2f);
         
-        Tween doorTween = m_CastellReference.OpenDoorTween();
+        m_CastellReference.OpenDoorsTween();
         yield return new WaitForSeconds(1f);
 
         // Move princesa

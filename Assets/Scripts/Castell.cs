@@ -4,6 +4,8 @@ using UnityEngine;
 public class Castell : MonoBehaviour
 {
     [SerializeField] private float m_JumpHeight = 5;
+    [SerializeField] private Transform m_PortaE;
+    [SerializeField] private Transform m_PortaD;
 
     private Tween m_JumpTween;
 
@@ -39,6 +41,12 @@ public class Castell : MonoBehaviour
                 }
             });
         }
+    }
+
+    public void OpenDoorsTween()
+    {
+        m_PortaE.DOLocalRotate(new Vector3(0, 45, 0), 1f);
+        m_PortaD.DOLocalRotate(new Vector3(0, -225, 0), 1f);
     }
 
 }
