@@ -1,7 +1,10 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-
+using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 public enum DayTime
 {
     day = 0,
@@ -334,6 +337,17 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        // If running in the Unity Editor
+        EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 
     public void EndGame()
     {
