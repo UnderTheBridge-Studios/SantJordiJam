@@ -120,8 +120,8 @@ Material:
     - _COLORTEXTURE: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ColorMult: 1
-    - _ColorPow: 1
+    - _ColorMult: 0.21
+    - _ColorPow: 0.4
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -140,13 +140,13 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.906
+    - _Smoothness: 0.837
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Tiling: 2.75
+    - _Tiling: 7.4
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:

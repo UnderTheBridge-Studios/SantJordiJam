@@ -21,6 +21,9 @@ public class ClientManager : MonoBehaviour
     [SerializeField] private int maxClients = 4;
     [SerializeField] private Vector3 clientSpawnPoint = new Vector3(-230f, 110f, 0f);
 
+    [Header("Material Mans")]
+    [SerializeField] private Material[] m_Materials;
+
     private List<Client> clients = new List<Client>();
     private float nextClientTime;
     private int totalClients = 0;
@@ -55,8 +58,14 @@ public class ClientManager : MonoBehaviour
         if (freePosition == null)
             return;
 
+
+        //get rand mat
+        Material mat = m_Materials[UnityEngine.Random.Range(0, m_Materials.Length)];
+
         GameObject clientObject = Instantiate(clientPrefab, clientSpawnPoint, Quaternion.Euler(180, 180, 0)); 
         Client client = clientObject.GetComponent<Client>();
+        clientObject.transform.GetChild(0).GetChild(2).GetComponent<MeshRenderer>().material = mat;
+        clientObject.transform.GetChild(0).GetChild(3).GetComponent<MeshRenderer>().material = mat;
         totalClients++;
         client.Initialize(this, freePosition);
         clients.Add(client);
