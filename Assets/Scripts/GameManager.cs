@@ -380,7 +380,13 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         // Move princesa
-        m_PrincesaReference.MoveToPoints(new Vector3(-10000, 3, -10));
+        time = m_PrincesaReference.MoveToPoints(new Vector3(-10000, 3, -15));
+        yield return new WaitForSeconds(time + 2f);
+
+        m_PrincesaReference.PlayHeartsAnimation();
+        yield return new WaitForSeconds(3f);
+
+        m_PrincesaReference.GetOnDrac(dracReference.transform);
     }
 
     #endregion
