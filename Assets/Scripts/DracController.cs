@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using System.Collections;
+using PathCreation.Examples;
 
 public class DracController : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class DracController : MonoBehaviour
     [SerializeField] private Transform m_DracModel;
 
     [SerializeField] private LayerMask m_AnimalLayer;
-
+    [SerializeField] private PathFollower m_PathFollower;
 
 
     private void Start()
@@ -188,6 +189,18 @@ public class DracController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(transform.position + (gameObject.transform.GetChild(0).transform.forward * 3.5f), m_SphereEatRadius);
+    }
+
+    public void CameraOut()
+    {
+        Transform camera = GetComponentInChildren<Camera>().transform;
+        camera.SetParent(transform.parent);
+    }
+
+    public void FlyAway()
+    {
+        Debug.Log("FlyAway!");
+        m_PathFollower.enabled = true;
     }
 
 }

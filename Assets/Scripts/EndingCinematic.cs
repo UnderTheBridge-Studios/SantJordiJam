@@ -8,6 +8,7 @@ public class EndingCinematic : MonoBehaviour
         if (collision.tag == "Drac" && GameManager.Instance.isLastDay)
         {
             GameManager.Instance.StopRoseLoop();
+            Destroy(gameObject);
         }
     }
 }

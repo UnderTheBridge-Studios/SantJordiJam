@@ -393,7 +393,11 @@ public class GameManager : MonoBehaviour
         m_PrincesaReference.PlayHeartsAnimation();
         yield return new WaitForSeconds(3f);
 
-        m_PrincesaReference.GetOnDrac(dracReference.transform);
+        m_PrincesaReference.JumpOnDrac(dracReference.transform);
+        dracReference.CameraOut();
+        yield return new WaitForSeconds(3f);
+
+        dracReference.FlyAway();
     }
 
     #endregion

@@ -90,7 +90,7 @@ public class PrincesaController : MonoBehaviour
                 .SetEase(Ease.OutQuad);
     }
 
-    public void GetOnDrac(Transform dracTransform)
+    public void JumpOnDrac(Transform dracTransform)
     {
         //float movementZ = dracTransform.position.z - transform.position.z + 0.7f;
         transform.SetParent(dracTransform);
