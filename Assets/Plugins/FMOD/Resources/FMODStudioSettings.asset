@@ -77,9 +77,9 @@ MonoBehaviour:
   - e7a046c753c3c3d4aacc91f6597f310d
   - c88d16e5272a4e241b0ef0ac2e53b73d
   - 0f8eb3f400726694eb47beb1a9f94ce8
-  - 2c5177b11d81d824dbb064f9ac8527da
   - fd7c55dab0fce234b8c25f6ffca523c1
   - b7716510a1f36934c87976f3a81dbf3d
+  - 2c5177b11d81d824dbb064f9ac8527da
   codecChannels:
     Value: []
     HasValue: 0
@@ -395,11 +395,11 @@ MonoBehaviour:
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
-  AutomaticEventLoading: 1
+  AutomaticEventLoading: 0
   BankLoadType: 0
   AutomaticSampleLoading: 0
   EncryptionKey: 
-  ImportType: 1
+  ImportType: 0
   TargetAssetPath: FMODBanks
   TargetBankFolder: 
   EventLinkage: 0
@@ -420,7 +420,14 @@ MonoBehaviour:
   - OST
   - OST paralela
   - SFX
-  BanksToLoad: []
+  BanksToLoad:
+  - Ambience
+  - Level
+  - Master
+  - Master.strings
+  - OST paralela
+  - OST
+  - SFX
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
   AndroidUseOBB: 0
@@ -681,7 +688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifier: 2c5177b11d81d824dbb064f9ac8527da
   parentIdentifier: default
-  active: 0
+  active: 1
   Properties:
     LiveUpdate:
       Value: 0
@@ -731,7 +738,7 @@ MonoBehaviour:
     CallbackHandler:
       Value: {fileID: 0}
       HasValue: 0
-  OutputTypeName: 
+  OutputTypeName: AUTODETECT
   threadAffinities:
     Value: []
     HasValue: 0
