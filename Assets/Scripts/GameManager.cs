@@ -350,23 +350,6 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Ending
-    /*Final!
-    Triggers:
-    - Última cova:
-        - Max clients 1
-    - Arrives al castell:
-        - Bounce castle.
-        - Stop spawn clients
-    - Atès últim client:
-        - Apareix llibre de fons
-        - Spawn princesa
-        - Start cinemàtica final imaginació
-    - Acava cinemàtica imaginacióa
-        - Deixa el llibre sobre la taula
-        - Fade imaginació
-    - Dones l'última rosa
-        - Final screen
-    */
 
     public void Quit()
     {
@@ -399,7 +382,7 @@ public class GameManager : MonoBehaviour
         float time = dracReference.MoveToPoints(new Vector3(-10000, 3, -6));
         yield return new WaitForSeconds(time);
 
-        dracReference.MoveToPoints(new Vector3(-10000, 3, -7));
+        dracReference.MoveToPoints(new Vector3(-10000, 3, -8));
         yield return new WaitUntil(m_clientManagerRef.isLastClientDone);
 
         // Open doors
