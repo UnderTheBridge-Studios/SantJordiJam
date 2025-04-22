@@ -5454,7 +5454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 0}
   endOfPathInstruction: 2
-  speed: 10
+  speed: 12
 --- !u!1001 &2932706646335105799
 PrefabInstance:
   m_ObjectHideFlags: 0
