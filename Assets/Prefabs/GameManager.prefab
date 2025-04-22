@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6968198758132288536}
   - component: {fileID: 8973528524618457810}
+  - component: {fileID: 6589561390684106802}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -67,7 +68,7 @@ MonoBehaviour:
     radius: 3
   m_MinDistance: 3
   m_clientManagerRef: {fileID: 0}
-  m_ClientsBeforeDrac: 5
+  m_ClientsBeforeDrac: 2
   m_MinTimeBetweenClients: 5
   m_MaxTimeBetweenClients: 10
   m_LerpSpeed: 0.5
@@ -78,3 +79,65 @@ MonoBehaviour:
   m_ClickRef_Rosa: {fileID: 0}
   renderPass: {fileID: 6482135410036836633, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
   m_Cursor: {fileID: 2800000, guid: 3a307b693b9eae94db2a85398d724c0b, type: 3}
+--- !u!114 &6589561390684106802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482769892210140544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 44ba7a2b27cfdee4d827c0fcbc3bf3ff, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 14f7c076-87eb-4220-b47f-f0744d0edcd0
+    m_ActionName: 'DracController/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1e234f62-e145-49b6-81a4-9dacd2944512
+    m_ActionName: 'DracController/Eat[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8973528524618457810}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fc5a15b8-fc49-444b-a9da-c13e973fc5af
+    m_ActionName: 'DracController/CloseGame[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b3c3939b-8f3b-4de6-8887-589469bbb746
+    m_ActionName: 'HandController/Grab[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ff65e95f-a2e6-4606-bbba-a736dbbff454
+    m_ActionName: 'HandController/Movement[/Mouse/position]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: DracController
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

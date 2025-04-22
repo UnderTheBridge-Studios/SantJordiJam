@@ -3,7 +3,10 @@ using System.Threading;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-
+using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 public enum DayTime
 {
     day = 0,
@@ -354,12 +357,24 @@ public class GameManager : MonoBehaviour
     - Dones l'última rosa
         - Final screen
     */
+
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        // If running in the Unity Editor
+        EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
     public void EndGame()
     {
         Debug.Log("Last Day");
         m_IsLastDay = true;
         m_MaxClients = 1;
         m_CastellReference.Jump(true);
+        m_clientManagerRef.SpawnClienteFinal();
     }
 
     public void StopRoseLoop()
