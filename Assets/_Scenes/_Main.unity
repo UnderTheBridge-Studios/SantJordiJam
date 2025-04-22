@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterVolume: 0.378
-  musicVolume: 0
+  musicVolume: 0.433
   ambienceVolume: 1
   SFXVolume: 1
 --- !u!114 &629010780
@@ -687,6 +687,13 @@ MonoBehaviour:
       Data3: -1838416505
       Data4: 1195244620
     Path: event:/SFX/Outro
+  <yawn>k__BackingField:
+    Guid:
+      Data1: 1824870279
+      Data2: 1079939634
+      Data3: 163545479
+      Data4: 1373891257
+    Path: event:/SFX/Yawn
 --- !u!1 &712889996 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5181171041931891913, guid: 591dee99435b08c45ab0ead384646be7, type: 3}

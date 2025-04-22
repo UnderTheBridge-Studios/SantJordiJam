@@ -70,8 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   billeteObject: {fileID: 4594499750040065767}
-  billeteObjectDoblado: {fileID: 931006430918498324}
-  walkSpeed: 72.1
+  walkSpeed: 135.3
   ManoAbierta: {fileID: 583128116360376079}
   ManoCerrada: {fileID: 209075224032739956}
 --- !u!114 &2858180165968849110
@@ -479,10 +478,5 @@ PrefabInstance:
 --- !u!4 &549520269630243502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6540931717363014323, guid: 99f845dbc6da32449ac24acdfeabdafe, type: 3}
-  m_PrefabInstance: {fileID: 6730145290209335325}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &931006430918498324 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5876597254511542281, guid: 99f845dbc6da32449ac24acdfeabdafe, type: 3}
   m_PrefabInstance: {fileID: 6730145290209335325}
   m_PrefabAsset: {fileID: 0}
