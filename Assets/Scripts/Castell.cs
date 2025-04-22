@@ -1,4 +1,5 @@
 using DG.Tweening;
+using FMODUnity;
 using UnityEngine;
 
 public class Castell : MonoBehaviour
@@ -6,7 +7,8 @@ public class Castell : MonoBehaviour
     [SerializeField] private float m_JumpHeight = 5;
     [SerializeField] private Transform m_PortaE;
     [SerializeField] private Transform m_PortaD;
-    [SerializeField] private GameObject sound;
+    [SerializeField] private StudioEventEmitter m_SoundEmitter;
+    [SerializeField] private Transform m_SoundTransform;
 
     private Tween m_JumpTween;
 
@@ -18,15 +20,14 @@ public class Castell : MonoBehaviour
         m_IsJumping = false;
         m_InitialVerticalPosition = transform.localPosition.y;
         GameManager.Instance.SetCastellReference(this);
-
     }
 
     public void Jump(bool value)
     {
         if (!m_IsJumping)
         {
-            sound.SetActive(true);
             AudioManager.instance.StopSounds();
+            m_SoundEmitter.Play();
             m_JumpTween = transform.DOLocalMoveY(transform.localPosition.y + m_JumpHeight, 0.2f)
                     .SetLoops(-1, LoopType.Yoyo)
                     .SetEase(Ease.OutQuad);
@@ -38,7 +39,7 @@ public class Castell : MonoBehaviour
             {
                 if (m_JumpTween.CompletedLoops() % 2 == 0)
                 {
-                    sound.transform.DOLocalMoveZ(sound.transform.localPosition.z - 200f, 1.0f)
+                    m_SoundTransform.DOLocalMoveZ(m_SoundTransform.localPosition.z - 200f, 1.0f)
                         .SetEase(Ease.InOutQuad);
                     m_JumpTween.Kill();
                     transform.position = new Vector3(transform.position.x, m_InitialVerticalPosition, transform.position.z);

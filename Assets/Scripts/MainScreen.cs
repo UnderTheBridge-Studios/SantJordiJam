@@ -21,7 +21,7 @@ public class MainScreen : MonoBehaviour
         {
             if (AudioManager.instance != null)
             {
-                //AudioManager.instance.InitializeSound();
+                AudioManager.instance.InitializeSound();
                 hasSounded = true;
             }
         }

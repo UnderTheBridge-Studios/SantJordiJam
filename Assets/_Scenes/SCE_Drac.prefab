@@ -3017,7 +3017,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6804673025462299529}
-  - component: {fileID: 1749315148175187421}
   m_Layer: 0
   m_Name: PF_Castell (1)
   m_TagString: Untagged
@@ -3065,21 +3064,6 @@ Transform:
   - {fileID: 7739641098428824785}
   m_Father: {fileID: 1340676773606905465}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1749315148175187421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8424381627544522257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62844f16fc533be43ba5c7d4e38c3e9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_JumpHeight: 3
-  m_PortaE: {fileID: 0}
-  m_PortaD: {fileID: 0}
 --- !u!1 &8427827241893980908
 GameObject:
   m_ObjectHideFlags: 0
@@ -7764,6 +7748,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1340676773606905465}
     m_Modifications:
+    - target: {fileID: 298566431807407175, guid: f3de36df53e24a14eb9047148dc65fb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 298566431807407175, guid: f3de36df53e24a14eb9047148dc65fb4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 573337003616451112, guid: f3de36df53e24a14eb9047148dc65fb4, type: 3}
+      propertyPath: Preload
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 573337003616451112, guid: f3de36df53e24a14eb9047148dc65fb4, type: 3}
+      propertyPath: EventPlayTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 573337003616451112, guid: f3de36df53e24a14eb9047148dc65fb4, type: 3}
+      propertyPath: EventStopTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 573337003616451112, guid: f3de36df53e24a14eb9047148dc65fb4, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 573337003616451112, guid: f3de36df53e24a14eb9047148dc65fb4, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 119.9
+      objectReference: {fileID: 0}
     - target: {fileID: 1349981291032547805, guid: f3de36df53e24a14eb9047148dc65fb4, type: 3}
       propertyPath: m_RenderingLayerMask
       value: 4
@@ -7848,6 +7860,14 @@ PrefabInstance:
       propertyPath: m_JumpHeight
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 9189514940194575247, guid: f3de36df53e24a14eb9047148dc65fb4, type: 3}
+      propertyPath: m_SoundEmitter
+      value: 
+      objectReference: {fileID: 7586842722466107818}
+    - target: {fileID: 9189514940194575247, guid: f3de36df53e24a14eb9047148dc65fb4, type: 3}
+      propertyPath: m_SoundTransform
+      value: 
+      objectReference: {fileID: 7681380799584677829}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7856,6 +7876,22 @@ PrefabInstance:
 --- !u!4 &6274480030468804185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4156375976430577115, guid: f3de36df53e24a14eb9047148dc65fb4, type: 3}
+  m_PrefabInstance: {fileID: 7979542592138029954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7586842722466107818 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 573337003616451112, guid: f3de36df53e24a14eb9047148dc65fb4, type: 3}
+  m_PrefabInstance: {fileID: 7979542592138029954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &7681380799584677829 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 298566431807407175, guid: f3de36df53e24a14eb9047148dc65fb4, type: 3}
   m_PrefabInstance: {fileID: 7979542592138029954}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8380267918131548929

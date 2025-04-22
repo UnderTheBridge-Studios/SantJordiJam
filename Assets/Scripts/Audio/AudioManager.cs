@@ -40,12 +40,12 @@ public class AudioManager : MonoBehaviour
         eventInstances = new List<EventInstance>();
         eventEmitters = new List<StudioEventEmitter>();
 
-        RuntimeManager.LoadBank("Master", true);
-        RuntimeManager.LoadBank("Master.strings", true);
-        RuntimeManager.LoadBank("Level", true);
-        RuntimeManager.LoadBank("Ambience", true);
-        RuntimeManager.LoadBank("SFX", true);
-        RuntimeManager.LoadBank("OST paralela", true);
+        //RuntimeManager.LoadBank("Master", true);
+        //RuntimeManager.LoadBank("Master.strings", true);
+        //RuntimeManager.LoadBank("Level", true);
+        //RuntimeManager.LoadBank("Ambience", true);
+        //RuntimeManager.LoadBank("SFX", true);
+        //RuntimeManager.LoadBank("OST paralela", true);
 
 
         masterBus = RuntimeManager.GetBus("bus:/");
@@ -70,9 +70,8 @@ public class AudioManager : MonoBehaviour
 
     public void InitializeSound()
     {
-
-        PlayOneShot(FMODEvents.instance.start, transform.position);
         InitializeAmbience();
+        PlayOneShot(FMODEvents.instance.start, transform.position);
     }
 
     public void PlayMusica()
