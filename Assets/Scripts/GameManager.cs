@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine;
+using TMPro;
+using DG.Tweening;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -69,6 +71,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FullScreenPassRendererFeature renderPass;
     [Space]
     [SerializeField] private Texture2D m_Cursor;
+    [SerializeField] private GameObject m_GraciesPerJugar;
+    [SerializeField] private GameObject m_CamaraRoses;
+
     //Accesors
     public DayTime currentDayTime => m_CurrentDayTime;
     public float minDistance => m_MinDistance;
@@ -96,6 +101,7 @@ public class GameManager : MonoBehaviour
         Cursor.SetCursor(m_Cursor, Vector2.zero, CursorMode.Auto);
 
         RosesTutorial();
+        StartCoroutine(FinalScreen());
     }
 
     #region Escena Drac
@@ -356,4 +362,22 @@ public class GameManager : MonoBehaviour
         m_CastellReference.Jump(true);
         m_clientManagerRef.SpawnClienteFinal();
     }
+
+
+    //Thank for playing
+    public IEnumerator FinalScreen()
+    {
+        yield return new WaitForSeconds(10f);
+
+        m_GraciesPerJugar.SetActive(true);
+
+        m_CamaraRoses.transform.DOMove(new Vector3(15, 190, 0), 3f).SetEase(Ease.InOutSine);
+        yield return new WaitForSeconds(3f);
+        m_GraciesPerJugar.GetComponent<CanvasGroup>().DOFade(1, 1f);
+    }
+
+
+
+
+
 }

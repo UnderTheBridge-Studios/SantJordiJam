@@ -25,9 +25,10 @@ public class MainScreen : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         m_CanvasGroup.DOFade(0, 1f);
-        yield return new WaitForSeconds(2f);
-        gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
         GameManager.Instance.ShowTuto(Tutorial.click_rosa);
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
     }
 
 }
