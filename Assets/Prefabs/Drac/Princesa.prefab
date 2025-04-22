@@ -75,6 +75,7 @@ MonoBehaviour:
   m_PrincesaSpeed: 3
   m_PrincesaModel: {fileID: 7106364393568860249}
   m_ParticleSystem: {fileID: 2027017143874561015}
+  m_DebugTransform: {fileID: 0}
 --- !u!1 &7693206148015247190
 GameObject:
   m_ObjectHideFlags: 0
@@ -4956,9 +4957,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5240308712589225218, guid: 47d657c0cb755ad4e934e5cd60909e5e, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -1655103617891152561, guid: 47d657c0cb755ad4e934e5cd60909e5e, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 47d657c0cb755ad4e934e5cd60909e5e, type: 3}
       propertyPath: m_Name
       value: PrincesaModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447815145620700420, guid: 47d657c0cb755ad4e934e5cd60909e5e, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446136457941227403, guid: 47d657c0cb755ad4e934e5cd60909e5e, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

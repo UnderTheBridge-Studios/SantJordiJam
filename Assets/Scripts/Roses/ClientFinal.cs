@@ -134,6 +134,7 @@ public class ClientFinal : MonoBehaviour
         if (currentState == ClientFinalState.WaitingRose)
         {
             SetState(ClientFinalState.Leaving);
+            GameManager.Instance.FinalScreen();
             //StartCoroutine(LeaveAfterDelay(0.2f));
         }
     }

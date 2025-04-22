@@ -195,6 +195,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ff65e95f-a2e6-4606-bbba-a736dbbff454
     m_ActionName: 'HandController/Movement[/Mouse/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fc5a15b8-fc49-444b-a9da-c13e973fc5af
+    m_ActionName: 'DracController/CloseGame[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: HandController
