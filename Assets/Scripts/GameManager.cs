@@ -4,6 +4,8 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine;
+using static ClientFinal;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -232,11 +234,10 @@ public class GameManager : MonoBehaviour
         HideTuto(Tutorial.click_rosa);
         Invoke("HideRosaTuto", 3f);
         yield return new WaitForSeconds(2f);
-        m_clientManagerRef.TrySpawnClient();
+        //m_clientManagerRef.TrySpawnClient();
 
         while (!m_StopRoseLoop)
         {
-            yield return new WaitForSeconds(Random.Range(m_MinTimeBetweenClients, m_MaxTimeBetweenClients));
             if (m_clientManagerRef.GetClientCount() < m_MaxClients)
                 m_clientManagerRef.TrySpawnClient();
 
@@ -249,6 +250,8 @@ public class GameManager : MonoBehaviour
                 m_MaxClients = 4;
             else if (m_DayCount == 1)
                 m_MaxClients = 3;
+
+            yield return new WaitForSeconds(Random.Range(m_MinTimeBetweenClients, m_MaxTimeBetweenClients));
         }
     }
 
@@ -374,7 +377,6 @@ public class GameManager : MonoBehaviour
         m_IsLastDay = true;
         m_MaxClients = 1;
         m_CastellReference.Jump(true);
-        m_clientManagerRef.SpawnClienteFinal();
     }
 
     public void StopRoseLoop()
@@ -393,8 +395,9 @@ public class GameManager : MonoBehaviour
         
         dracReference.MoveToPoints(new Vector3(-10000, 3, -7));
         yield return new WaitUntil(m_clientManagerRef.isLastClientDone);
-        
+
         // Open doors
+        ClientFinal clientFinal = m_clientManagerRef.SpawnClienteFinal();
         m_CastellReference.Jump(false);
         yield return new WaitForSeconds(2f);
         
@@ -413,6 +416,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         dracReference.FlyAway();
+        yield return new WaitForSeconds(3f);
+
+        clientFinal.SetState(ClientFinalState.MovingToTable);
     }
 
     #endregion

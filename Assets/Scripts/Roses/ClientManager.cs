@@ -177,10 +177,12 @@ public class ClientManager : MonoBehaviour
 
         return false;
     }
-    public void SpawnClienteFinal()
+    public ClientFinal SpawnClienteFinal()
     {
         clientFinal = Instantiate(clientFinalPrefab, new Vector3(-250f, 115f, 50f), Quaternion.Euler(90, 180, 90));
         ClientFinal client = clientFinal.GetComponent<ClientFinal>();
         client.Initialize(this, clientFinalPosition1, clientFinalPosition2);
+
+        return client;
     }
 }

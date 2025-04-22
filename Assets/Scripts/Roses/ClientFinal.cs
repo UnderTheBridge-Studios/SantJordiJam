@@ -8,11 +8,9 @@ public class ClientFinal : MonoBehaviour
     {
         Walking,         // Caminando hasta la posición de espera
         Waiting,         // Esperando su turno
-        MovingToTable,   // Moviéndose hacia la mesa
-        PlacingBook,     // Dejando el libro en la mesa
+        MovingToTable,   // Moviéndose hacia la mesa & Dejando el libro en la mesa
         MovingAside,     // Moviéndose hacia un lado para dejar ver el libro
-        WaitingRose,     // Esperando su rosa
-        Served,          // Recibió su rosa
+        WaitingRose,     // Esperando su rosa     // 
         Leaving          // Lo que sea que ocurre al final      
     }
 
@@ -42,7 +40,6 @@ public class ClientFinal : MonoBehaviour
         waitingPosition = position1;
         tablePosition = position2;
         SetState(ClientFinalState.Walking);
-        StartCoroutine(changeState());
     }
 
     private void Update()
@@ -104,17 +101,9 @@ public class ClientFinal : MonoBehaviour
         }
     }
 
-    private void SetState(ClientFinalState newState)
+    public void SetState(ClientFinalState newState)
     {
         currentState = newState;
-    }
-
-    public void FinalClientTurno()
-    {
-        if (currentState == ClientFinalState.Waiting)
-        {
-            SetState(ClientFinalState.MovingToTable);
-        }
     }
 
     private void DejarLibro()
@@ -125,10 +114,10 @@ public class ClientFinal : MonoBehaviour
             {
                 libroObject.transform.SetParent(null);
                 libroObject.transform.localPosition = new Vector3(grabPoint.transform.position.x, 103f, grabPoint.transform.position.z);
-                libroObject.transform.localRotation = Quaternion.Euler(0, 90, 0);
+                libroObject.transform.localRotation = Quaternion.Euler(0, 0, 180);
             }
 
-            accionMano();
+            AccionMano();
 
             sidePosition = new Vector3(
                 tablePosition.position.x,
@@ -144,35 +133,15 @@ public class ClientFinal : MonoBehaviour
     {
         if (currentState == ClientFinalState.WaitingRose)
         {
-            SetState(ClientFinalState.Served);
-            StartCoroutine(LeaveAfterDelay(0.2f));
+            SetState(ClientFinalState.Leaving);
+            //StartCoroutine(LeaveAfterDelay(0.2f));
         }
     }
 
-    private IEnumerator LeaveAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        SetState(ClientFinalState.Leaving);
-    }
-
-    public bool libroEntregado()
-    {
-        return (currentState == ClientFinalState.WaitingRose ||
-                currentState == ClientFinalState.Served ||
-                currentState == ClientFinalState.Leaving);
-    }
-
-    public void accionMano()
+    public void AccionMano()
     {
         bool manoActiva = ManoAbierta.activeSelf;
         ManoAbierta.SetActive(!manoActiva);
         ManoCerrada.SetActive(manoActiva);
-    }
-
-    private IEnumerator changeState()
-    {
-        yield return new WaitForSeconds(5f);
-
-        SetState(ClientFinalState.MovingToTable); 
     }
 }
