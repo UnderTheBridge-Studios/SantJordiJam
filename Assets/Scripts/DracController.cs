@@ -25,6 +25,8 @@ public class DracController : MonoBehaviour
     [SerializeField] private float m_DracSpeed = 15;
     [SerializeField] private float m_SphereEatRadius = 5;
     [SerializeField] private Transform m_DracModel;
+    [SerializeField] private ParticleSystem m_SleepyDragon;
+    [SerializeField] private ParticleSystem m_SleepCaveEffect;
 
     [SerializeField] private LayerMask m_AnimalLayer;
     [SerializeField] private PathFollower m_PathFollower;
@@ -199,8 +201,16 @@ public class DracController : MonoBehaviour
 
     public void FlyAway()
     {
-        Debug.Log("FlyAway!");
         m_PathFollower.enabled = true;
     }
 
+    public void SleepCaveEffect()
+    {
+        m_SleepCaveEffect.Play();
+    }
+
+    public void SleepDragonEffect()
+    {
+        m_SleepyDragon.Play();
+    }
 }

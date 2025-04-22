@@ -147,6 +147,7 @@ public class GameManager : MonoBehaviour
         float time;
         time = m_DracReference.MoveToPoints(m_CovaReference.exteriorCova);
         yield return new WaitForSeconds(time);
+        m_DracReference.SleepCaveEffect();
         time = m_DracReference.MoveToPoints(m_CovaReference.interiorCova);
         yield return new WaitForSeconds(time);
         ChangeToDay();
@@ -195,6 +196,7 @@ public class GameManager : MonoBehaviour
     public void ChangeToNight()
     {
         m_DayCount++;
+        m_DracReference.SleepDragonEffect();
         ChangeDayNight(DayTime.night);
     }
 
@@ -373,7 +375,6 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        Debug.Log("Last Day");
         m_IsLastDay = true;
         m_MaxClients = 1;
         m_CastellReference.Jump(true);

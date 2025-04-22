@@ -3451,6 +3451,18 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -10.504722
       objectReference: {fileID: 0}
+    - target: {fileID: 269331688756377347, guid: 6db08b8a2e637a94a8f652ee5c4d1216, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 269331688756377347, guid: 6db08b8a2e637a94a8f652ee5c4d1216, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 269331688756377347, guid: 6db08b8a2e637a94a8f652ee5c4d1216, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.01
+      objectReference: {fileID: 0}
     - target: {fileID: 526334148332424656, guid: 6db08b8a2e637a94a8f652ee5c4d1216, type: 3}
       propertyPath: m_VersionIndex
       value: 1148
@@ -3544,6 +3556,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6db08b8a2e637a94a8f652ee5c4d1216, type: 3}
+--- !u!198 &2457624057709326785 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2502396206265098777, guid: 6db08b8a2e637a94a8f652ee5c4d1216, type: 3}
+  m_PrefabInstance: {fileID: 45440721083208664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6613273877116072110 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6586058798213833590, guid: 6db08b8a2e637a94a8f652ee5c4d1216, type: 3}
@@ -5555,6 +5572,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2763799214279229557, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
+      propertyPath: m_SleepCaveEffect
+      value: 
+      objectReference: {fileID: 2457624057709326785}
+    - target: {fileID: 2763799214279229557, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
       propertyPath: m_AnimalLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
@@ -5584,7 +5605,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5407465610320204324, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407465610320204324, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: fc5a15b8-fc49-444b-a9da-c13e973fc5af
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407465610320204324, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: 'DracController/CloseGame[/Keyboard/escape]'
       objectReference: {fileID: 0}
     - target: {fileID: 5926576419532151991, guid: 832ede5068dd8c94db6df73fd44249cc, type: 3}
       propertyPath: m_LocalPosition.x
