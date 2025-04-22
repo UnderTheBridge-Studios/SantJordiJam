@@ -7,7 +7,8 @@ public class MainScreen : MonoBehaviour
 {
     private CanvasGroup m_CanvasGroup;
     [SerializeField] private Mask m_mask;
-    
+    private bool hasSounded = false;
+
     void Start()
     {
         m_CanvasGroup = GetComponent<CanvasGroup>();
@@ -16,7 +17,11 @@ public class MainScreen : MonoBehaviour
 
     public void OnStart()
     {
-        AudioManager.instance.InitializeSound();
+        if (!hasSounded)
+        {
+            AudioManager.instance.InitializeSound();
+            hasSounded = true;
+        }
         m_mask.enabled = true;
         Cursor.visible = false;
         StartCoroutine(ShowTuto());

@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
     public float minDistance => m_MinDistance;
     public int maxClients => m_MaxClients;
     public DracController dracReference => m_DracReference;
+    public bool isLastDay => m_IsLastDay;
 
     private void Awake()
     {
@@ -123,13 +124,13 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartDracGame()
     {
+        AudioManager.instance.PlayMusica();
         m_TarjetShaderValue = 1;
         m_DracGameHasStarted = true;
         ChangeToDay();
         yield return new WaitForSeconds(5f);
         ShowTuto(Tutorial.wasd);
         m_DracReference.EnableControl(true);
-        AudioManager.instance.PlayMusica();
     }
 
     public void EnterCave()

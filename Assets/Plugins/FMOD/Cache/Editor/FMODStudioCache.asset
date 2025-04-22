@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/OST paralela.bank
   Name: OST paralela
   StudioPath: bank:/OST paralela
-  lastModified: 638808796099456282
+  lastModified: 638809547612931805
   FileSizes: []
   Exists: 1
 --- !u!114 &-7835164983382894495
@@ -60,7 +60,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638807925703769509
+  lastModified: 638809551165848230
   FileSizes: []
   Exists: 1
 --- !u!114 &-5023653612087044828
@@ -91,7 +91,7 @@ MonoBehaviour:
   - {fileID: 9211021939290901566}
   MinDistance: 1
   MaxDistance: 20
-  Length: 106785
+  Length: 107480
 --- !u!114 &-4449714681814462490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638808804294230720
+  lastModified: 638809553296377117
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -200,13 +200,17 @@ MonoBehaviour:
   - {fileID: -3181165240469882104}
   - {fileID: -9204303313690401840}
   - {fileID: 4909237840847664185}
+  - {fileID: 6199462227684849361}
+  - {fileID: 7484128801528330487}
+  - {fileID: 3276021408509963310}
+  - {fileID: 6671883688205141538}
   EditorParameters: []
   MasterBanks:
   - {fileID: -114952545988899698}
   StringsBanks:
   - {fileID: 8140643792573350462}
   cacheVersion: 131847
-  cacheTime: 638808804294505094
+  cacheTime: 638809565540004002
   SerializableEventsDict:
   - key: event:/Ambience/People
     index: 0
@@ -220,6 +224,41 @@ MonoBehaviour:
     index: 4
   - key: event:/SFX/Intro
     index: 5
+  - key: event:/SFX/Hearts
+    index: 6
+  - key: event:/SFX/Barullo
+    index: 7
+  - key: event:/SFX/Eat
+    index: 8
+  - key: event:/SFX/Outro
+    index: 9
+--- !u!114 &3276021408509963310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Eat
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Eat
+  Guid:
+    Data1: -1483564399
+    Data2: 1132433632
+    Data3: -783733631
+    Data4: -177893364
+  Banks:
+  - {fileID: 5103884507651723021}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &4909237840847664185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +329,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638808804294505094
+  lastModified: 638809565540004002
   FileSizes: []
   Exists: 1
 --- !u!114 &6035834579211754966
@@ -344,6 +383,87 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &6199462227684849361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Hearts
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Hearts
+  Guid:
+    Data1: 2096863211
+    Data2: 1146978214
+    Data3: 2004828043
+    Data4: 1462056902
+  Banks:
+  - {fileID: 5103884507651723021}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6671883688205141538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Outro
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Outro
+  Guid:
+    Data1: 109947399
+    Data2: 1110151916
+    Data3: -1838416505
+    Data4: 1195244620
+  Banks:
+  - {fileID: 5103884507651723021}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 35714
+--- !u!114 &7484128801528330487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Barullo
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Barullo
+  Guid:
+    Data1: -115576671
+    Data2: 1298571917
+    Data3: 1679977148
+    Data4: -659651454
+  Banks:
+  - {fileID: 5103884507651723021}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14328
 --- !u!114 &8140643792573350462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,10 +479,10 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638808804294250738
+  lastModified: 638809553296397152
   FileSizes:
   - Name: 
-    Value: 1478
+    Value: 1634
   Exists: 1
 --- !u!114 &8216402053880221884
 MonoBehaviour:
