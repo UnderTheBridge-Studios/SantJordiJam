@@ -165,6 +165,7 @@ public class DracController : MonoBehaviour
 
     void EatAnimation()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.eat, this.transform.position);
         m_CanEat = m_CanMove = false;
         m_DracModel.DOLocalMoveY(m_DracModel.localPosition.y + 1, 0.1f)
                 .SetLoops(2, LoopType.Yoyo)
@@ -201,6 +202,7 @@ public class DracController : MonoBehaviour
 
     public void FlyAway()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.outro, this.transform.position);
         m_PathFollower.enabled = true;
     }
 
