@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
     {
         m_DracGameHasStarted = false;
 
-        m_CurrentDayTime = DayTime.none;
+        //m_CurrentDayTime = DayTime.none;
 
         m_TarjetShaderValue = -1;
         renderPass.passMaterial.SetFloat("_SceneLerp", -1);
@@ -183,8 +183,8 @@ public class GameManager : MonoBehaviour
     #region DayCycle
     public void ChangeToDay()
     {
-        if (currentDayTime == DayTime.day)
-            return;
+        //if (currentDayTime == DayTime.day)
+        //    return;
 
         ChangeDayNight(DayTime.day);
 
