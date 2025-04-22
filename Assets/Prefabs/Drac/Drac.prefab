@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 2763799214279229557}
   - component: {fileID: 8046577403662024805}
   - component: {fileID: 5407465610320204324}
+  - component: {fileID: 7876101952066528935}
   m_Layer: 0
   m_Name: Drac
   m_TagString: Drac
@@ -470,7 +471,8 @@ MonoBehaviour:
   m_DracModel: {fileID: 1175111144084806069}
   m_AnimalLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
+  m_PathFollower: {fileID: 7876101952066528935}
 --- !u!143 &8046577403662024805
 CharacterController:
   m_ObjectHideFlags: 0
@@ -566,6 +568,21 @@ MonoBehaviour:
   m_DefaultActionMap: DracController
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7876101952066528935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8455309138667005156}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathCreator: {fileID: 0}
+  endOfPathInstruction: 2
+  speed: 10
 --- !u!1001 &2932706646335105799
 PrefabInstance:
   m_ObjectHideFlags: 0

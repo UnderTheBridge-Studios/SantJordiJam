@@ -170,11 +170,19 @@ public class ClientManager : MonoBehaviour
         return totalClients;
     }
 
-    // Cliente final
-    public void SpawnClienteFinal()
+    public bool isLastClientDone()
+    {
+        if (clients.Count <= 0)
+            return true;
+
+        return false;
+    }
+    public ClientFinal SpawnClienteFinal()
     {
         clientFinal = Instantiate(clientFinalPrefab, new Vector3(-250f, 115f, 50f), Quaternion.Euler(90, 180, 90));
         ClientFinal client = clientFinal.GetComponent<ClientFinal>();
         client.Initialize(this, clientFinalPosition1, clientFinalPosition2);
+
+        return client;
     }
 }

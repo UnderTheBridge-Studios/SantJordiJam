@@ -1,9 +1,11 @@
 using System.Collections;
+using System.Threading;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine;
-using TMPro;
-using DG.Tweening;
+using static ClientFinal;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -38,13 +40,15 @@ public class GameManager : MonoBehaviour
     private int m_AnimalsCounter;
     private Spawner m_SpawnerReference;
 
-
     [Header("Drac")]
+    [SerializeField]
+    private BoxCollider m_CastleCollider;
     private DracController m_DracReference;
+    private PrincesaController m_PrincesaReference;
     private Castell m_CastellReference;
     private Cova m_CovaReference;
     private bool m_DracGameHasStarted = false;
-
+    private bool m_IsLastDay = false;
 
     [Header("Roses")]
     [SerializeField] private ClientManager m_clientManagerRef;
@@ -53,13 +57,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float m_MinTimeBetweenClients = 5f;
     [SerializeField] private float m_MaxTimeBetweenClients = 15f;
     private int m_MaxClients;
+    private bool m_TutoBilleHasShown = false;
+    private bool m_StopRoseLoop = false;
 
     [Space]
     //Shader
     [SerializeField] private float m_LerpSpeed = 1;
     private float m_TarjetShaderValue;
     private float m_CurrentShaderValue;
-
 
      [Header("Tutos")]
     [SerializeField] private TutoPopUP m_wasdRef;
@@ -71,16 +76,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FullScreenPassRendererFeature renderPass;
     [Space]
     [SerializeField] private Texture2D m_Cursor;
-    [SerializeField] private GameObject m_GraciesPerJugar;
-    [SerializeField] private GameObject m_CamaraRoses;
 
     //Accesors
     public DayTime currentDayTime => m_CurrentDayTime;
     public float minDistance => m_MinDistance;
     public int maxClients => m_MaxClients;
     public DracController dracReference => m_DracReference;
-
-
+    public bool isLastDay => m_IsLastDay;
 
     private void Awake()
     {
@@ -96,16 +98,14 @@ public class GameManager : MonoBehaviour
 
         m_TarjetShaderValue = -1;
         renderPass.passMaterial.SetFloat("_SceneLerp", -1);
-        m_DayCycleAnimation = GameObject.FindAnyObjectByType<DayCycleAnimation>().GetComponent<DayCycleAnimation>();
+        m_DayCycleAnimation = FindAnyObjectByType<DayCycleAnimation>().GetComponent<DayCycleAnimation>();
 
         Cursor.SetCursor(m_Cursor, Vector2.zero, CursorMode.Auto);
 
         RosesTutorial();
-        StartCoroutine(FinalScreen());
     }
 
     #region Escena Drac
-
     private void Update()
     {
         if (m_DracGameHasStarted)
@@ -121,7 +121,6 @@ public class GameManager : MonoBehaviour
         m_CurrentShaderValue = Mathf.Lerp(m_CurrentShaderValue, m_TarjetShaderValue, Time.deltaTime * m_LerpSpeed);
         renderPass.passMaterial.SetFloat("_SceneLerp", m_CurrentShaderValue);
     }
-
 
     private IEnumerator StartDracGame()
     {
@@ -156,9 +155,9 @@ public class GameManager : MonoBehaviour
         m_DracReference.MoveToPoints(m_CovaReference.exteriorCova);
         m_DracReference.EnableControl(true);
     }
+    #endregion
 
     #region Animals
-
     public void AnimalEaten()
     {
         m_AnimalsCounter--;
@@ -170,7 +169,6 @@ public class GameManager : MonoBehaviour
     {
         m_AnimalsCounter = count;
     }
-
     #endregion
 
     #region DayCycle
@@ -200,7 +198,6 @@ public class GameManager : MonoBehaviour
         ChangeDayNight(DayTime.night);
     }
 
-
     [ContextMenu("ChangeDayNight")]
     public void ChangeDayNight(DayTime timeToChange = DayTime.none)
     {
@@ -212,16 +209,12 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #endregion
-
     #region Escena Roses
-
     private void RosesTutorial()
     {
         m_clientManagerRef.SpawnClientTutorial();
         //ShowTuto(Tutorial.click_rosa);
     }
-
 
     public void StartRosesGame()
     {
@@ -241,11 +234,10 @@ public class GameManager : MonoBehaviour
         HideTuto(Tutorial.click_rosa);
         Invoke("HideRosaTuto", 3f);
         yield return new WaitForSeconds(2f);
-        m_clientManagerRef.TrySpawnClient();
+        //m_clientManagerRef.TrySpawnClient();
 
-        while (true)
+        while (!m_StopRoseLoop)
         {
-            yield return new WaitForSeconds(Random.Range(m_MinTimeBetweenClients, m_MaxTimeBetweenClients));
             if (m_clientManagerRef.GetClientCount() < m_MaxClients)
                 m_clientManagerRef.TrySpawnClient();
 
@@ -258,10 +250,11 @@ public class GameManager : MonoBehaviour
                 m_MaxClients = 4;
             else if (m_DayCount == 1)
                 m_MaxClients = 3;
+
+            yield return new WaitForSeconds(Random.Range(m_MinTimeBetweenClients, m_MaxTimeBetweenClients));
         }
     }
 
-    private bool m_TutoBilleHasShown = false;
     public void TutoBillete()
     {
         if (m_TutoBilleHasShown)
@@ -284,6 +277,12 @@ public class GameManager : MonoBehaviour
     {
         m_DracReference = reference;
     }
+
+    public void SetPrincesaReference(PrincesaController reference)
+    {
+        m_PrincesaReference = reference;
+    }
+
     public void SetCaveReference(Cova reference)
     {
         m_CovaReference = reference;
@@ -297,7 +296,6 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Tutos
-
     public void ShowTuto(Tutorial tuto)
     {
         switch (tuto)
@@ -344,6 +342,24 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region Ending
+    /*Final!
+    Triggers:
+    - Última cova:
+        - Max clients 1
+    - Arrives al castell:
+        - Bounce castle.
+        - Stop spawn clients
+    - Atès últim client:
+        - Apareix llibre de fons
+        - Spawn princesa
+        - Start cinemàtica final imaginació
+    - Acava cinemàtica imaginacióa
+        - Deixa el llibre sobre la taula
+        - Fade imaginació
+    - Dones l'última rosa
+        - Final screen
+    */
 
     public void Quit()
     {
@@ -357,27 +373,53 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        m_MaxClients = 1;
         Debug.Log("Last Day");
+        m_IsLastDay = true;
+        m_MaxClients = 1;
         m_CastellReference.Jump(true);
-        m_clientManagerRef.SpawnClienteFinal();
     }
 
-
-    //Thank for playing
-    public IEnumerator FinalScreen()
+    public void StopRoseLoop()
     {
-        yield return new WaitForSeconds(10f);
-
-        m_GraciesPerJugar.SetActive(true);
-
-        m_CamaraRoses.transform.DOMove(new Vector3(15, 190, 0), 3f).SetEase(Ease.InOutSine);
-        yield return new WaitForSeconds(3f);
-        m_GraciesPerJugar.GetComponent<CanvasGroup>().DOFade(1, 1f);
+        m_StopRoseLoop = true;
+        StartCoroutine(EndingCinematic());
     }
 
+    private IEnumerator EndingCinematic()
+    {
+        // Move drac to position
+        dracReference.EnableControl(false);
+        m_CastleCollider.gameObject.SetActive(false);
+        float time = dracReference.MoveToPoints(new Vector3(-10000, 3, -6));
+        yield return new WaitForSeconds(time);
+        
+        dracReference.MoveToPoints(new Vector3(-10000, 3, -7));
+        yield return new WaitUntil(m_clientManagerRef.isLastClientDone);
 
+        // Open doors
+        ClientFinal clientFinal = m_clientManagerRef.SpawnClienteFinal();
+        m_CastellReference.Jump(false);
+        yield return new WaitForSeconds(2f);
+        
+        m_CastellReference.OpenDoorsTween();
+        yield return new WaitForSeconds(1f);
 
+        // Move princesa
+        time = m_PrincesaReference.MoveToPoints(new Vector3(-10000, 3, -15));
+        yield return new WaitForSeconds(time + 2f);
 
+        m_PrincesaReference.PlayHeartsAnimation();
+        yield return new WaitForSeconds(3f);
 
+        m_PrincesaReference.JumpOnDrac(dracReference.transform);
+        dracReference.CameraOut();
+        yield return new WaitForSeconds(3f);
+
+        dracReference.FlyAway();
+        yield return new WaitForSeconds(3f);
+
+        clientFinal.SetState(ClientFinalState.MovingToTable);
+    }
+
+    #endregion
 }
