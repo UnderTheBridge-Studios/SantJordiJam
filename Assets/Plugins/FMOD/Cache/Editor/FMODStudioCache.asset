@@ -238,7 +238,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 8140643792573350462}
   cacheVersion: 131847
-  cacheTime: 638809588735617322
+  cacheTime: 638809603269482855
   SerializableEventsDict:
   - key: event:/Ambience/People
     index: 0
@@ -260,6 +260,8 @@ MonoBehaviour:
     index: 8
   - key: event:/SFX/Outro
     index: 9
+  - key: event:/SFX/Yawn
+    index: 10
 --- !u!114 &3276021408509963310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +359,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638809588735617322
+  lastModified: 638809603269482855
   FileSizes: []
   Exists: 1
 --- !u!114 &6035834579211754966
@@ -507,7 +509,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638809588734275604
+  lastModified: 638809603269422804
   FileSizes:
   - Name: 
     Value: 1668
