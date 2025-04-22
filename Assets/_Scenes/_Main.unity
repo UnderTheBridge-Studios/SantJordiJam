@@ -989,6 +989,10 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 1184
       objectReference: {fileID: 0}
+    - target: {fileID: 1258612099966105941, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1292484726363208201, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1052,6 +1056,22 @@ PrefabInstance:
     - target: {fileID: 7586842722466107818, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: EventStopTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7586842722466107818, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7586842722466107818, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 119.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7681380799584677829, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7681380799584677829, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.6
       objectReference: {fileID: 0}
     - target: {fileID: 8533717183389039627, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_Mesh
