@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Roses")]
     [SerializeField] private ClientManager m_clientManagerRef;
-    [SerializeField] [Tooltip("El nombre de clients que ha de atendre abans de que començi el drac")] 
+    [SerializeField] [Tooltip("El nombre de clients que ha de atendre abans de que començi el drac")]
     private int m_ClientsBeforeDrac = 5;
     [SerializeField] private float m_MinTimeBetweenClients = 5f;
     [SerializeField] private float m_MaxTimeBetweenClients = 15f;
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
     private float m_TarjetShaderValue;
     private float m_CurrentShaderValue;
 
-     [Header("Tutos")]
+    [Header("Tutos")]
     [SerializeField] private TutoPopUP m_wasdRef;
     [SerializeField] private TutoPopUP m_EspaiRef;
     [SerializeField] private TutoPopUP m_ClickRef_Caixa;
@@ -76,6 +76,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FullScreenPassRendererFeature renderPass;
     [Space]
     [SerializeField] private Texture2D m_Cursor;
+    [Space]
+    [SerializeField] private GameObject m_GraciesPerJugar;
+    [SerializeField] private GameObject m_CamaraRoses;
+    [SerializeField] private HandMovement m_HandMovement;
+    [SerializeField] private GameObject m_HandObject;
 
     //Accesors
     public DayTime currentDayTime => m_CurrentDayTime;
@@ -241,7 +246,7 @@ public class GameManager : MonoBehaviour
             if (m_clientManagerRef.GetClientCount() < m_MaxClients)
                 m_clientManagerRef.TrySpawnClient();
 
-       
+
             if (m_clientManagerRef.getTotalClients() == m_ClientsBeforeDrac)
                 StartCoroutine(StartDracGame());
 
@@ -259,7 +264,7 @@ public class GameManager : MonoBehaviour
     {
         if (m_TutoBilleHasShown)
             return;
-            
+
         ShowTuto(Tutorial.click_caixa);
         m_TutoBilleHasShown = true;
     }
@@ -392,7 +397,7 @@ public class GameManager : MonoBehaviour
         m_CastleCollider.gameObject.SetActive(false);
         float time = dracReference.MoveToPoints(new Vector3(-10000, 3, -6));
         yield return new WaitForSeconds(time);
-        
+
         dracReference.MoveToPoints(new Vector3(-10000, 3, -7));
         yield return new WaitUntil(m_clientManagerRef.isLastClientDone);
 
@@ -400,7 +405,7 @@ public class GameManager : MonoBehaviour
         ClientFinal clientFinal = m_clientManagerRef.SpawnClienteFinal();
         m_CastellReference.Jump(false);
         yield return new WaitForSeconds(2f);
-        
+
         m_CastellReference.OpenDoorsTween();
         yield return new WaitForSeconds(1f);
 
@@ -419,6 +424,28 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         clientFinal.SetState(ClientFinalState.MovingToTable);
+
+    }
+
+    //Thank for playing
+    public void FinalScreen() {
+        StartCoroutine(IFinalScreen());
+    }
+
+    private IEnumerator IFinalScreen()
+    {
+        m_TarjetShaderValue = -1;
+        m_HandMovement.enabled = false;
+        yield return new WaitForSeconds(1f);
+
+        m_CamaraRoses.transform.DOMove(new Vector3(-23.1f, 177, 15.1f), 3f).SetEase(Ease.InOutSine);
+        m_HandObject.transform.DOMove(new Vector3(113.8f, 2.7f, 3.5f), 3f);
+
+        yield return new WaitForSeconds(3f);
+        m_GraciesPerJugar.SetActive(true);
+        m_GraciesPerJugar.GetComponent<CanvasGroup>().DOFade(1, 1f);
+
+
     }
 
     #endregion
