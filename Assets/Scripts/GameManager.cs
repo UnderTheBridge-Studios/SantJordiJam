@@ -354,5 +354,6 @@ public class GameManager : MonoBehaviour
         m_MaxClients = 1;
         Debug.Log("Last Day");
         m_CastellReference.Jump(true);
+        m_clientManagerRef.SpawnClienteFinal();
     }
 }
