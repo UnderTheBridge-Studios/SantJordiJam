@@ -26,7 +26,7 @@ public class AudioManager : MonoBehaviour
     private List<StudioEventEmitter> eventEmitters;
     private EventInstance ambienceEventInstance;
     private EventInstance musicEventInstance;
-
+    private EventInstance barulloEventInstance;
     public static AudioManager instance { get; private set; }
 
     private void Awake()
@@ -56,8 +56,8 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        InitializeAmbience(FMODEvents.instance.ambience);
-        InitializeMusic(FMODEvents.instance.music);
+        //InitializeAmbience(FMODEvents.instance.ambience);
+        //InitializeMusic(FMODEvents.instance.music);
     }
 
     private void Update()
@@ -66,6 +66,28 @@ public class AudioManager : MonoBehaviour
         musicBus.setVolume(musicVolume);
         ambienceBus.setVolume(ambienceVolume);
         sfxBus.setVolume(SFXVolume);
+    }
+
+    public void InitializeSound()
+    {
+        PlayOneShot(FMODEvents.instance.start, transform.position);
+        InitializeAmbience(FMODEvents.instance.ambience);
+    }
+
+    public void PlayMusica()
+    {
+        InitializeMusic(FMODEvents.instance.music);
+    }
+
+    public void PlayBarullo()
+    {
+        barulloEventInstance = CreateInstance(FMODEvents.instance.barullo);
+        barulloEventInstance.start();
+    }
+
+    public void StopBarullo()
+    {
+        barulloEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     private void InitializeAmbience(EventReference ambienceEventReference)
@@ -78,6 +100,12 @@ public class AudioManager : MonoBehaviour
     {
         musicEventInstance = CreateInstance(musicEventReference);
         musicEventInstance.start();
+    }
+
+    public void StopSounds()
+    {
+        //ambienceEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        musicEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     public void SetAmbienceParameter(string parameterName, float parameterValue)
