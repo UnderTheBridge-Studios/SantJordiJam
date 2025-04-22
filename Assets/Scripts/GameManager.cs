@@ -101,6 +101,8 @@ public class GameManager : MonoBehaviour
     {
         m_DracGameHasStarted = false;
 
+        //m_CurrentDayTime = DayTime.none;
+
         m_TarjetShaderValue = -1;
         renderPass.passMaterial.SetFloat("_SceneLerp", -1);
         m_DayCycleAnimation = FindAnyObjectByType<DayCycleAnimation>().GetComponent<DayCycleAnimation>();
@@ -181,6 +183,9 @@ public class GameManager : MonoBehaviour
     #region DayCycle
     public void ChangeToDay()
     {
+        //if (currentDayTime == DayTime.day)
+        //    return;
+
         ChangeDayNight(DayTime.day);
 
         if (m_SpawnerAnimalsInfo.Length <= m_DayCount)
@@ -381,13 +386,14 @@ public class GameManager : MonoBehaviour
         dracReference.EnableControl(false);
         m_CastleCollider.gameObject.SetActive(false);
         float time = dracReference.MoveToPoints(new Vector3(-10000, 3, -6));
+        ClientFinal clientFinal = m_clientManagerRef.SpawnClienteFinal();
+
         yield return new WaitForSeconds(time);
 
         dracReference.MoveToPoints(new Vector3(-10000, 3, -8));
         yield return new WaitUntil(m_clientManagerRef.isLastClientDone);
 
         // Open doors
-        ClientFinal clientFinal = m_clientManagerRef.SpawnClienteFinal();
         m_CastellReference.Jump(false);
         yield return new WaitForSeconds(2f);
 
@@ -408,8 +414,14 @@ public class GameManager : MonoBehaviour
         dracReference.FlyAway();
         yield return new WaitForSeconds(3f);
 
+
+
         clientFinal.SetState(ClientFinalState.MovingToTable);
 
+        yield return new WaitForSeconds(2f);
+
+        m_TarjetShaderValue = -1;
+        m_LerpSpeed = 0.15f;
     }
 
     //Thank for playing
@@ -419,12 +431,11 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator IFinalScreen()
     {
-        m_TarjetShaderValue = -1;
         m_HandMovement.enabled = false;
         yield return new WaitForSeconds(1f);
 
-        m_CamaraRoses.transform.DOMove(new Vector3(-23.1f, 177, 15.1f), 3f).SetEase(Ease.InOutSine);
-        m_HandObject.transform.DOMove(new Vector3(113.8f, 2.7f, 3.5f), 3f);
+        m_CamaraRoses.transform.DOLocalMove(new Vector3(-23.1f, 177, 15.1f), 3f).SetEase(Ease.InOutSine);
+        m_HandObject.transform.DOLocalMoveX(200, 3f);
 
         yield return new WaitForSeconds(3f);
         m_GraciesPerJugar.SetActive(true);

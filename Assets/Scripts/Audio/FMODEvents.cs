@@ -25,6 +25,8 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference hearts { get; private set; }
     [field: Header("Outro SFX")]
     [field: SerializeField] public EventReference outro { get; private set; }
+    [field: Header("Yawn SFX")]
+    [field: SerializeField] public EventReference yawn { get; private set; }
 
     public static FMODEvents instance { get; private set; }
 

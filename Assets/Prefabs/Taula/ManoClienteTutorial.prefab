@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7913ca2fbea4d2240944976e02678f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 72
+  walkSpeed: 131.5
   ManoAbierta: {fileID: 2316033037248478626}
   ManoCerrada: {fileID: 658615072135038125}
 --- !u!114 &-7592962386317829078
