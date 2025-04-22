@@ -652,6 +652,41 @@ MonoBehaviour:
       Data3: 1669199271
       Data4: 691602351
     Path: event:/SFX/Ovejas
+  <start>k__BackingField:
+    Guid:
+      Data1: -1630896997
+      Data2: 1097944288
+      Data3: -537028958
+      Data4: -58628108
+    Path: event:/SFX/Intro
+  <barullo>k__BackingField:
+    Guid:
+      Data1: -115576671
+      Data2: 1298571917
+      Data3: 1679977148
+      Data4: -659651454
+    Path: event:/SFX/Barullo
+  <eat>k__BackingField:
+    Guid:
+      Data1: -1483564399
+      Data2: 1132433632
+      Data3: -783733631
+      Data4: -177893364
+    Path: event:/SFX/Eat
+  <hearts>k__BackingField:
+    Guid:
+      Data1: 2096863211
+      Data2: 1146978214
+      Data3: 2004828043
+      Data4: 1462056902
+    Path: event:/SFX/Hearts
+  <outro>k__BackingField:
+    Guid:
+      Data1: 109947399
+      Data2: 1110151916
+      Data3: -1838416505
+      Data4: 1195244620
+    Path: event:/SFX/Outro
 --- !u!1 &712889996 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5181171041931891913, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
@@ -1003,6 +1038,14 @@ PrefabInstance:
       propertyPath: pathCreator
       value: 
       objectReference: {fileID: 1414508899}
+    - target: {fileID: 7586842722466107818, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: EventPlayTrigger
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7586842722466107818, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
+      propertyPath: EventStopTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8533717183389039627, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_Mesh
       value: 

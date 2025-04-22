@@ -15,7 +15,16 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference quejas { get; private set; }
     [field: Header("Ovejas SFX")]
     [field: SerializeField] public EventReference ovejas { get; private set; }
-
+    [field: Header("Start SFX")]
+    [field: SerializeField] public EventReference start { get; private set; }
+    [field: Header("Barullo SFX")]
+    [field: SerializeField] public EventReference barullo { get; private set; }
+    [field: Header("Eat SFX")]
+    [field: SerializeField] public EventReference eat { get; private set; }
+    [field: Header("Hearts SFX")]
+    [field: SerializeField] public EventReference hearts { get; private set; }
+    [field: Header("Outro SFX")]
+    [field: SerializeField] public EventReference outro { get; private set; }
 
     public static FMODEvents instance { get; private set; }
 

@@ -129,6 +129,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartDracGame()
     {
+        AudioManager.instance.PlayMusica();
         m_TarjetShaderValue = 1;
         m_DracGameHasStarted = true;
         ChangeToDay();
