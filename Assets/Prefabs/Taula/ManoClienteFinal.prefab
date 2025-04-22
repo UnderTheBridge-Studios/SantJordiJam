@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   libroObject: {fileID: 4696573388356114896}
-  walkSpeed: 76
+  walkSpeed: 118.1
   ManoAbierta: {fileID: 2316033037248478626}
   ManoCerrada: {fileID: 658615072135038125}
   grabPoint: {fileID: 8766324438074826331}

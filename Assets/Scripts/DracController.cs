@@ -213,6 +213,7 @@ public class DracController : MonoBehaviour
 
     public void SleepDragonEffect()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.yawn, this.transform.position);
         m_SleepyDragon.Play();
     }
 }
