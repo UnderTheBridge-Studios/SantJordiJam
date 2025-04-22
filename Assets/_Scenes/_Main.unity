@@ -945,7 +945,7 @@ PrefabInstance:
       objectReference: {fileID: 994972286}
     - target: {fileID: 571000607054470664, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_VersionIndex
-      value: 1199
+      value: 1202
       objectReference: {fileID: 0}
     - target: {fileID: 1292484726363208201, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_Enabled
@@ -1858,35 +1858,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
       propertyPath: m_SpawnerAnimalsInfo.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
       propertyPath: m_SpawnerAnimalsInfo.Array.data[0].radius
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
       propertyPath: m_SpawnerAnimalsInfo.Array.data[1].radius
-      value: 3
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
       propertyPath: m_SpawnerAnimalsInfo.Array.data[2].radius
-      value: 3
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
       propertyPath: m_SpawnerAnimalsInfo.Array.data[3].radius
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
+      propertyPath: m_SpawnerAnimalsInfo.Array.data[0].animals.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
+      propertyPath: m_SpawnerAnimalsInfo.Array.data[0].animals.Array.data[1].first
+      value: 
+      objectReference: {fileID: 5217958119465714524, guid: 00e7e3d955031754c9c7b2f398fa6afe, type: 3}
+    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
+      propertyPath: m_SpawnerAnimalsInfo.Array.data[0].animals.Array.data[2].first
+      value: 
+      objectReference: {fileID: 5217958119465714524, guid: 00e7e3d955031754c9c7b2f398fa6afe, type: 3}
+    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
+      propertyPath: m_SpawnerAnimalsInfo.Array.data[0].animals.Array.data[3].first
+      value: 
+      objectReference: {fileID: 5217958119465714524, guid: 00e7e3d955031754c9c7b2f398fa6afe, type: 3}
+    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
       propertyPath: m_SpawnerAnimalsInfo.Array.data[0].animals.Array.data[0].second
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
+      propertyPath: m_SpawnerAnimalsInfo.Array.data[0].animals.Array.data[1].second
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
+      propertyPath: m_SpawnerAnimalsInfo.Array.data[0].animals.Array.data[2].second
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
+      propertyPath: m_SpawnerAnimalsInfo.Array.data[0].animals.Array.data[3].second
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
       propertyPath: m_SpawnerAnimalsInfo.Array.data[1].animals.Array.data[0].second
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
       propertyPath: m_SpawnerAnimalsInfo.Array.data[2].animals.Array.data[0].second
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
       propertyPath: m_SpawnerAnimalsInfo.Array.data[3].animals.Array.data[0].second
