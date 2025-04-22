@@ -56,8 +56,6 @@ MonoBehaviour:
   duracionAnimacion: 0.1
   easingApertura: 27
   easingCierre: 5
-  sonidoApertura: {fileID: 0}
-  sonidoCierre: {fileID: 0}
 --- !u!1001 &669509891307142005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66,6 +64,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 835206194694710317}
     m_Modifications:
+    - target: {fileID: 5371987732503323100, guid: 99f845dbc6da32449ac24acdfeabdafe, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5876597254511542281, guid: 99f845dbc6da32449ac24acdfeabdafe, type: 3}
       propertyPath: m_Name
       value: PF_bitllet2
@@ -199,6 +201,10 @@ PrefabInstance:
     - target: {fileID: 2910222924456717771, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397585274743913474, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5070463580860802711, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
@@ -376,6 +382,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8397585274743913474, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5070463580860802711, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
     m_RemovedGameObjects: []
@@ -395,6 +405,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 835206194694710317}
     m_Modifications:
+    - target: {fileID: 5371987732503323100, guid: 99f845dbc6da32449ac24acdfeabdafe, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5876597254511542281, guid: 99f845dbc6da32449ac24acdfeabdafe, type: 3}
       propertyPath: m_Name
       value: PF_bitllet2 (1)
@@ -529,6 +543,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8397585274743913474, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5070463580860802711, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
     m_RemovedGameObjects: []
@@ -608,6 +626,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8397585274743913474, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5070463580860802711, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
     m_RemovedGameObjects: []
@@ -627,6 +649,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 835206194694710317}
     m_Modifications:
+    - target: {fileID: 5371987732503323100, guid: 99f845dbc6da32449ac24acdfeabdafe, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5876597254511542281, guid: 99f845dbc6da32449ac24acdfeabdafe, type: 3}
       propertyPath: m_Name
       value: PF_bitllet2 (2)
@@ -760,6 +786,10 @@ PrefabInstance:
     - target: {fileID: 2910222924456717771, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397585274743913474, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5070463580860802711, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
@@ -905,6 +935,10 @@ PrefabInstance:
     - target: {fileID: 2910222924456717771, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397585274743913474, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5070463580860802711, guid: 8ffaa896593e90747b741e7ed120ce19, type: 3}
