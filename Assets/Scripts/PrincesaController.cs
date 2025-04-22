@@ -84,6 +84,7 @@ public class PrincesaController : MonoBehaviour
 
     public void PlayHeartsAnimation()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.hearts, this.transform.position);
         m_ParticleSystem.Play();
         m_PrincesaModel.DOLocalMoveY(m_PrincesaModel.localPosition.y + 1, 0.1f)
                 .SetLoops(12, LoopType.Yoyo)
