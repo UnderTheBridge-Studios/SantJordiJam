@@ -19,8 +19,11 @@ public class MainScreen : MonoBehaviour
     {
         if (!hasSounded)
         {
-            AudioManager.instance.InitializeSound();
-            hasSounded = true;
+            if (AudioManager.instance != null)
+            {
+                //AudioManager.instance.InitializeSound();
+                hasSounded = true;
+            }
         }
         m_mask.enabled = true;
         Cursor.visible = false;

@@ -56,8 +56,8 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //InitializeAmbience(FMODEvents.instance.ambience);
-        //InitializeMusic(FMODEvents.instance.music);
+        ambienceEventInstance = CreateInstance(FMODEvents.instance.ambience);
+        musicEventInstance = CreateInstance(FMODEvents.instance.music);
     }
 
     private void Update()
@@ -70,13 +70,14 @@ public class AudioManager : MonoBehaviour
 
     public void InitializeSound()
     {
+
         PlayOneShot(FMODEvents.instance.start, transform.position);
-        InitializeAmbience(FMODEvents.instance.ambience);
+        InitializeAmbience();
     }
 
     public void PlayMusica()
     {
-        InitializeMusic(FMODEvents.instance.music);
+        InitializeMusic();
     }
 
     public void PlayBarullo()
@@ -90,15 +91,13 @@ public class AudioManager : MonoBehaviour
         barulloEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
-    private void InitializeAmbience(EventReference ambienceEventReference)
+    private void InitializeAmbience()
     {
-        ambienceEventInstance = CreateInstance(ambienceEventReference);
         ambienceEventInstance.start();
     }
 
-    private void InitializeMusic(EventReference musicEventReference)
+    private void InitializeMusic()
     {
-        musicEventInstance = CreateInstance(musicEventReference);
         musicEventInstance.start();
     }
 
