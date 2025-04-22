@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterVolume: 0.378
-  musicVolume: 0
+  musicVolume: 0.413
   ambienceVolume: 1
   SFXVolume: 1
 --- !u!114 &629010780
@@ -577,7 +577,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoadEvent: 1
   UnloadEvent: 2
-  Banks: []
+  Banks:
+  - Master
+  - SFX
+  - Master.strings
+  - OST paralela
   CollisionTag: 
   PreloadSamples: 0
 --- !u!114 &629010781
@@ -673,49 +677,20 @@ MonoBehaviour:
       Data3: 1669199271
       Data4: 691602351
     Path: event:/SFX/Ovejas
---- !u!1 &785610544
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 785610545}
-  m_Layer: 0
-  m_Name: ClientFinalEsperando1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &785610545
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785610544}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -129.5, y: 135.3, z: 161.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1060578345}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &950876585 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 712878999651489777, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
-  m_PrefabInstance: {fileID: 1809414931}
-  m_PrefabAsset: {fileID: 0}
---- !u!43 &994972286
+  <start>k__BackingField:
+    Guid:
+      Data1: -1630896997
+      Data2: 1097944288
+      Data3: -537028958
+      Data4: -58628108
+    Path: event:/SFX/Intro
+--- !u!43 &824314562
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-146352(Clone)(Clone)
+  m_Name: pb_Mesh-353998
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -874,9 +849,9 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!4 &1060578345 stripped
+--- !u!4 &950876585 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7748602438697092468, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 712878999651489777, guid: 591dee99435b08c45ab0ead384646be7, type: 3}
   m_PrefabInstance: {fileID: 1809414931}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1093137895 stripped
@@ -978,14 +953,10 @@ PrefabInstance:
     - target: {fileID: 571000607054470664, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 994972286}
+      objectReference: {fileID: 824314562}
     - target: {fileID: 571000607054470664, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_VersionIndex
-      value: 1175
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292484726363208201, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      value: 1160
       objectReference: {fileID: 0}
     - target: {fileID: 1340676773606905465, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1034,15 +1005,11 @@ PrefabInstance:
     - target: {fileID: 3411476919211034188, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 994972286}
-    - target: {fileID: 6555165461998116059, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
-      propertyPath: pathCreator
-      value: 
-      objectReference: {fileID: 1414508899}
+      objectReference: {fileID: 824314562}
     - target: {fileID: 8533717183389039627, guid: 858a4b042ac37114c9fd9f0389b3a46a, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 994972286}
+      objectReference: {fileID: 824314562}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1808,46 +1775,6 @@ PrefabInstance:
       propertyPath: m_clientManagerRef
       value: 
       objectReference: {fileID: 1428366736}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: m_ClientsBeforeDrac
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: m_SpawnerAnimalsInfo.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: m_SpawnerAnimalsInfo.Array.data[0].radius
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: m_SpawnerAnimalsInfo.Array.data[1].radius
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: m_SpawnerAnimalsInfo.Array.data[2].radius
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: m_SpawnerAnimalsInfo.Array.data[3].radius
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: m_SpawnerAnimalsInfo.Array.data[0].animals.Array.data[0].second
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: m_SpawnerAnimalsInfo.Array.data[1].animals.Array.data[0].second
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: m_SpawnerAnimalsInfo.Array.data[2].animals.Array.data[0].second
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973528524618457810, guid: 0a94b9677c5e6d54f9763488b6ae2bc9, type: 3}
-      propertyPath: m_SpawnerAnimalsInfo.Array.data[3].animals.Array.data[0].second
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

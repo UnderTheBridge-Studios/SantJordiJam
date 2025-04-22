@@ -508,7 +508,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7748602438697092468}
-  - component: {fileID: 7680086292351655818}
   m_Layer: 0
   m_Name: SCE_Taula
   m_TagString: Untagged

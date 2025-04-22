@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Roses")]
     [SerializeField] private ClientManager m_clientManagerRef;
-    [SerializeField] [Tooltip("El nombre de clients que ha de atendre abans de que començi el drac")] 
+    [SerializeField] [Tooltip("El nombre de clients que ha de atendre abans de que comenï¿½i el drac")] 
     private int m_ClientsBeforeDrac = 5;
     [SerializeField] private float m_MinTimeBetweenClients = 5f;
     [SerializeField] private float m_MaxTimeBetweenClients = 15f;
@@ -82,7 +82,6 @@ public class GameManager : MonoBehaviour
     public float minDistance => m_MinDistance;
     public int maxClients => m_MaxClients;
     public DracController dracReference => m_DracReference;
-    public bool isLastDay => m_IsLastDay;
 
     private void Awake()
     {
@@ -130,6 +129,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         ShowTuto(Tutorial.wasd);
         m_DracReference.EnableControl(true);
+        AudioManager.instance.PlayMusica();
     }
 
     public void EnterCave()
@@ -345,19 +345,19 @@ public class GameManager : MonoBehaviour
     #region Ending
     /*Final!
     Triggers:
-    - Última cova:
+    - ï¿½ltima cova:
         - Max clients 1
     - Arrives al castell:
         - Bounce castle.
         - Stop spawn clients
-    - Atès últim client:
+    - Atï¿½s ï¿½ltim client:
         - Apareix llibre de fons
         - Spawn princesa
-        - Start cinemàtica final imaginació
-    - Acava cinemàtica imaginacióa
+        - Start cinemï¿½tica final imaginaciï¿½
+    - Acava cinemï¿½tica imaginaciï¿½a
         - Deixa el llibre sobre la taula
-        - Fade imaginació
-    - Dones l'última rosa
+        - Fade imaginaciï¿½
+    - Dones l'ï¿½ltima rosa
         - Final screen
     */
 

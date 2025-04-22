@@ -16,6 +16,7 @@ public class MainScreen : MonoBehaviour
 
     public void OnStart()
     {
+        AudioManager.instance.InitializeSound();
         m_mask.enabled = true;
         Cursor.visible = false;
         StartCoroutine(ShowTuto());

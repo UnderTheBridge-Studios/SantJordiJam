@@ -139,7 +139,7 @@ Material:
     - _ReceiveShadows: 1
     - _SaturationMin: 0.2
     - _SaturationMult: 3
-    - _SceneLerp: -0.9993352
+    - _SceneLerp: 0.5999978
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
