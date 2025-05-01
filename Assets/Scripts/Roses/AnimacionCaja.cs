@@ -71,8 +71,8 @@ public class AnimacionCaja : MonoBehaviour
 
         LimpiarAnimaciones();
 
-        if(!seEstaAbriendo)
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.cajaAbrir, this.transform.position);
+        //if(!seEstaAbriendo)
+        //    AudioManager.instance.PlayOneShot(FMODEvents.instance.cajaAbrir, this.transform.position);
         
         seEstaAbriendo = true;
 

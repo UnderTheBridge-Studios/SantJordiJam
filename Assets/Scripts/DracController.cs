@@ -31,7 +31,6 @@ public class DracController : MonoBehaviour
     [SerializeField] private LayerMask m_AnimalLayer;
     [SerializeField] private PathFollower m_PathFollower;
 
-
     private void Start()
     {
         m_InitialVerticalPosition = m_DracModel.transform.position.y;
@@ -77,7 +76,6 @@ public class DracController : MonoBehaviour
     {
         GameManager.Instance.HideTuto(Tutorial.wasd);
     }
-
     public void AutoMovement()
     {
         m_IsMoving = true;

@@ -384,6 +384,7 @@ public class GameManager : MonoBehaviour
     {
         // Move drac to position
         dracReference.EnableControl(false);
+        dracReference.EnableEat(false);
         m_CastleCollider.gameObject.SetActive(false);
         float time = dracReference.MoveToPoints(new Vector3(-10000, 3, -6));
         ClientFinal clientFinal = m_clientManagerRef.SpawnClienteFinal();

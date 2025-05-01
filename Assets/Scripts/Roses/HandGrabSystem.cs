@@ -140,6 +140,7 @@ public class HandGrabSystem : MonoBehaviour
                 Destroy(heldObject);
                 heldObject = null;
                 isHolding = false;
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.cajaAbrir, this.transform.position);
 
                 break;
             }

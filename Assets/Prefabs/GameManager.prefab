@@ -61,12 +61,13 @@ MonoBehaviour:
   - animals:
     - first: {fileID: 5217958119465714524, guid: 00e7e3d955031754c9c7b2f398fa6afe, type: 3}
       second: 3
-    radius: 4
+    radius: 6
   - animals:
     - first: {fileID: 5217958119465714524, guid: 00e7e3d955031754c9c7b2f398fa6afe, type: 3}
       second: 1
     radius: 3
   m_MinDistance: 3
+  m_CastleCollider: {fileID: 0}
   m_clientManagerRef: {fileID: 0}
   m_ClientsBeforeDrac: 2
   m_MinTimeBetweenClients: 5
@@ -79,6 +80,10 @@ MonoBehaviour:
   m_ClickRef_Rosa: {fileID: 0}
   renderPass: {fileID: 6482135410036836633, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
   m_Cursor: {fileID: 2800000, guid: 3a307b693b9eae94db2a85398d724c0b, type: 3}
+  m_GraciesPerJugar: {fileID: 0}
+  m_CamaraRoses: {fileID: 0}
+  m_HandMovement: {fileID: 0}
+  m_HandObject: {fileID: 0}
 --- !u!114 &6589561390684106802
 MonoBehaviour:
   m_ObjectHideFlags: 0

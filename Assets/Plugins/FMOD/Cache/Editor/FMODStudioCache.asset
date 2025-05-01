@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/OST paralela.bank
   Name: OST paralela
   StudioPath: bank:/OST paralela
-  lastModified: 638809587494490245
+  lastModified: 638809594819981078
   FileSizes: []
   Exists: 1
 --- !u!114 &-7835164983382894495
@@ -60,7 +60,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638809587494322358
+  lastModified: 638809594819507183
   FileSizes: []
   Exists: 1
 --- !u!114 &-5023653612087044828
@@ -107,7 +107,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Level.bank
   Name: Level
   StudioPath: bank:/Level
-  lastModified: 638807661977082720
+  lastModified: 638809569657634186
   FileSizes: []
   Exists: 1
 --- !u!114 &-3181165240469882104
@@ -152,7 +152,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/OST.bank
   Name: OST
   StudioPath: bank:/OST
-  lastModified: 638807925689729155
+  lastModified: 638809569663037612
   FileSizes: []
   Exists: 1
 --- !u!114 &-121731042134209480
@@ -197,7 +197,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638809588734255588
+  lastModified: 638809569657644181
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -238,7 +238,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 8140643792573350462}
   cacheVersion: 131847
-  cacheTime: 638809603269482855
+  cacheTime: 638809609545495450
   SerializableEventsDict:
   - key: event:/Ambience/People
     index: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638809603269482855
+  lastModified: 638809609545495450
   FileSizes: []
   Exists: 1
 --- !u!114 &6035834579211754966
@@ -509,7 +509,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638809603269422804
+  lastModified: 638809609545226193
   FileSizes:
   - Name: 
     Value: 1668
